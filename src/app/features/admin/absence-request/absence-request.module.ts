@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AbsenceRequestRoutingModule } from './absence-request-routing.module';
 import { AbsenceRequestComponent } from './absence-request/absence-request.component';
-import { MyScoresComponent } from './my-scores/my-scores.component';
+
 
 
 @NgModule({
   declarations: [
     AbsenceRequestComponent,
-    // HeaderComponent,
-    MyScoresComponent,
+    
+
   ],
   imports: [
     CommonModule,

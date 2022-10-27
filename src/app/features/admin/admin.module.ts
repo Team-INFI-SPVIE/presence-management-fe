@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { UserComponent } from './user/user.component';
 import { MaterialModule } from 'src/app/shared/material/material.module';
+import { HeaderComponent } from 'src/app/core/components/header/header.component';
 
 
 
@@ -16,6 +17,7 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
     DashboardComponent,
     SidemenuComponent,
     UserComponent,
+    HeaderComponent,
     
   ],
   imports: [
