@@ -36,6 +36,21 @@ const routes: Routes = [
           m => m.MatterModule
         )
       },
+      {
+        path: 'my-scores', loadChildren: () => import('./my-scores/my-scores.module').then(
+          m => m.MyScoresModule
+        )
+      },
+      {
+        path: 'score-list', loadChildren: () => import('./score-list/score-list.module').then(
+          m => m.ScoreListModule
+        )
+      },
+      {
+        path: 'list-of-requests', loadChildren: () => import('./list-of-requests/list-of-requests.module').then(
+          m => m.ListOfRequestsModule
+        )
+      },
     ] 
   }
 ];
