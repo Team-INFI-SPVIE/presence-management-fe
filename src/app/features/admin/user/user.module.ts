@@ -12,7 +12,7 @@ import { StudentsComponent } from './students/students/students.component';
 
 @NgModule({
   declarations: [  
-    UserFormComponent, AdministratorComponent, ProfessorsComponent, StudentsComponent
+    UserFormComponent, AdministratorComponent, ProfessorsComponent, StudentsComponent, 
   ],
   imports: [ CommonModule, UserRoutingModule, ],
   providers: [],
