@@ -7,7 +7,7 @@ import { PresenceManagementRoutingModule } from './presence-management-routing.m
 
 @NgModule({
   declarations: [
-    PresenceManagementComponent
+    PresenceManagementComponent,
   ],
   imports: [
     CommonModule,

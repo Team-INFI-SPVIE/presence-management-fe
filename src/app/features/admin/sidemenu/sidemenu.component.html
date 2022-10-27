@@ -45,8 +45,8 @@
   </div>
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-    <a class="nav-link collapsed"  >
-      <i class="fa fa-address-card color-icon-nav" aria-hidden="true"></i>
+    <a class="nav-link collapsed" routerLink="/admin/my-scores" >
+      <i class="fa fa-briefcase color-icon-nav" aria-hidden="true"></i>
       <span> Mes Pointages</span>
     </a>
   </li>
@@ -64,24 +64,17 @@
     Administrator
   </div>
     <li class="nav-item">
-      <a class="nav-link collapsed" routerLink="/admin/absence-request" >
-        <i class="fa fa-address-card color-icon-nav" aria-hidden="true"></i>
+      <a class="nav-link collapsed" routerLink="/admin/score-list" >
+        <i class="fa fa-graduation-cap color-icon-nav" aria-hidden="true"></i>
         <span> Liste des Pointages</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseone" aria-expanded="true"
-        aria-controls="collapseone">
-        <i class="fa fa-child color-icon-nav"></i>
-        <span>Demandes Absences</span>
+      <a class="nav-link collapsed" routerLink="/admin/list-of-requests">
+        <i class="fa fa-envelope-open color-icon-nav" aria-hidden="true"></i>
+        <span>Liste des demandes</span>
       </a>
-      <div id="collapseone" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-          <a class="collapse-item" >Nouvelle demande</a>
-          <a class="collapse-item" >Liste des demandes</a>
-        </div>
-      </div>
+      
     </li>
  
     <li class="nav-item">

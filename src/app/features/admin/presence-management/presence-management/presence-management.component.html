@@ -1,40 +1,40 @@
-    
-
     <div class="container-fluid">
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4" >
-            <h1 class="h3 mb-0 text-gray-800">Gestion des Présences</h1>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Feuille de Presence</button>
+            <h1 class="h3 mb-0 text-white-800 badge bg-gradient-primary">Gestion des Présences</h1>
+           
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Feuille de Pointage</button>
         </div>
         
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
+                <div class="modal-header bg-info">
+                    <h5 class="modal-title text-white  font-weight-bold" id="exampleModalLongs">
+                        Nouvelle Feuille de Présence
+                    </h5>
+                    
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
               <div class="modal-content">
                 <div class="row">
                     <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                     <div class="col-lg-12">
                         <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Nouvelle Feuille de Présence</h1>
-                            </div>
                             <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        <div class="col-auto my-1">
-                                            <!-- <label class="mr-sm-2" for="inlineFormCustomSelect">Heure de debut</label> -->
-                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                             <option selected>Nom du Module</option>
                                             <option value="1">Angular</option>
                                             <option value="2">C#</option>
                                             <option value="3">Boostrap</option>
-                                            
-                                            </select>
-                                        </div>
+                                        </select>
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <div class="col-auto my-1">
-                                            <!-- <label class="mr-sm-2" for="inlineFormCustomSelect">Heure de debut</label> -->
                                             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                                 <option selected>Heure de debut</option>
                                                 <option value="8">8h</option>
@@ -51,8 +51,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
-                                        <div class="col-auto my-1">
-                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                             <option selected>Heure de fin</option>
                                             <option value="8">8h</option>
                                             <option value="9">9h</option>
@@ -64,9 +63,7 @@
                                             <option value="15">15h</option>
                                             <option value="16">16h</option>
                                             <option value="17">17h</option>
-                                           
-                                            </select>
-                                        </div>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="table-responsive">
@@ -77,26 +74,22 @@
                                                 <th>Email</th>
                                                 <th>Numero</th>
                                                 <th>Matiere</th>
-                                                <th>action</th>
-                                                
+                                                <th>Pointé</th>
+                                           </tr>   
                                         </thead>
                                         
                                         <tbody>
-                                            <tr >
+                                            <tr>
                                                 <td>Tiger Nixon</td>
                                                 <td>System Architect</td>
                                                 <td>Edinburgh</td>
                                                 <td>Edinburgh</td>
                                                 <td class="text-center">
-                                            
                                                     <div class="form-check  mb-3">
-                                                        <input class="form-check-input p-3 btn-wite border-dark" type="checkbox" value="" id="flexCheckDefault" style="margin-left: ;50px;">
+                                                        <input class="form-check-input p-2 btn-wite border-dark" type="checkbox" value="" id="flexCheckDefault" style="margin-left: ;50px;">
                                                     </div>
-                                                
                                                 </td>
-                                               
                                             </tr>
-                                           
                                         </tbody>
                                     </table>
                                         
@@ -115,7 +108,7 @@
         <div class="my-4">
             <div class="row py-4 justify-content-center">
                 <div class="col-lg-6">
-                    <div class="text-center py-5">
+                    <div class="text-center ">
                         <h1 class="h4 text-gray-900 mb-4">Filtrage avancé</h1>
                     </div>
                     <form class="user">
