@@ -16,6 +16,7 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
     DashboardComponent,
     SidemenuComponent,
     UserComponent,
+    
   ],
   imports: [
     CommonModule,

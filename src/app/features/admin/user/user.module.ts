@@ -7,12 +7,13 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AdministratorComponent } from './administrators/administrator/administrator.component';
 import { ProfessorsComponent } from './professors/professors/professors.component';
 import { StudentsComponent } from './students/students/students.component';
+import { HeaderComponent } from 'src/app/core/components/header/header.component';
 
 
 
 @NgModule({
   declarations: [  
-    UserFormComponent, AdministratorComponent, ProfessorsComponent, StudentsComponent
+    UserFormComponent, AdministratorComponent, ProfessorsComponent, StudentsComponent, HeaderComponent,
   ],
   imports: [ CommonModule, UserRoutingModule, ],
   providers: [],
