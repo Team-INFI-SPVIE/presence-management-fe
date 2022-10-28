@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { UserForm } from 'src/app/interfaces/credentials';
+import { Student } from 'src/app/models/users.model';
+import { ApiService } from 'src/app/services/api/api.service';
 import { ModalContentComponent } from '../components/modal-content/modal-content/modal-content.component';
 
 @Component({
@@ -10,29 +14,32 @@ import { ModalContentComponent } from '../components/modal-content/modal-content
 })
 export class StudentsComponent implements OnInit {
 
-  // public user = {
-  //   name: 'Izzat Nadiri',
-  //   age: 26
-  // }
-
-  // constructor(public modalService: NgbModal) { }
-
-  ngOnInit(): void {
-  }
-
-  // openModal() {
-  //   const modalRef = this.modalService.open(ModalContentComponent);
-  //   // modalRef.componentInstance.user = this.user;
-  //   // modalRef.result.then((result) => {
-  //   //   if (result) {
-  //   //     console.log(result);
-  //   //   }
-  //   // });
-  // }
-
   modalRef: MdbModalRef<ModalContentComponent> | null = null;
 
-  constructor(private modalService: MdbModalService) {}
+  students!: Student[]
+
+  form: UserForm = {
+    first_name: '',
+    last_name: '',
+    email: '',
+    phone: '',
+    password: '',
+  }
+
+  constructor(
+    private modalService: MdbModalService,
+    private apiService: ApiService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.students = this.apiService.getStudents()
+  }
+
+  onSubmit(){
+    this.apiService.addStudent(this.form)
+    // this.router.navigate(["admin/user/students"])
+  }
 
   openModal() {
     this.modalRef = this.modalService.open(ModalContentComponent, {
@@ -42,7 +49,6 @@ export class StudentsComponent implements OnInit {
       console.log(message);
     });
 
-    // this.modalRef.componentInstance.user = this.user;
   }
 
 }

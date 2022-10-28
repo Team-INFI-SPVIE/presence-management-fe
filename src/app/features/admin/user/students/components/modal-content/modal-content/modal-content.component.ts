@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 
 @Component({
@@ -9,12 +8,15 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 })
 export class ModalContentComponent implements OnInit {
 
-  data: any
+  name!: string
+  animal!: string
 
 
   constructor(public modalRef: MdbModalRef<ModalContentComponent>) {}
 
   ngOnInit() {
+    console.log(this.name);
+    console.log(this.animal);
   }
 
   close(): void {
