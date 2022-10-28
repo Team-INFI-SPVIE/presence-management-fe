@@ -72,6 +72,64 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
                     <button type="button" class="btn btn-primary">Enregistrer</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-primary">Enregistrer</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h2 class="m-0 font-weight-bold text-center">Liste des Etudiants</h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Nom & Prenom</th>
+                                <th>Email</th>
+                                <th>Numero</th>
+                                <th>Matiere</th>
+                                <th>action</th>
+                                
+                        </thead>
+                        
+                        <tbody>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>Edinburgh</td>
+                                <td>
+                                    <a  (click)="openModal()" class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-check"></i>
+                                        </span>
+                                        
+                                    </a>
+                                    <a href="#" class="btn btn-warning btn-icon-split">
+                                        
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-icon-split">
+                                        
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                    </a>
+                                
+                                </td>
+                               
+                            </tr>
+                           
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -160,5 +218,5 @@
         </div>
     </div>
 
-</div>
+<!-- </div> -->
 <!-- /.container-fluid -->
