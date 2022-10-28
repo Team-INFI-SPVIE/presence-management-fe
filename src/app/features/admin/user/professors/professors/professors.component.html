@@ -1,147 +1,151 @@
-    <div class="container-fluid">
+<!-- Topbar -->
 
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4" >
-            <h1 class="h3 mb-0 text-gray-800">Gestion des Professeurs</h1>
-            <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalLongs">Créer un compte Professeur</button>
-        </div>
-        
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModalLongs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongsTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+<div class="container-fluid">
+
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Gestion des Professeurs</h1>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLongs">Créer un
+            compte Professeur</button>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLongs" data-backdrop="static" tabindex="-1" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="exampleModalLongsTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                <!-- <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5> -->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <div class="modal-header bg-color-yellow">
+                    <h5 class="modal-title text-white font-weight-bold" id="exampleModalLongs">Ajouter un Professeur
+                    </h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                         <div class="col-lg-12">
                             <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Professeur</h1>
-                                </div>
                                 <form class="user">
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                                placeholder="Nom">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="exampleFirstName" placeholder="Nom">
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                                placeholder="Prenom">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="exampleLastName" placeholder="Prenom">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-12 mb-3 mb-sm-0">
+                                    <div class="row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
                                             <div class="form-group">
-                                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                                    placeholder="Email">
+                                                <input type="email" class="form-control form-control-user"
+                                                    id="exampleInputEmail" placeholder="Email">
                                             </div>
                                         </div>
-                                        
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-12 mb-3 mb-sm-0">
-                                            <input type="phone" class="form-control form-control-user" id="exampleLastName"
-                                                placeholder="+225 07 01 02 03 04">
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-12 mb-3 mb-sm-0">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Mot de Passe">
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="form-group row">
-                                       
-                                        <div class="col-sm-12 mb-3 mb-sm-0">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleRepeatPassword" placeholder="Confirmation de Mot de Passe">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="form-group ">
+                                                <input type="phone" class="form-control form-control-user"
+                                                    id="exampleLastName" placeholder="+225 07 01 02 03 04">
+                                            </div>
                                         </div>
                                     </div>
-                                    <!-- <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                        Register Account
-                                    </a>
-                                    -->
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                <option selected>Nom du Module</option>
+                                                <option value="1">Angular</option>
+                                                <option value="2">C#</option>
+                                                <option value="3">Boostrap</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                  
                                 </form>
-                                
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Enregistrer</button>
-                </div>
-            </div>
-            </div>
-        </div>
-
-
-
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h2 class="m-0 font-weight-bold text-center">Liste des Professeurs</h2>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Nom & Prenom</th>
-                                <th>Email</th>
-                                <th>Numero</th>
-                                <th>Matiere</th>
-                                <th>action</th>
-                                
-                        </thead>
-                        
-                        <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>Edinburgh</td>
-                                <td>
-                                    <a href="#" class="btn btn-success btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-check"></i>
-                                        </span>
-                                        
-                                    </a>
-                                    <a href="#" class="btn btn-warning btn-icon-split">
-                                        
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-trash"></i>
-                                        </span>
-                                    </a>
-                                    <a href="#" class="btn btn-danger btn-icon-split">
-                                        
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-trash"></i>
-                                        </span>
-                                    </a>
-                                
-                                </td>
-                               
-                            </tr>
-                           
-                        </tbody>
-                    </table>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary">Enregistrer</button>
                 </div>
             </div>
         </div>
-
     </div>
-    <!-- /.container-fluid -->
 
 
 
+    <div class="card shadow mb-4">
+        <div class="card-header bg-gradient-primary  py-3">
+            <h2 class="m-0 font-weight-bold text-white text-center">Liste des Professeurs</h2>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Nom & Prenom</th>
+                            <th>Numero</th>
+                            <th>Module</th>
+                            <th>Année</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
 
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="https://bigdataci.net/storage/photos/0UKpM7a15oI11obrDqyqtKwDMh9PLdLSgmCb4Hw6.png"
+                                    alt="" srcset="" style="width: 60px;height: 60px;">
+                            </td>
+                            <td>Aube MBALI</td>
+                            <td>
+                                <span class="badge badge-success">0748753781</span>
+                            </td>
+                            <td>
+                                <span class="badge badge-info">System Architect</span>
+                            </td>
+                            <td>18-06-2001</td>
+                            <td class="footable text-center">
+                            
+                                <button class="btn btn-warning btn-icon  btn-icon-mini "
+                                    title="Modifier">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </button>
+                            
+                                <button class="btn btn-danger btn-icon  btn-icon-mini"
+                                    title="Supprimer">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="https://bigdataci.net/dist/images/defaut.png" alt="" srcset=""
+                                    style="width: 60px;height: 60px;">
+                            </td>
+                            <td>Tiger Nixon</td>
+                            <td>
+                                <span class="badge badge-success">0748753781</span>
+                            </td>
+                            <td>
+                                <span class="badge badge-info">System Architect</span>
+                            </td>
+                            <td>18-06-2001</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

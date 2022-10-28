@@ -8,7 +8,6 @@ import { PresenceManagementRoutingModule } from './presence-management-routing.m
 @NgModule({
   declarations: [
     PresenceManagementComponent,
-    // HeaderComponent,
   ],
   imports: [
     CommonModule,

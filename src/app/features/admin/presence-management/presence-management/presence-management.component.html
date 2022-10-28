@@ -1,74 +1,69 @@
-<!-- <app-header></app-header> -->
-
     <div class="container-fluid">
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4" >
-            <h1 class="h3 mb-0 text-gray-800">Gestion des Présences</h1>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Feuille de Presence</button>
+            <h1 class="h3 mb-0 text-white-800 badge bg-gradient-primary">Gestion des Présences</h1>
+           
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Feuille de Pointage</button>
         </div>
         
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
+                <div class="modal-header ">
+                    <h5 class="modal-title text-white  font-weight-bold" id="exampleModalLongs">
+                        Nouvelle Feuille de Présence
+                    </h5>
+                    
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
               <div class="modal-content">
                 <div class="row">
                     <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                     <div class="col-lg-12">
                         <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Nouvelle Feuille de Présence</h1>
-                            </div>
                             <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        <div class="col-auto my-1">
-                                            <!-- <label class="mr-sm-2" for="inlineFormCustomSelect">Heure de debut</label> -->
-                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                             <option selected>Nom du Module</option>
                                             <option value="1">Angular</option>
                                             <option value="2">C#</option>
                                             <option value="3">Boostrap</option>
-                                            
-                                            </select>
-                                        </div>
+                                        </select>
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <div class="col-auto my-1">
-                                            <!-- <label class="mr-sm-2" for="inlineFormCustomSelect">Heure de debut</label> -->
                                             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                            <option selected>Heure de debut</option>
-                                            <option value="1">8h</option>
-                                            <option value="2">9h</option>
-                                            <option value="3">10h</option>
-                                            <option value="1">11h</option>
-                                            <option value="2">12h</option>
-                                            <option value="3">13h</option>
-                                            <option value="1">14h</option>
-                                            <option value="2">15h</option>
-                                            <option value="3">16h</option>
-                                            <option value="3">17h</option>
-                                           
+                                                <option selected>Heure de debut</option>
+                                                <option value="8">8h</option>
+                                                <option value="9">9h</option>
+                                                <option value="10">10h</option>
+                                                <option value="11">11h</option>
+                                                <option value="12">12h</option>
+                                                <option value="13">13h</option>
+                                                <option value="14">14h</option>
+                                                <option value="15">15h</option>
+                                                <option value="16">16h</option>
+                                                <option value="17">17h</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
-                                        <div class="col-auto my-1">
-                                            <!-- <label class="mr-sm-2" for="inlineFormCustomSelect">Heure de debut</label> -->
-                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                             <option selected>Heure de fin</option>
-                                            <option value="1">8h</option>
-                                            <option value="2">9h</option>
-                                            <option value="3">10h</option>
-                                            <option value="1">11h</option>
-                                            <option value="2">12h</option>
-                                            <option value="3">13h</option>
-                                            <option value="1">14h</option>
-                                            <option value="2">15h</option>
-                                            <option value="3">16h</option>
-                                            <option value="3">17h</option>
-                                           
-                                            </select>
-                                        </div>
+                                            <option value="8">8h</option>
+                                            <option value="9">9h</option>
+                                            <option value="10">10h</option>
+                                            <option value="11">11h</option>
+                                            <option value="12">12h</option>
+                                            <option value="13">13h</option>
+                                            <option value="14">14h</option>
+                                            <option value="15">15h</option>
+                                            <option value="16">16h</option>
+                                            <option value="17">17h</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="table-responsive">
@@ -79,8 +74,8 @@
                                                 <th>Email</th>
                                                 <th>Numero</th>
                                                 <th>Matiere</th>
-                                                <th>action</th>
-                                                
+                                                <th>Pointé</th>
+                                           </tr>   
                                         </thead>
                                         
                                         <tbody>
@@ -89,36 +84,18 @@
                                                 <td>System Architect</td>
                                                 <td>Edinburgh</td>
                                                 <td>Edinburgh</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-success btn-icon-split">
-                                                        <span class="icon text-white-50">
-                                                            <i class="fas fa-check"></i>
-                                                        </span>
-                                                        
-                                                    </a>
-                                                    <a href="#" class="btn btn-warning btn-icon-split">
-                                                        
-                                                        <span class="icon text-white-50">
-                                                            <i class="fas fa-trash"></i>
-                                                        </span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split">
-                                                        
-                                                        <span class="icon text-white-50">
-                                                            <i class="fas fa-trash"></i>
-                                                        </span>
-                                                    </a>
-                                                
+                                                <td class="text-center">
+                                                    <div class="form-check  mb-3">
+                                                        <input class="form-check-input p-2 btn-wite border-dark" type="checkbox" value="" id="flexCheckDefault" style="margin-left: ;50px;">
+                                                    </div>
                                                 </td>
-                                               
                                             </tr>
-                                           
                                         </tbody>
                                     </table>
                                         
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
                                     <button type="button" class="btn btn-primary">Enregistrer</button>
                                 </div>
                             </form>
@@ -128,16 +105,94 @@
               </div>
             </div>
           </div>
-
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h2 class="m-0 font-weight-bold text-center">Liste des Etudiants</h2>
+        <div class="my-4">
+            <div class="row py-4 justify-content-center">
+                <div class="col-lg-6">
+                    <div class="text-center ">
+                        <h1 class="h4 text-gray-900 mb-4">Filtrage avancé</h1>
+                    </div>
+                    <form class="user">
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="text" class="form-control " id="exampleFirstName" placeholder="First Name">
+                            </div>
+                            <div class="col-sm-6">
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                    <option selected>Nom du Module</option>
+                                    <option value="1">Angular</option>
+                                    <option value="2">C#</option>
+                                    <option value="3">Boostrap</option>
+                                </select>
+                            </div>
+                        </div>
+                       
+                        <div class="row py-4">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                               <div class="form-group ">
+                                    <select class="custom-select "  id="inlineFormCustomSelect">
+                                        <option selected>Heure de debut</option>
+                                        <option value="8">8h</option>
+                                        <option value="9">9h</option>
+                                        <option value="10">10h</option>
+                                        <option value="11">11h</option>
+                                        <option value="12">12h</option>
+                                        <option value="13">13h</option>
+                                        <option value="14">14h</option>
+                                        <option value="15">15h</option>
+                                        <option value="16">16h</option>
+                                        <option value="17">17h</option>
+                                    </select>
+                               </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group ">
+                                    <select class="custom-select "   id="inlineFormCustomSelect">
+                                        <option selected>Heure de fin</option>
+                                        <option value="8">8h</option>
+                                        <option value="9">9h</option>
+                                        <option value="10">10h</option>
+                                        <option value="11">11h</option>
+                                        <option value="12">12h</option>
+                                        <option value="13">13h</option>
+                                        <option value="14">14h</option>
+                                        <option value="15">15h</option>
+                                        <option value="16">16h</option>
+                                        <option value="17">17h</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row pb-3">
+                            <samp class="text-center">Periode</samp>
+                            <div class="col-sm-6">
+                                <samp>Date début</samp>
+                                <input type="date" class="form-control " id="exampleLastName" placeholder="Date ">
+                            </div>
+                            <div class="col-sm-6">
+                                <samp>Date fin</samp>
+                                <input type="date" class="form-control " id="exampleLastName" placeholder="Date ">
+                            </div>
+                        </div>
+                      
+                        <a href="#" class="btn btn-user btn-block text-white" style="background-color: rgb(4,41,84) !important;">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            Valider
+                        </a>
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card shadow mb-4 my-5">
+            <div class="card-header bg-gradient-primary py-3">
+                <h2 class="m-0 font-weight-bold text-white text-center">Liste des Pointages</h2>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>Photo</th>
                                 <th>Nom & Prenom</th>
                                 <th>Numero</th>
                                 <th>Module</th>
@@ -149,13 +204,38 @@
                         
                         <tbody>
                             <tr>
-                                <td>Tiger Nixon</td>
+                                <td>
+                                    <img src="https://bigdataci.net/storage/photos/0UKpM7a15oI11obrDqyqtKwDMh9PLdLSgmCb4Hw6.png" alt="" srcset="" style="width: 60px;height: 60px;">
+                                </td>
+                                <td>Aube MBALI</td>
+                                <td>0748753781</td>
                                 <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>8h - 12h</td>
+                                <td>
+                                    <span class="badge badge-primary">
+                                        8h  -   12h
+                                    </span>
+                                </td>
                                 <td>18-06-2001</td>
                                 <td>
-                                    <span class="badge badge-success">Present</span> | <span class="badge badge-danger">Absent</span>
+                                    <span class="badge badge-success">Present</span>
+                                </td>
+                               
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="https://bigdataci.net/dist/images/defaut.png" alt="" srcset="" style="width: 60px;height: 60px;">
+                                </td>
+                                <td>Tiger Nixon</td>
+                                <td>054237815</td>
+                                <td>System Architect</td>
+                                <td>
+                                    <span class="badge badge-primary">
+                                        8h - 12h
+                                    </span>
+                                </td>
+                                <td>18-06-2001</td>
+                                <td>
+                                    <span class="badge badge-danger">Absent</span>
                                 </td>
                                
                             </tr>

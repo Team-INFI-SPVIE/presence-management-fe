@@ -1,1 +1,182 @@
-<p>list-of-requests works!</p>
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-2" >
+        <h1 class="h3 mb-0 text-white-800 badge bg-gradient-success">Gestion des Demandes</h1>
+    </div>
+    
+    <div class="my-4">
+        <div class="row  justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center ">
+                    <h1 class="h4 text-gray-900 mb-4">Filtrage avancé</h1>
+                </div>
+                <form class="user">
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="text" class="form-control " id="exampleFirstName" placeholder="Par nom">
+                        </div>
+                        <div class="col-sm-6">
+                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                <option selected>Status</option>
+                                <option value="1">Nouveau</option>
+                                <option value="2">Ancien</option>
+                            </select>
+                        </div>
+                    </div>
+                   
+                    <div class="row ">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                           <div class="form-group ">
+                                <select class="custom-select "  id="inlineFormCustomSelect">
+                                    <option selected>Heure de debut</option>
+                                    <option value="8">8h</option>
+                                    <option value="9">9h</option>
+                                    <option value="10">10h</option>
+                                    <option value="11">11h</option>
+                                    <option value="12">12h</option>
+                                    <option value="13">13h</option>
+                                    <option value="14">14h</option>
+                                    <option value="15">15h</option>
+                                    <option value="16">16h</option>
+                                    <option value="17">17h</option>
+                                </select>
+                           </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group ">
+                                <select class="custom-select "   id="inlineFormCustomSelect">
+                                    <option selected>Heure de fin</option>
+                                    <option value="8">8h</option>
+                                    <option value="9">9h</option>
+                                    <option value="10">10h</option>
+                                    <option value="11">11h</option>
+                                    <option value="12">12h</option>
+                                    <option value="13">13h</option>
+                                    <option value="14">14h</option>
+                                    <option value="15">15h</option>
+                                    <option value="16">16h</option>
+                                    <option value="17">17h</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row pb-3">
+                        <samp class="text-center">Periode</samp>
+                        <div class="col-sm-6">
+                            <samp>Date début</samp>
+                            <input type="date" class="form-control " id="exampleLastName" placeholder="Date ">
+                        </div>
+                        <div class="col-sm-6">
+                            <samp>Date fin</samp>
+                            <input type="date" class="form-control " id="exampleLastName" placeholder="Date ">
+                        </div>
+                    </div>
+                  
+                    <a href="#" class="btn btn-user btn-block text-white badge-info" >
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        Valider
+                    </a>
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header bg-color-yellow">
+            <h2 class="m-0 font-weight-bold text-white text-center">Liste des Demandes</h2>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Nom & Prenom</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                            <th>Objet</th>
+                            <td>Heures </td>
+                            <th>Statut</th>
+                            <th>Etat</th>
+                            <th>Détaille</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="https://bigdataci.net/storage/photos/0UKpM7a15oI11obrDqyqtKwDMh9PLdLSgmCb4Hw6.png" alt="" srcset="" style="width: 60px;height: 60px;">
+                            </td>
+                            <td>
+                                Aube MBALI
+                            </td>
+                            <td>
+                                Bonjour M. Ismail,je viens ou je suis venu à travers  <br>  ce canal demande. 
+                                une permission d'absence ...... <br>
+                            </td>
+                            <td>15/12/2022</td>
+                            <td class="font-weight-bolder">Congé</td>
+                            <td>
+                                <span class="badge badge-primary">
+                                    8h  -   12h
+                                </span>
+                            </td>
+                            
+                            <td>
+                                <span class="badge badge-success">
+                                    Nouveau
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-success">Accepté</span> 
+                            </td>
+                            
+                            <td>Statut</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="https://bigdataci.net/dist/images/defaut.png" alt="" srcset="" style="width: 60px;height: 60px;">
+                            </td>
+                            <td>
+                                Diallo
+                            </td>
+                            <td>
+                                Bonjour M. Ismail,je viens ou je suis venu à travers  <br>  ce canal demande. 
+                                une permission d'absence suite ...... <br>
+                            </td>
+                            <td>15/12/2022</td>
+                            <td class="font-weight-bolder">Congé</td>
+                            <td>
+                                <span class="badge badge-primary">
+                                    8h  -   17h
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-info">
+                                    Ancien
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-danger">Refusé</span> 
+                            </td>
+                            
+                            <td>Statut</td>
+                            
+                        </tr>
+                       
+                    </tbody>
+                   
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+
+
+

@@ -1,12 +1,14 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar"
+  style="background-color: #000000 !important;">
 
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-    <div class="sidebar-brand-icon rotate-n-15">
-      <i class="fas fa-laugh-wink"></i>
+    <div class="sidebar-brand-icon ">
+      <!-- <i class="fas fa-laugh-wink"></i> -->
+      <img src="http://www.infisoftware.net/fr/img/logo/logo.png" alt="" style="width: 80px ;" srcset="">
     </div>
-    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+    <div class="sidebar-brand-text mx-3">Gestion des presences</div>
   </a>
 
   <!-- Divider -->
@@ -15,67 +17,72 @@
   <!-- Nav Item - Dashboard -->
   <li class="nav-item active">
     <a class="nav-link" routerLink="/admin/dashboard">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <i class="fas fa-fw fa-tachometer-alt color-icon-nav"></i>
       <span>Dashboard</span></a>
   </li>
 
   <!-- Divider -->
   <hr class="sidebar-divider">
-
   <!-- Heading -->
-  <h2 class="text-center">Professor</h2>
+  <div class="sidebar-heading">
+    Professor
+  </div>
   <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
       <a class="nav-link collapsed" routerLink="/admin/presence-management" >
-        <i class="fas fa-fw fa-wrench"></i>
-        <span>Gestion de presence</span>
-        <!-- <button mat-raised-button color="primary" routerLink="/admin">Accueil</button> -->
+        <i class="fa fa-address-card color-icon-nav" aria-hidden="true"></i>
+        <span>  Gestion des Pointages</span>
       </a>
     </li>
 
 
-    <h2 class="text-center">Student</h2>
+   
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Student
+  </div>
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
     <a class="nav-link collapsed" routerLink="/admin/my-scores" >
-      <i class="fas fa-fw fa-cog"></i>
-      <span> Mes Pointages</span>
+      <i class="fa fa-briefcase color-icon-nav" aria-hidden="true"></i>
+      <span>  Mes Pointages</span>
     </a>
   </li>
   <li class="nav-item">
     <a class="nav-link collapsed" routerLink="/admin/absence-request" >
-      <i class="fas fa-fw fa-cog"></i>
-      <span>Demande Absence</span>
+      <i class="fa fa-child color-icon-nav"></i>
+      <span>  Demande Absence</span>
     </a>
   </li>
 
-    <h2 class="text-center">Administrator</h2>
+   <!-- Divider -->
+  <hr class="sidebar-divider">
+  <!-- Heading -->
+  <div class="sidebar-heading">
+    Administrator
+  </div>
     <li class="nav-item">
       <a class="nav-link collapsed" routerLink="/admin/score-list" >
-        <i class="fas fa-fw fa-cog"></i>
-        <span> Liste des Presences</span>
+        <i class="fa fa-graduation-cap color-icon-nav" aria-hidden="true"></i>
+        <span class="active"> Liste des Pointages</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseone" aria-expanded="true"
-        aria-controls="collapseone">
-        <i class="fas fa-fw fa-cog"></i>
-        <span>Liste des demandes</span>
+      <a class="nav-link collapsed" routerLink="/admin/list-of-requests">
+        <i class="fa fa-envelope-open color-icon-nav" aria-hidden="true"></i>
+        <span>  Liste des demandes</span>
       </a>
-      <div id="collapseone" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-          <a class="collapse-item" >Nouvelle demande</a>
-          <a class="collapse-item" >Liste des demandes</a>
-        </div>
-      </div>
+      
     </li>
  
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
         aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-cog"></i>
-        <span>Gestion des utilisateurs</span>
+        <i class="fa fa-users color-icon-nav"></i>
+        <span>  Gestion des utilisateurs</span>
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
@@ -86,8 +93,8 @@
         </div>
       </div>
     </li><li class="nav-item">
-      <a class="nav-link collapsed" routerLink="/admin/matter" >
-        <i class="fas fa-fw fa-cog"></i>
+      <a class="nav-link collapsed" routerLink="/admin/absence-request" >
+        <i class="fas fa-fw fa-cog color-icon-nav"></i>
         <span> Modules</span>
       </a>
     </li>
