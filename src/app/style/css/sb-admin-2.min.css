@@ -41,7 +41,11 @@
 }
 
 .color-icon-nav{
-    color:#f6c23e !important ;
+    color:#F36D2A !important ;
+}
+
+.bg-color-yellow{
+    background-color:#F36D2A !important ;
 }
 
 .btn-primary {
@@ -11898,11 +11902,11 @@ a:focus {
 }
 
 .sidebar-light .nav-item.active .nav-link {
-    color: #6e707e
+    color:#f6c23e !important ;
 }
 
 .sidebar-light .nav-item.active .nav-link i {
-    color: #6e707e
+    color:#f6c23e !important ;
 }
 
 .sidebar-light #sidebarToggle {
