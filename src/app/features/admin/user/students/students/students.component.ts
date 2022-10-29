@@ -38,8 +38,12 @@ export class StudentsComponent implements OnInit {
 
   onSubmit(){
     this.apiService.addStudent(this.form)
-    console.log(this.form);
-    // this.router.navigate(["admin/user/students"])
+    this.form.email = ''
+    this.form.first_name = ''
+    this.form.last_name = ''
+    this.form.email = ''
+    this.form.phone = ''
+    this.form.password = ''
   }
 
   openModal(student: Student) {

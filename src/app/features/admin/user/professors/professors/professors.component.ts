@@ -38,7 +38,12 @@ export class ProfessorsComponent implements OnInit {
 
   onSubmit(){
     this.apiService.addprofessor(this.form)
-    console.log(this.form); 
+    this.form.first_name = ''
+    this.form.last_name = ''
+    this.form.email = ''
+    this.form.phone = ''
+    this.form.password = ''
+    this.form.matters = ''
   }
 
   openModal(professor: Professor) {
