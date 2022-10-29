@@ -12,12 +12,13 @@ import { ModalContentComponent } from './students/components/modal-content/modal
 import { FormsModule } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { EditProfessorComponent } from './professors/components/edit-professor/edit-professor.component';
 
 
 
 @NgModule({
   declarations: [  
-    UserFormComponent, AdministratorComponent, ProfessorsComponent, StudentsComponent, ModalContainerComponent, ModalContentComponent, 
+    UserFormComponent, AdministratorComponent, ProfessorsComponent, StudentsComponent, ModalContainerComponent, ModalContentComponent, EditProfessorComponent, 
   ],
   imports: [ CommonModule, UserRoutingModule, FormsModule, MdbModalModule ],
   providers: [],

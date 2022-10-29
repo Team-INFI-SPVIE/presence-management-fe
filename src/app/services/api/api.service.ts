@@ -320,13 +320,13 @@ export class ApiService {
     
   }
 
-  getprofessor(): Professor[] {
+  getprofessors(): Professor[] {
     return this.apiData[0].users.professors;
   }
 
   addprofessor( formData1: UserForm1) {
    const professors : Professor =  {
-     _id: this.getprofessor().length.toString(),
+     _id: this.getprofessors().length.toString(),
      picture: '',
      first_name: formData1.first_name,
      last_name:formData1.last_name,
@@ -337,10 +337,48 @@ export class ApiService {
      matters: formData1.matters,
      password: formData1.password,
      registered: '',
-     phone: ''
+     phone: formData1.phone
    }
+
    this.apiData[0].users.professors.push(professors)
+} 
+
+  getProfessorById(id: string) {
+
+    return this.apiData[0].users.professors.find(
+      (professor: Professor) => {
+
+        return professor._id === id
+      }
+    )
+
+  }
+
+editProfessor(id: string, formData: UserForm1) {
+  const professor = this.getProfessorById(id)
+
+  if (!professor) {
+    throw new Error(" User NotFoundComponent")
+  }
+
+  professor.first_name = formData.first_name
+  professor.last_name = formData.last_name
+  professor.email = formData.email
+  professor.phone = formData.phone
+  professor.matters = formData.matters
+  professor.password = formData.password
+
 }
+  deletProfessor(id: string) {
+    const professor = this.getProfessorById(id)
+
+    if (!professor) {
+      throw new Error(" User NotFoundComponent")
+    }
+
+    this.apiData[0].users.professors = this.apiData[0].users.professors.filter((professor: Professor) => professor._id !== id)
+    
+  }
 
   getadminstrators(): Admin {
     return this.apiData[0].users.admin;
