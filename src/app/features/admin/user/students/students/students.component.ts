@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { UserForm } from 'src/app/interfaces/credentials';
+import { ApiService } from 'src/app/services/api/api.service';
+import { Student } from 'src/models/users.model';
 import { ModalContentComponent } from '../components/modal-content/modal-content/modal-content.component';
 
 @Component({
@@ -10,39 +14,47 @@ import { ModalContentComponent } from '../components/modal-content/modal-content
 })
 export class StudentsComponent implements OnInit {
 
-  // public user = {
-  //   name: 'Izzat Nadiri',
-  //   age: 26
-  // }
+  students!: Student[]
 
-  // constructor(public modalService: NgbModal) { }
-
-  ngOnInit(): void {
+  form: UserForm = {
+    first_name: '',
+    last_name: '',
+    email: '',
+    phone: '',
+    password: '',
   }
-
-  // openModal() {
-  //   const modalRef = this.modalService.open(ModalContentComponent);
-  //   // modalRef.componentInstance.user = this.user;
-  //   // modalRef.result.then((result) => {
-  //   //   if (result) {
-  //   //     console.log(result);
-  //   //   }
-  //   // });
-  // }
 
   modalRef: MdbModalRef<ModalContentComponent> | null = null;
 
-  constructor(private modalService: MdbModalService) {}
+  constructor(
+    private modalService: MdbModalService,
+    private apiService: ApiService,
+    private router: Router
+  ) {}
 
-  openModal() {
+  ngOnInit(): void {
+    this.students = this.apiService.getStudents()
+  }
+
+  onSubmit(){
+    this.apiService.addStudent(this.form)
+    console.log(this.form);
+    // this.router.navigate(["admin/user/students"])
+  }
+
+  openModal(student: Student) {
     this.modalRef = this.modalService.open(ModalContentComponent, {
-      data: {name: 'dddddd', animal: 'eeeeee'},
+      data: student,
     });
+
     this.modalRef.onClose.subscribe((message: any) => {
       console.log(message);
     });
-
-    // this.modalRef.componentInstance.user = this.user;
   }
 
+  deleteStudent(id: string) {
+    this.apiService.deletStudent(id)
+    this.students = this.apiService.getStudents()
+  }
+  
 }

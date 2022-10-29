@@ -1,31 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
-import { UserForm } from 'src/app/interfaces/credentials';
+import { UserForm1 } from 'src/app/interfaces/credentials';
 import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
-  selector: 'app-modal-content',
-  templateUrl: './modal-content.component.html',
-  styleUrls: ['./modal-content.component.scss']
+  selector: 'app-edit-professor',
+  templateUrl: './edit-professor.component.html',
+  styleUrls: ['./edit-professor.component.scss']
 })
-export class ModalContentComponent implements OnInit {
+export class EditProfessorComponent implements OnInit {
 
   first_name!: string
   last_name!: string
   email!: string
   phone!: string
   password!: string
+  matters!: string
   _id!: string
 
-  form: UserForm = {
-    first_name: this.first_name,
-    last_name: this.last_name,
-    email: this.email,
-    phone: this.phone,
-    password: this.password,
+  form: UserForm1 = {
+    first_name: '',
+    last_name: '',
+    email: '',
+    phone: '',
+    password: '',
+    matters: '',
   }
+
+
   constructor(
-    public modalRef: MdbModalRef<ModalContentComponent>,
+    public modalRef: MdbModalRef<EditProfessorComponent>,
     private apiService: ApiService
   ) {}
 
@@ -35,6 +39,7 @@ export class ModalContentComponent implements OnInit {
     this.form.last_name = this.last_name
     this.form.phone = this.phone
     this.form.password = this.password
+    this.form.matters = this.matters
     console.log(this._id);
     
   }
@@ -45,7 +50,7 @@ export class ModalContentComponent implements OnInit {
   };
 
   onSubmit() {
-    this.apiService.editStudent(this._id, this.form)
+    this.apiService.editProfessor(this._id, this.form)
     this.close()
   }
 
