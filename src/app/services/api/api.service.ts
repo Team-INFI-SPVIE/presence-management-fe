@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserForm, UserForm1 } from 'src/app/interfaces/credentials';
-import { Admin, ApiData, Professor, Student } from 'src/models/users.model';
+import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses } from 'src/models/users.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,68 @@ export class ApiService {
           "phone": "097654322567"
 
         },
+        "presences": [
+          {
+            "_id": "ssss",
+            'createdAt': new Date,
+            "studentsPresenses": [
+              {
+                "_id": "63595b5c6b39f73a0f4b9d1a",
+                "first_name": "Mckenzie",
+                "last_name": "Olson",
+                "email": "goodmanwoodward@verton.com",
+                "is_present": true,
+                "role": "student",
+                "phone": "097878664332",
+                'matter': '',
+                "startTime": '',
+                "endTime": ''
+              },
+              {
+                "_id": "63595b5c6b39f73a0f4b9d1a",
+                "first_name": "Makissi",
+                "last_name": "Olson",
+                "email": "goodmanwoodward@verton.com",
+                "is_present": true,
+                "role": "student",
+                "phone": "097878664332",
+                'matter': '',
+                "startTime": '',
+                "endTime": ''
+              },
+              {
+                "_id": "63595b5c6b39f73a0f4b9d1a",
+                "first_name": "Benthe",
+                "last_name": "Olson",
+                "email": "goodmanwoodward@verton.com",
+                "is_present": true,
+                "role": "student",
+                "phone": "097878664332",
+                'matter': '',
+                "startTime": '',
+                "endTime": ''
+              },
+            ]
+          },
+          {
+            "_id": "ssss",
+            'createdAt': new Date,
+            "studentsPresenses": [
+              {
+                "_id": "63595b5c6b39f73a0f4b9d1a",
+                "first_name": "Mckenzie",
+                "last_name": "Olson",
+                "email": "goodmanwoodward@verton.com",
+                "is_present": true,
+                "role": "student",
+                "phone": "097878664332",
+                'matter': '',
+                "startTime": '',
+                "endTime": ''
+              },
+            ]
+          }
+        ],
         "professors": [
           {
             "_id": "63595b5c1da39578c6b8218b",
@@ -324,24 +386,24 @@ export class ApiService {
     return this.apiData[0].users.professors;
   }
 
-  addprofessor( formData1: UserForm1) {
-   const professors : Professor =  {
-     _id: this.getprofessors().length.toString(),
-     picture: '',
-     first_name: formData1.first_name,
-     last_name:formData1.last_name,
-     full_name: '',
-     email:formData1.email,
-     about: '',
-     role: '',
-     matters: formData1.matters,
-     password: formData1.password,
-     registered: '',
-     phone: formData1.phone
-   }
+  addprofessor(formData1: UserForm1) {
+    const professors : Professor =  {
+      _id: this.getprofessors().length.toString(),
+      picture: '',
+      first_name: formData1.first_name,
+      last_name:formData1.last_name,
+      full_name: '',
+      email:formData1.email,
+      about: '',
+      role: '',
+      matters: formData1.matters,
+      password: formData1.password,
+      registered: '',
+      phone: formData1.phone
+    }
 
-   this.apiData[0].users.professors.push(professors)
-} 
+    this.apiData[0].users.professors.push(professors)
+  } 
 
   getProfessorById(id: string) {
 
@@ -383,4 +445,47 @@ editProfessor(id: string, formData: UserForm1) {
   getadminstrators(): Admin {
     return this.apiData[0].users.admin;
   }
+
+  getPresences(): Presence[] {
+    return this.apiData[0].users.presences
+  }
+
+  getstudentsPresenses() {
+    const len = this.apiData[0].users.presences.length
+    
+    return this.apiData[0].users.presences[len-1].studentsPresenses
+  }
+
+  addPresences(students: Student[], matter: string, startTime: string, endTime: string) {
+    const s: StudentsPresenses[] = students.map((s: Student) => {
+      return {
+        _id: s._id,
+        first_name: s.first_name,
+        last_name: s.last_name,
+        email: s.email,
+        is_present: s.is_present,
+        role: s.role,
+        phone: s.phone,
+        matter,
+        startTime,
+        endTime
+      }
+    })
+    const presence : Presence =  {
+      _id: 'this.getprofessors().length.toString()',
+      createdAt: new Date,
+      studentsPresenses: s
+    }
+
+    this.apiData[0].users.presences.push(presence)
+    
+  }
+
+  // resetPrecence() {
+  //   let arr = this.apiData[0].users.students
+
+  //   arr.map((student: Student) => student.is_present = false)
+
+    
+  // }
 }

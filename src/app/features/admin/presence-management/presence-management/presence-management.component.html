@@ -4,7 +4,12 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4" >
             <h1 class="h3 mb-0 text-white-800 badge bg-gradient-primary">Gestion des Présences</h1>
            
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Feuille de Pointage</button>
+            <button
+                type="button"
+                class="btn btn-primary"
+                [routerLink]="['presence']"
+            >Feuille de Pointage
+            </button>
         </div>
         
         <div class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -26,12 +31,15 @@
                             <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-4">
-                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                             <option selected>Nom du Module</option>
                                             <option value="1">Angular</option>
                                             <option value="2">C#</option>
                                             <option value="3">Boostrap</option>
-                                        </select>
+                                        </select> -->
+                                        
+
+                                        
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <div class="col-auto my-1">
@@ -105,7 +113,7 @@
               </div>
             </div>
           </div>
-        <div class="my-4">
+        <!-- <div class="my-4">
             <div class="row py-4 justify-content-center">
                 <div class="col-lg-6">
                     <div class="text-center ">
@@ -182,7 +190,9 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+
         <div class="card shadow mb-4 my-5">
             <div class="card-header bg-gradient-primary py-3">
                 <h2 class="m-0 font-weight-bold text-white text-center">Liste des Pointages</h2>
@@ -193,7 +203,8 @@
                         <thead>
                             <tr>
                                 <th>Photo</th>
-                                <th>Nom & Prenom</th>
+                                <th>Nom</th>
+                                <th>Prenom</th>
                                 <th>Numero</th>
                                 <th>Module</th>
                                 <th>Interval d'heure</th>
@@ -203,39 +214,20 @@
                         </thead>
                         
                         <tbody>
-                            <tr>
+                            <tr *ngFor="let presence of studentsPresenses">
                                 <td>
                                     <img src="https://bigdataci.net/storage/photos/0UKpM7a15oI11obrDqyqtKwDMh9PLdLSgmCb4Hw6.png" alt="" srcset="" style="width: 60px;height: 60px;">
                                 </td>
-                                <td>Aube MBALI</td>
-                                <td>0748753781</td>
-                                <td>System Architect</td>
+                                <td>{{presence.last_name}}</td>
+                                <td>{{presence.last_name}}</td>
+                                <td>{{presence.phone}}</td>
+                                <td>{{presence.phone}}</td>
+                                <td>{{presence.phone}}</td>
+                                <td>{{presence.phone}}</td>
                                 <td>
-                                    <span class="badge badge-primary">
-                                        8h  -   12h
-                                    </span>
-                                </td>
-                                <td>18-06-2001</td>
-                                <td>
-                                    <span class="badge badge-success">Present</span>
-                                </td>
-                               
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="https://bigdataci.net/dist/images/defaut.png" alt="" srcset="" style="width: 60px;height: 60px;">
-                                </td>
-                                <td>Tiger Nixon</td>
-                                <td>054237815</td>
-                                <td>System Architect</td>
-                                <td>
-                                    <span class="badge badge-primary">
-                                        8h - 12h
-                                    </span>
-                                </td>
-                                <td>18-06-2001</td>
-                                <td>
-                                    <span class="badge badge-danger">Absent</span>
+                                    <span *ngIf="presence.is_present" class="badge badge-success">Present</span>
+                                    
+                                    <span *ngIf="!presence.is_present" class="badge badge-danger">Absent</span>
                                 </td>
                                
                             </tr>
