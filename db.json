@@ -5,9 +5,9 @@
         "picture": "http://placehold.it/32x32",
         "first_name": "Karina",
         "last_name": "Cunningham",
-        "email": "strong.group@infisoftware.net",
+        "email": "admin@infisoftware.net",
         "role": "Admin",
-        "password": "strongGroupe",
+        "password": "123456789",
         "registered": "2022-02-11T01:40:28 -00:00"
       },
       {
@@ -15,10 +15,10 @@
         "picture": "http://placehold.it/32x32",
         "first_name": "Melva",
         "last_name": "Warren",
-        "email": "melvawarren@circum.com",
+        "email": "teacher@infisoftware.net",
         "phone": "+225 (817) 590-3640",
         "role": "Teacher",
-        "password": "123456",
+        "password": "123456789",
         "registered": "2022-07-05T05:42:46 -00:00"
       },
       {
@@ -26,11 +26,11 @@
         "picture": "http://placehold.it/32x32",
         "first_name": "Valeria",
         "last_name": "Perez",
-        "email": "valeriaperez@circum.com",
+        "email": "studeent@infisoftware.net",
         "role": "Student",
         "phone": "+225 (990) 445-2832",
         "is_present": false,
-        "password": "123456",
+        "password": "123456789",
         "registered": "2022-07-06T07:19:32 -00:00"
       }
     ]
