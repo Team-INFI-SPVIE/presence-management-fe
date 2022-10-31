@@ -3,44 +3,53 @@ import { Router } from '@angular/router';
 import { Credentials } from 'src/app/interfaces/credentials';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { TokenService } from 'src/app/services/token/token.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
+
 export class LoginComponent implements OnInit {
 
-  form: Credentials = {
-    email: 'eve.holt@reqres.in',
-    password: 'cityslicka'
-  }
+    public loginForm!: FormGroup
 
-//   {
-//     "email": "eve.holt@reqres.in",
-//     "password": "cityslicka"
-// }
-
-  constructor(
-    private authService: AuthService,
-    private tokenService: TokenService,
-    private router: Router,
-  ) { }
+    constructor(
+      private formbuilder: FormBuilder,private http: HttpClient, private router: Router
+    ) { }
 
   ngOnInit(): void {
+
+    this.loginForm = this.formbuilder.group({
+      email: [''],
+      password: ['', Validators.required]
+    })
   }
 
+  login(){
+    this.http.get<any>("http://localhost:3000/users")
+    .subscribe(res=>{
+      const user = res.find((a:any)=>{
+        return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password 
+      });
 
-  onSubmit(){
-    this.authService.login(this.form).subscribe(
-      (data: any) => {
-        console.log(data)
-        // localStorage.setItem('token', data.token)
-        this.tokenService.saveToken(data.token)
-        this.router.navigate(['admin'])
-      },
-      (err: any) => console.log(err),
-    )
+      if(user){
+        // alert('Login Succesful');
+        this.loginForm.reset()
+      this.router.navigate(["admin/dashboard"]) 
+      }else{
+        // alert('user not found');
+        this.loginForm.reset()
+      this.router.navigate(["auth/login"])
+      }
+    },err=>{
+      alert("Something went wrong")
+    })
+
   }
 
 }
