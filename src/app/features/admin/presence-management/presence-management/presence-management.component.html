@@ -113,7 +113,7 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>Photo</th>
+              <!-- <th>Photo</th> -->
               <th>Nom</th>
               <th>Prenom</th>
               <th>Numero</th>
@@ -126,16 +126,16 @@
 
           <tbody>
             <tr *ngFor="let presence of studentsPresenses">
-              <td>
+              <!-- <td>
                 <img src="https://bigdataci.net/storage/photos/0UKpM7a15oI11obrDqyqtKwDMh9PLdLSgmCb4Hw6.png" alt=""
                   srcset="" style="width: 60px;height: 60px;">
-              </td>
+              </td> -->
               <td>{{presence.last_name}}</td>
               <td>{{presence.last_name}}</td>
               <td>{{presence.phone}}</td>
-              <td>{{presence.phone}}</td>
-              <td>{{presence.phone}}</td>
-              <td>{{presence.phone}}</td>
+              <td>{{presence.matter}}</td>
+              <td>{{presence.startTime}} - {{presence.endTime}}</td>
+              <td>{{presence.date | date: 'dd/MM/yy' }}</td>
               <td>
                 <span *ngIf="presence.is_present" class="badge badge-success">Present</span>
 

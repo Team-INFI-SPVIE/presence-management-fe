@@ -13,6 +13,7 @@ export class PresenceManagementComponent implements OnInit {
 
   modalRef: MdbModalRef<PresenceModalComponent> | null = null;
   presences!: Presence[]
+  
 
   studentsPresenses!: StudentsPresenses[] | any
 
