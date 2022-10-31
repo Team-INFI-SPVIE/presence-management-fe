@@ -71,4 +71,5 @@ export interface ApiData {
     matter!: string
     startTime!: string
     endTime!: string
+    date?: Date
   }

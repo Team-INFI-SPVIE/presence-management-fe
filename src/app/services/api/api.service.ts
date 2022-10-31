@@ -81,7 +81,8 @@ export class ApiService {
                 "phone": "097878664332",
                 'matter': '',
                 "startTime": '',
-                "endTime": ''
+                "endTime": '',
+                "date": new Date,
               },
             ]
           }
@@ -468,7 +469,8 @@ editProfessor(id: string, formData: UserForm1) {
         phone: s.phone,
         matter,
         startTime,
-        endTime
+        endTime,
+        date: new Date,
       }
     })
     const presence : Presence =  {

@@ -63,17 +63,15 @@
                                     <th class="text-white">Nom & Prenom</th>
                                     <th class="text-white">Email</th>
                                     <th class="text-white">Numero</th>
-                                    <th class="text-white">Matiere</th>
                                     <th class="text-white">Pointé</th>
                                </tr>
                             </thead>
 
                             <tbody >
                                 <tr *ngFor="let student of students">
-                                    <td>{{student.last_name}}</td>
-                                    <td>{{student.last_name}}</td>
-                                    <td>{{student.last_name}}</td>
-                                    <td>{{student.last_name}}</td>
+                                    <td>{{student.last_name}} {{student.first_name}}</td>
+                                    <td>{{student.email}}</td>
+                                    <td>{{student.phone}}</td>
                                     <td class="text-center">
                                         <div class="form-check  mb-3">
                                             <input
