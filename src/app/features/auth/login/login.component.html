@@ -15,22 +15,14 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4 py-2">Connexion</h1>
                                 </div>
-                                <form
-                                    name="form"
-                                    class="user"
-                                    #f="ngForm"
-                                    (ngSubmit)="f.form.valid && onSubmit()" >
+                                <form [formGroup]="loginForm" (ngSubmit)="login()" >
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
-                                            name="email"
-                                            id="exampleInputEmail" aria-describedby="emailHelp"
-                                            placeholder="Enter Email Address..." [(ngModel)]="form.email" #email="ngModel"
-                                            required
+                                        formControlName="email"
+                                        placeholder="email"
+                                        required
                                         >
 
-                                        <p class="form-error" *ngIf="email.errors && f.submitted">
-                                            L'adresse électronique est obligatoire
-                                        </p>
                                     </div>
                                     <div class="form-group py-2">
                                         <input
@@ -38,12 +30,10 @@
                                             type="password"
                                             class="form-control form-control-user"
                                             placeholder="Password"
-                                            [(ngModel)]="form.password"
-                                            #password="ngModel"
+                                            formControlName="password"
                                             required
                                             minlength="5"
                                         >
-                                        <div class="form-error" *ngIf="password.errors?.['required'] && f.submitted">Le mot de pass est requi</div>
                                         <!-- <div class="form-error" *ngIf="password.errors?.['minlength']">Minimum 5</div> -->
                                     </div>
                                     <div class="form-group py-2">
