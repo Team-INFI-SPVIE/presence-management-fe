@@ -10,66 +10,44 @@
     <div class="sidebar-brand-text mx-3">Gestion des presences</div>
   </a>
 
-  <!-- Divider -->
-  <hr class="sidebar-divider my-0">
-
   <!-- Nav Item - Dashboard -->
   <li class="nav-item active">
     <a class="nav-link" routerLink="/admin/dashboard">
       <i class="fas fa-fw fa-tachometer-alt color-icon-nav"></i>
       <span>Dashboard</span></a>
   </li>
-
-  <!-- Divider -->
-  <hr class="sidebar-divider">
-  <!-- Heading -->
-  <div class="sidebar-heading">
-    Professor
-  </div>
+ 
   <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="user.role === 'Teacher'">
       <a class="nav-link collapsed" routerLink="/admin/presence-management" >
         <i class="fa fa-address-card color-icon-nav" aria-hidden="true"></i>
-        <span>  Gestion des Pointages</span>
+        <span>Gestion des Pointages</span>
       </a>
     </li>
 
-
-
-  <!-- Divider -->
-  <hr class="sidebar-divider">
-
   <!-- Heading -->
-  <div class="sidebar-heading">
-    Student
-  </div>
   <!-- Nav Item - Pages Collapse Menu -->
-  <li class="nav-item">
+  <li class="nav-item" *ngIf="user.role === 'Student'">
     <a class="nav-link collapsed" routerLink="/admin/my-scores" >
       <i class="fa fa-briefcase color-icon-nav" aria-hidden="true"></i>
-      <span>  Mes Pointages</span>
+      <span>Mes Pointages</span>
     </a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item" *ngIf="user.role === 'Student'">
     <a class="nav-link collapsed" routerLink="/admin/absence-request" >
       <i class="fa fa-child color-icon-nav"></i>
-      <span>  Demande Absence</span>
+      <span>Demande Absence</span>
     </a>
   </li>
 
-   <!-- Divider -->
-  <hr class="sidebar-divider">
   <!-- Heading -->
-  <div class="sidebar-heading">
-    Administrator
-  </div>
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="user.role === 'Admin'">
       <a class="nav-link collapsed" routerLink="/admin/score-list" >
         <i class="fa fa-graduation-cap color-icon-nav" aria-hidden="true"></i>
         <span class="active"> Liste des Pointages</span>
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="user.role === 'Admin'">
       <a class="nav-link collapsed" routerLink="/admin/list-of-requests">
         <i class="fa fa-envelope-open color-icon-nav" aria-hidden="true"></i>
         <span>Liste des demandes</span>
@@ -77,7 +55,7 @@
 
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="user.role === 'Admin'">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
         aria-controls="collapseTwo">
         <i class="fa fa-users color-icon-nav"></i>
@@ -90,7 +68,7 @@
           <a class="collapse-item" routerLink="/admin/user/students">Etudiants</a>
         </div>
       </div>
-    </li><li class="nav-item">
+    </li><li class="nav-item" *ngIf="user.role === 'Admin'">
       <a class="nav-link collapsed" routerLink="/admin/matter" >
         <i class="fas fa-fw fa-cog color-icon-nav"></i>
         <span>Modules</span>

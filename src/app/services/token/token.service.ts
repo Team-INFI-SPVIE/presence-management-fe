@@ -11,9 +11,19 @@ export class TokenService {
     localStorage.setItem('token', token)
   }
 
+  // isLogged(): boolean {
+  //   const token = localStorage.getItem('token')
+  //   return !! token
+  // }
+
   isLogged(): boolean {
-    const token = localStorage.getItem('token')
-    return !! token
+    const user = localStorage.getItem('user')
+    if (user) {
+      return true
+    } else {
+      return false
+    }
+    // return !! user
   }
 
   clearToken(): void {
