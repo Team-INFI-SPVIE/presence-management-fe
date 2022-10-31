@@ -17,7 +17,7 @@
         role="dialog" aria-labelledby="exampleModalLongsTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header bg-color-yellow">
+                <div class="modal-header btn-primary">
                     <h5 class="modal-title text-white font-weight-bold" id="exampleModalLongs">Ajouter un Professeur
                     </h5>
                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
@@ -28,7 +28,7 @@
                     <div class="row">
                         <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                         <div class="col-lg-12">
-                            <div class="p-5">
+                            <div class="p-3">
                                 <form
                                     class="user"
                                     class="user"
@@ -39,8 +39,8 @@
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <input
-                                                type="text" 
-                                                class="form-control form-control-user" 
+                                                type="text"
+                                                class="form-control form-control-user"
                                                 id="last_name"
                                                 placeholder="Nom"
                                                 [(ngModel)]="form.last_name"
@@ -50,8 +50,8 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <input
-                                                type="text" 
-                                                class="form-control form-control-user" 
+                                                type="text"
+                                                class="form-control form-control-user"
                                                 id="first_name"
                                                 placeholder="Prenom"
                                                 [(ngModel)]="form.first_name"
@@ -61,10 +61,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-sm-12 mb-3 mb-sm-0">
+                                    <div class="row">
+                                        <div class=" form-group  col-sm-6 mb-3 mb-sm-0">
                                             <input
-                                                type="email" 
+                                                type="email"
                                                 class="form-control form-control-user"
                                                 id="email"
                                                 placeholder="Email"
@@ -73,49 +73,35 @@
                                                 name="email"
                                             >
                                         </div>
+                                        <div class=" form-group  col-sm-6 mb-3 mb-sm-0">
+                                          <input
+                                              type="phone"
+                                              class="form-control form-control-user"
+                                              id="phone"
+                                              placeholder="+225 07 01 02 03 04"
+                                              [(ngModel)]="form.phone"
+                                              #phone="ngModel"
+                                              name="phone"
+                                          >
+                                      </div>
                                     </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-sm-12 mb-3 mb-sm-0">
-                                            <input
-                                                type="phone" 
-                                                class="form-control form-control-user"
-                                                id="phone"
-                                                placeholder="+225 07 01 02 03 04"
-                                                [(ngModel)]="form.phone"
-                                                #phone="ngModel"
-                                                name="phone"
-                                            >
-                                        </div>
+                                    <div class="row mt-3">
+
+
+                                      <div class=" form-group  col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="matters" placeholder="Matiere"
+                                          [(ngModel)]="form.matters" #phone="ngModel" name="matters">
+                                      </div>
+
+                                      <div div class="form-group col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user" id="password" placeholder="Mot de pass"
+                                          [(ngModel)]="form.password" #phone="ngModel" name="password">
+                                      </div>
+
                                     </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-sm-12 mb-3 mb-sm-0">
-                                            <input
-                                                type="text" 
-                                                class="form-control form-control-user"
-                                                id="matters"
-                                                placeholder="Matiere"
-                                                [(ngModel)]="form.matters"
-                                                #phone="ngModel"
-                                                name="matters"
-                                            >
-                                        </div>
-                                    </div>
 
-                                    <div class="form-group row">
-                                        <div class="col-sm-12 mb-3 mb-sm-0">
-                                            <input
-                                                type="password" 
-                                                class="form-control form-control-user"
-                                                id="password"
-                                                placeholder="Mot de pass"
-                                                [(ngModel)]="form.password"
-                                                #phone="ngModel"
-                                                name="password"
-                                            >
-                                        </div>
-                                    </div>
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
@@ -135,7 +121,7 @@
 
 
     <div class="card shadow mb-4">
-        <div class="card-header btn-primary  py-3">
+        <div class="card-header bg-color-yellow  py-3">
             <h2 class="m-0 font-weight-bold text-white text-center">Liste des Professeurs</h2>
         </div>
         <div class="card-body">
@@ -146,7 +132,7 @@
                             <th>Photo</th>
                             <th>Nom</th>
                             <th>Prenom</th>
-                            <th>Email</th>
+                            <!-- <th>Email</th> -->
                             <th>Numero</th>
                             <th>Module</th>
                             <th>Actions</th>
@@ -164,7 +150,7 @@
                             </td>
                             <td>{{professor.first_name}}</td>
                             <td>{{professor.last_name}}</td>
-                            <td>{{professor.email}}</td>
+                            <!-- <td>{{professor.email}}</td> -->
                             <td>{{professor.phone}}</td>
                             <td>{{professor.matters}}</td>
                             <td>
@@ -180,7 +166,7 @@
                                         <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
                                     </svg>
                                 </button>
-                        
+
                             </td>
                         </tr>
 
