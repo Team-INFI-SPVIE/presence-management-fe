@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { UserForm, UserForm1 } from 'src/app/interfaces/credentials';
-import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses,Score } from 'src/models/users.model';
+import { map, Observable, switchMap } from 'rxjs';
+import { Score, UserForm, UserForm1 } from 'src/app/interfaces/credentials';
+import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses, } from 'src/models/users.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,11 +28,11 @@ export class ApiService {
         },
         "presences": [
           {
-            "_id": "ssss",
+            "id": "ssss",
             'createdAt': new Date,
             "studentsPresenses": [
               {
-                "_id": "63595b5c6b39f73a0f4b9d1a",
+                "idStudent": "63595b5c6b39f73a0f4b9d1a",
                 "first_name": "Mckenzie",
                 "last_name": "Olson",
                 "email": "goodmanwoodward@verton.com",
@@ -44,7 +44,7 @@ export class ApiService {
                 "endTime": ''
               },
               {
-                "_id": "63595b5c6b39f73a0f4b9d1a",
+                "idStudent": "63595b5c6b39f73a0f4b9d1a",
                 "first_name": "Makissi",
                 "last_name": "Olson",
                 "email": "goodmanwoodward@verton.com",
@@ -56,7 +56,7 @@ export class ApiService {
                 "endTime": ''
               },
               {
-                "_id": "63595b5c6b39f73a0f4b9d1a",
+                "idStudent": "63595b5c6b39f73a0f4b9d1a",
                 "first_name": "Benthe",
                 "last_name": "Olson",
                 "email": "goodmanwoodward@verton.com",
@@ -70,11 +70,11 @@ export class ApiService {
             ]
           },
           {
-            "_id": "ssss",
+            "id": "ssss",
             'createdAt': new Date,
             "studentsPresenses": [
               {
-                "_id": "63595b5c6b39f73a0f4b9d1a",
+                "idStudent": "63595b5c6b39f73a0f4b9d1a",
                 "first_name": "Mckenzie",
                 "last_name": "Olson",
                 "email": "goodmanwoodward@verton.com",
@@ -468,7 +468,7 @@ editProfessor(id: string, formData: UserForm1) {
   addPresences(students: Student[], matter: string, startTime: string, endTime: string) {
     const s: StudentsPresenses[] = students.map((s: Student) => {
       return {
-        _id: s._id,
+        idStudent: s._id,
         first_name: s.first_name,
         last_name: s.last_name,
         email: s.email,
@@ -482,13 +482,155 @@ editProfessor(id: string, formData: UserForm1) {
       }
     })
     const presence : Presence =  {
-      _id: 'this.getprofessors().length.toString()',
+      id: 'this.getprofessors().length.toString()',
+      createdAt: new Date,
+      studentsPresenses: s
+    }
+    this.apiData[0].users.presences.push(presence)
+  }
+
+  addPresences3(students: Student[], matter: string, startTime: string, endTime: string) {
+    const s: StudentsPresenses[] = students.map((s: Student) => {
+      return {
+        idStudent: s._id,
+        first_name: s.first_name,
+        last_name: s.last_name,
+        email: s.email,
+        is_present: s.is_present,
+        role: s.role,
+        phone: s.phone,
+        matter,
+        startTime,
+        endTime,
+        date: new Date,
+      }
+    })
+    const presence : Presence =  {
+      id: Math.floor(Math.random() * 1000).toString(),
+      createdAt: new Date,
+      studentsPresenses: s
+    }
+ 
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(s);
+    console.log('presences; ', presence);
+    
+    return this.http.post('http://localhost:3000/score', presence, {'headers':headers})
+  }
+
+  addFaceSnap2(students: Student[], matter: string, startTime: string, endTime: string): Observable<Presence> {
+
+    const s: StudentsPresenses[] = students.map((s: Student) => {
+      return {
+        idStudent: s._id,
+        first_name: s.first_name,
+        last_name: s.last_name,
+        email: s.email,
+        is_present: s.is_present,
+        role: s.role,
+        phone: s.phone,
+        matter,
+        startTime,
+        endTime,
+        date: new Date,
+      }
+    })
+
+    const presence : Presence =  {
+      id: Math.floor(Math.random() * 1000).toString(),
       createdAt: new Date,
       studentsPresenses: s
     }
 
-    this.apiData[0].users.presences.push(presence)
+    return this.getAllPresenses().pipe(
+        //  map(facesnaps => [...facesnaps].sort((a,b) => a._id - b.id)),
+        //  map(sortedFacesnaps => sortedFacesnaps[sortedFacesnaps.length - 1]),
+        
+        //  map(previousFacesnap => ({
+        //     ...formValue,
+        //     snaps: 0,
+        //     createdDate: new Date(),
+        //     id: previousFacesnap.id + 1
+        // })),
+        switchMap(() => this.http.post<Presence>(
+            'http://localhost:3000/score',
+            presence)
+        )
+    );
+  }
+
+  addPresences2(students: Student[], matter: string, startTime: string, endTime: string) {
+    const s: Score[] = students.map((s: Student) => {
+      return {
+        _id: s._id,
+        picture: "https://via.placeholder.com/150",
+        firstNameStudent: s.first_name,
+        lastNameStudent: s.last_name,
+        idProfessor: `d`,
+        // email: s.email,
+        is_present: s.is_present,
+        // role: s.role,
+        // phoneStudent: s.phone,
+        phoneStudent: "097878664332",
+        matter,
+        startTime,
+        endTime,
+        registered: "2016-07-16T07:11:59 -00:00",
+        // {
+        //   "_id": "63595b5c93d828909beaa667",
+        //   "picture": "https://via.placeholder.com/150",
+        //   "idProfessor" : "635bbd256e766cd2a49d0055",
+        //   "firstNameStudent": "Christa",
+        //   "lastNameStudent": "Alvarez",
+        //   "phoneStudent": "097878664332",
+        //   "matter": "c#",
+        //   "startTime": "8h",
+        //   "endTime":"13h",
+        //   "registered": "2016-07-16T07:11:59 -00:00",
+        //   "is_present": true
+        // },
+      }
+    })
+
+    console.log(s[0]);
     
+    // const presence : Presence =  {
+    //   _id: 'this.getprofessors().length.toString()',
+    //   createdAt: new Date,
+    //   studentsPresenses: s
+    // }
+
+    // console.log('presence Api ');
+    
+
+    // this.apiData[0].users.presences.push(presence)
+
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(s);
+    // console.log(body, 'Benthe')
+    return this.http.post('http://localhost:3000/score', s[0], {'headers':headers})
+  }
+
+  getAllPresenses(): Observable<Presence[]> {
+    return this.http.get<Presence[]>('http://localhost:3000/score');
+  }
+
+  addFaceSnap(formValue: { title: string, description: string, imageUrl: string, location?: string }): Observable<Score> {
+    return this.getAllPresenses().pipe(
+        //  map(facesnaps => [...facesnaps].sort((a,b) => a.id - b.id)),
+        //  map(sortedFacesnaps => sortedFacesnaps[sortedFacesnaps.length - 1]),
+         map(e => ({
+            ...formValue,
+            snaps: 0,
+            createdDate: new Date(),
+            id: '1',
+            date: new Date,  
+        })),
+        switchMap((newFacesnap: any) => this.http.post<Score>(
+            'http://localhost:3000/score',
+            newFacesnap)
+        )
+    );
   }
 
   getAllScrore(): Observable<Score[]> {

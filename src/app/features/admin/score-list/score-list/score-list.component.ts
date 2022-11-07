@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Score } from 'src/app/interfaces/credentials';
 import { ApiService } from 'src/app/services/api/api.service';
-import { Score } from 'src/models/users.model';
 
 
 @Component({

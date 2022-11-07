@@ -55,13 +55,13 @@ export interface ApiData {
   }
 
   export interface Presence {
-    _id: string
+    id: string
     createdAt: Date
     studentsPresenses: StudentsPresenses[]
   }
 
   export class StudentsPresenses {
-    _id!: string
+    idStudent!: string
     first_name!: string
     last_name!: string
     email!: string
@@ -73,16 +73,16 @@ export interface ApiData {
     endTime!: string
     date?: Date
   }
-  export class Score {
-    _id!: string
-    picture!: string
-    idProfessor!: string
-    firstNameStudent!: string
-    lastNameStudent!: string
-    phoneStudent!: string
-    matter!: string
-    is_present!: boolean
-    startTime!: string
-    endTime!: string
-    registered?: Date
-  }
+  // export class Score {
+  //   _id!: string
+  //   picture!: string
+  //   idProfessor!: string
+  //   firstNameStudent!: string
+  //   lastNameStudent!: string
+  //   phoneStudent!: string
+  //   matter!: string
+  //   is_present!: boolean
+  //   startTime!: string
+  //   endTime!: string
+  //   registered?: Date
+  // }

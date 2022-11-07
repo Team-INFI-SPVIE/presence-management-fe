@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, tap } from 'rxjs';
+import { Score } from 'src/app/interfaces/credentials';
 import { ApiService } from 'src/app/services/api/api.service';
 import { Presence, Student } from 'src/models/users.model';
 
@@ -12,9 +14,12 @@ export class PresenceComponent implements OnInit {
 
   students!: Student[]
   presences!: Presence[]
+  scrores!: Observable<Score[]>
+  presences$!: Observable<Score[]>
   matter = ''
   startTime = ''
   endTime = ''
+
 
 
   constructor(
@@ -25,7 +30,10 @@ export class PresenceComponent implements OnInit {
   ngOnInit(): void {
     this.students = this.apiService.getStudents()
     this.presences = this.apiService.getPresences()
+
     this.students.map((students: Student) => students.is_present = false)
+
+    this.presences$ = this.apiService.getAllScrore();
     
   }
 
@@ -47,7 +55,19 @@ export class PresenceComponent implements OnInit {
   }
 
   onSubmit(student: Student[],) {
-    this.apiService.addPresences(student, this.matter, this.startTime, this.endTime)
+    // console.log('student; ', student);
+    
+    // this.apiService.addPresences(student, this.matter, this.startTime, this.endTime)
+
+    // this.apiService.addPresences3(student, this.matter, this.startTime, this.endTime)
+
+    // this.scrores = this.apiService.getAllScrore()
+
+    this.apiService.addFaceSnap2(student, this.matter, this.startTime, this.endTime).pipe(
+      tap(() => this.router.navigate(["admin/presence-management"]))
+  ).subscribe();
+
+    // this.apiService.addFaceSnap()
     this.router.navigate(["admin/presence-management"])
   }
 
