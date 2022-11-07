@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { UserForm1 } from 'src/app/interfaces/credentials';
 import { ApiService } from 'src/app/services/api/api.service';
+import { CrudProfessorService } from 'src/app/services/api/crudProfessor/crud-professor.service';
 import { Professor } from 'src/models/users.model';
 import { EditProfessorComponent } from '../components/edit-professor/edit-professor.component';
 
@@ -14,6 +15,8 @@ import { EditProfessorComponent } from '../components/edit-professor/edit-profes
 export class ProfessorsComponent implements OnInit {
 
   professors! : Professor []
+
+  profLists:any = [];
 
   form : UserForm1 = {
     first_name: '',
@@ -27,17 +30,34 @@ export class ProfessorsComponent implements OnInit {
   modalRef: MdbModalRef<EditProfessorComponent> | null = null;
 
   constructor(
-    private apiService: ApiService,
+    // private apiService: ApiService,
     private router: Router,
     private modalService: MdbModalService,
+    private crudProfessor: CrudProfessorService
   ) { }
 
   ngOnInit(): void {
-    this.professors = this.apiService.getprofessors()
+    // this.professors = this.apiService.getprofessors()
+
+    this.professorList();
   }
+  //professor listProf
+  professorList(){
+    this.crudProfessor.list().subscribe((response)=>{
+      this.profLists = response;
+    },(error=>{
+
+    }));
+  }
+  
+ 
 
   onSubmit(){
-    this.apiService.addprofessor(this.form)
+    // this.apiService.addprofessor(this.form)
+    this.crudProfessor.create(this.form)
+
+    
+
     this.form.first_name = ''
     this.form.last_name = ''
     this.form.email = ''
@@ -53,8 +73,8 @@ export class ProfessorsComponent implements OnInit {
   }
 
   deleteProfessor(id: string) {
-    this.apiService.deletProfessor(id)
-    this.professors = this.apiService.getprofessors()
+    // this.apiService.deletProfessor(id)
+    // this.professors = this.apiService.getprofessors()
   }
 
 }

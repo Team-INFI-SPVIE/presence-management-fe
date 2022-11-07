@@ -26,7 +26,7 @@ export interface ApiData {
   }
 
   export interface Professor {
-    _id: string
+    id: string
     picture: string
     first_name: string
     last_name: string

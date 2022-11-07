@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserForm, UserForm1 } from 'src/app/interfaces/credentials';
-import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses,Score } from 'src/models/users.model';
+import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses, } from 'src/models/users.model';
 
 @Injectable({
   providedIn: 'root'
@@ -91,7 +91,7 @@ export class ApiService {
         ],
         "professors": [
           {
-            "_id": "63595b5c1da39578c6b8218b",
+            "id": "63595b5c1da39578c6b8218b",
             "picture": "http://placehold.it/32x32",
             "first_name": "Jenifer",
             "last_name": "Rivers",
@@ -105,7 +105,7 @@ export class ApiService {
             "phone":"0788665543434"
           },
           {
-            "_id": "63595b5c234a29b9292cfa43",
+            "id": "63595b5c234a29b9292cfa43",
             "picture": "http://placehold.it/32x32",
             "first_name": "Best",
             "last_name": "Robles",
@@ -119,7 +119,7 @@ export class ApiService {
             "phone":"0788665543434"
           },
           {
-            "_id": "63595b5ccde14d7a2344b05e",
+            "id": "63595b5ccde14d7a2344b05e",
             "picture": "http://placehold.it/32x32",
             "first_name": "Angelina",
             "last_name": "Tran",
@@ -133,7 +133,7 @@ export class ApiService {
             "phone":"0788665543434"
           },
           {
-            "_id": "63595b5c775ef265d13d39e7",
+            "id": "63595b5c775ef265d13d39e7",
             "picture": "http://placehold.it/32x32",
             "first_name": "Good",
             "last_name": "Donaldson",
@@ -147,7 +147,7 @@ export class ApiService {
             "phone":"0788665543434"
           },
           {
-            "_id": "63595b5c77951417ecfe2725",
+            "id": "63595b5c77951417ecfe2725",
             "picture": "http://placehold.it/32x32",
             "first_name": "Lola",
             "last_name": "Lang",
@@ -161,7 +161,7 @@ export class ApiService {
             "phone":"0788665543434"
           },
           {
-            "_id": "63595b5cf36f2ae24cb9c990",
+            "id": "63595b5cf36f2ae24cb9c990",
             "picture": "http://placehold.it/32x32",
             "first_name": "Stanley",
             "last_name": "Mcfadden",
@@ -175,7 +175,7 @@ export class ApiService {
             "phone":"0788665543434"
           },
           {
-            "_id": "63595b5c6f77facfc2e527a6",
+            "id": "63595b5c6f77facfc2e527a6",
             "picture": "http://placehold.it/32x32",
             "first_name": "Leila",
             "last_name": "Bartlett",
@@ -397,7 +397,7 @@ export class ApiService {
 
   addprofessor(formData1: UserForm1) {
     const professors : Professor =  {
-      _id: this.getprofessors().length.toString(),
+      id: this.getprofessors().length.toString(),
       picture: '',
       first_name: formData1.first_name,
       last_name:formData1.last_name,
@@ -419,7 +419,7 @@ export class ApiService {
     return this.apiData[0].users.professors.find(
       (professor: Professor) => {
 
-        return professor._id === id
+        return professor.id === id
       }
     )
 
@@ -447,7 +447,7 @@ editProfessor(id: string, formData: UserForm1) {
       throw new Error(" User NotFoundComponent")
     }
 
-    this.apiData[0].users.professors = this.apiData[0].users.professors.filter((professor: Professor) => professor._id !== id)
+    this.apiData[0].users.professors = this.apiData[0].users.professors.filter((professor: Professor) => professor.id !== id)
     
   }
 
@@ -489,10 +489,6 @@ editProfessor(id: string, formData: UserForm1) {
 
     this.apiData[0].users.presences.push(presence)
     
-  }
-
-  getAllScrore(): Observable<Score[]> {
-    return this.http.get<Score[]>('http://localhost:3000/score');
   }
 
   // resetPrecence() {
