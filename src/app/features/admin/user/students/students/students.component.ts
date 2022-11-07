@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { Observable } from 'rxjs';
 import { UserForm } from 'src/app/interfaces/credentials';
 import { ApiService } from 'src/app/services/api/api.service';
 import { Student } from 'src/models/users.model';
@@ -15,6 +16,7 @@ import { ModalContentComponent } from '../components/modal-content/modal-content
 export class StudentsComponent implements OnInit {
 
   students!: Student[]
+  students$!: Observable<Student[]>
 
   form: UserForm = {
     first_name: '',
@@ -34,6 +36,7 @@ export class StudentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.students = this.apiService.getStudents()
+    this.students$ = this.apiService.getAllStudent()
   }
 
   onSubmit(){
