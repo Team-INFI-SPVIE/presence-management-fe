@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-center mb-4" >
-        <h1 class="h3 mb-0 text-dark badge ">Gestion des Présences</h1>
+        <h1 class="h3 mb-0 text-dark badge ">Gestion des Présencessssss</h1>
     </div>
 
     <div class="my-4">
@@ -102,43 +102,33 @@
                     </thead>
 
                     <tbody>
-                        <tr>
+                        <tr *ngFor="let scr of scrores |async">
                             <td>
-                                <img src="https://bigdataci.net/storage/photos/0UKpM7a15oI11obrDqyqtKwDMh9PLdLSgmCb4Hw6.png" alt="" srcset="" style="width: 60px;height: 60px;">
+                                <img src="{{scr.picture}}" alt="" srcset="" style="width: 60px;height: 60px;">
+                                <!--  -->
                             </td>
-                            <td>Aube MBALI</td>
-                            <td>0748753781</td>
-                            <td>System Architect</td>
+                            <td>
+                                {{ scr.firstNameStudent }} -   {{ scr.lastNameStudent }}
+                            </td>
+                            <td>{{ scr.phoneStudent }}</td>
+                            <td>
+                                {{ scr.matter }}
+                            </td>
                             <td>
                                 <span class="badge badge-primary">
-                                    8h  -   12h
+                                    {{ scr.startTime }}  -   {{ scr.endTime }}
                                 </span>
                             </td>
-                            <td>18-06-2001</td>
-                            <td>
-                                <span class="badge badge-success">Present</span>
+                            <td>{{scr.registered  }}</td>
+                            <td *ngIf="scr.is_present">
+                                <span class="badge badge-success">Present(e)</span>
+                            </td>
+                            <td *ngIf="!scr.is_present">
+                                <span class="badge badge-danger">Absent(e)</span>
                             </td>
 
                         </tr>
-                        <tr>
-                            <td>
-                                <img src="https://bigdataci.net/dist/images/defaut.png" alt="" srcset="" style="width: 60px;height: 60px;">
-                            </td>
-                            <td>Tiger Nixon</td>
-                            <td>054237815</td>
-                            <td>System Architect</td>
-                            <td>
-                                <span class="badge badge-primary">
-                                    8h - 12h
-                                </span>
-                            </td>
-                            <td>18-06-2001</td>
-                            <td>
-                                <span class="badge badge-danger">Absent</span>
-                            </td>
-
-                        </tr>
-
+                       
                     </tbody>
                 </table>
             </div>

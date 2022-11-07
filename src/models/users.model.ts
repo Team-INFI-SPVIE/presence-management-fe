@@ -73,3 +73,16 @@ export interface ApiData {
     endTime!: string
     date?: Date
   }
+  export class Score {
+    _id!: string
+    picture!: string
+    idProfessor!: string
+    firstNameStudent!: string
+    lastNameStudent!: string
+    phoneStudent!: string
+    matter!: string
+    is_present!: boolean
+    startTime!: string
+    endTime!: string
+    registered?: Date
+  }

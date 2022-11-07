@@ -142,7 +142,7 @@
                     </thead>
 
                     <tbody>
-                        <tr *ngFor="let student of students">
+                        <tr *ngFor="let student of students$ | async">
                             <td>
                                 <img
                                     [src]="student.picture"

@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { UserForm, UserForm1 } from 'src/app/interfaces/credentials';
-import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses } from 'src/models/users.model';
+import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses,Score } from 'src/models/users.model';
 
 @Injectable({
   providedIn: 'root'
@@ -322,10 +324,16 @@ export class ApiService {
       }
     }
   ]
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getStudents(): Student[] {
     return this.apiData[0].users.students;
+  }
+  // http://localhost:3000/users?role=Student
+  
+
+  getAllStudent(): Observable<Student[]> {
+    return this.http.get<Student[]>('http://localhost:3000/users?role=Student');
   }
 
   addStudent(formData: UserForm) {
@@ -481,6 +489,10 @@ editProfessor(id: string, formData: UserForm1) {
 
     this.apiData[0].users.presences.push(presence)
     
+  }
+
+  getAllScrore(): Observable<Score[]> {
+    return this.http.get<Score[]>('http://localhost:3000/score');
   }
 
   // resetPrecence() {
