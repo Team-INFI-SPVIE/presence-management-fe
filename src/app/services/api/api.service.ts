@@ -465,171 +465,54 @@ editProfessor(id: string, formData: UserForm1) {
     return this.apiData[0].users.presences[len-1].studentsPresenses
   }
 
-  addPresences(students: Student[], matter: string, startTime: string, endTime: string) {
-    const s: StudentsPresenses[] = students.map((s: Student) => {
-      return {
-        idStudent: s._id,
-        first_name: s.first_name,
-        last_name: s.last_name,
-        email: s.email,
-        is_present: s.is_present,
-        role: s.role,
-        phone: s.phone,
-        matter,
-        startTime,
-        endTime,
-        date: new Date,
-      }
-    })
-    const presence : Presence =  {
-      id: 'this.getprofessors().length.toString()',
-      createdAt: new Date,
-      studentsPresenses: s
-    }
-    this.apiData[0].users.presences.push(presence)
-  }
-
-  addPresences3(students: Student[], matter: string, startTime: string, endTime: string) {
-    const s: StudentsPresenses[] = students.map((s: Student) => {
-      return {
-        idStudent: s._id,
-        first_name: s.first_name,
-        last_name: s.last_name,
-        email: s.email,
-        is_present: s.is_present,
-        role: s.role,
-        phone: s.phone,
-        matter,
-        startTime,
-        endTime,
-        date: new Date,
-      }
-    })
-    const presence : Presence =  {
-      id: Math.floor(Math.random() * 1000).toString(),
-      createdAt: new Date,
-      studentsPresenses: s
-    }
- 
-    const headers = { 'content-type': 'application/json'}  
-    const body=JSON.stringify(s);
-    console.log('presences; ', presence);
-    
-    return this.http.post('http://localhost:3000/score', presence, {'headers':headers})
-  }
-
-  addFaceSnap2(students: Student[], matter: string, startTime: string, endTime: string): Observable<Presence> {
-
-    const s: StudentsPresenses[] = students.map((s: Student) => {
-      return {
-        idStudent: s._id,
-        first_name: s.first_name,
-        last_name: s.last_name,
-        email: s.email,
-        is_present: s.is_present,
-        role: s.role,
-        phone: s.phone,
-        matter,
-        startTime,
-        endTime,
-        date: new Date,
-      }
-    })
-
-    const presence : Presence =  {
-      id: Math.floor(Math.random() * 1000).toString(),
-      createdAt: new Date,
-      studentsPresenses: s
-    }
-
-    return this.getAllPresenses().pipe(
-        //  map(facesnaps => [...facesnaps].sort((a,b) => a._id - b.id)),
-        //  map(sortedFacesnaps => sortedFacesnaps[sortedFacesnaps.length - 1]),
-        
-        //  map(previousFacesnap => ({
-        //     ...formValue,
-        //     snaps: 0,
-        //     createdDate: new Date(),
-        //     id: previousFacesnap.id + 1
-        // })),
-        switchMap(() => this.http.post<Presence>(
-            'http://localhost:3000/score',
-            presence)
-        )
-    );
-  }
-
-  addPresences2(students: Student[], matter: string, startTime: string, endTime: string) {
-    const s: Score[] = students.map((s: Student) => {
-      return {
-        _id: s._id,
-        picture: "https://via.placeholder.com/150",
-        firstNameStudent: s.first_name,
-        lastNameStudent: s.last_name,
-        idProfessor: `d`,
-        // email: s.email,
-        is_present: s.is_present,
-        // role: s.role,
-        // phoneStudent: s.phone,
-        phoneStudent: "097878664332",
-        matter,
-        startTime,
-        endTime,
-        registered: "2016-07-16T07:11:59 -00:00",
-        // {
-        //   "_id": "63595b5c93d828909beaa667",
-        //   "picture": "https://via.placeholder.com/150",
-        //   "idProfessor" : "635bbd256e766cd2a49d0055",
-        //   "firstNameStudent": "Christa",
-        //   "lastNameStudent": "Alvarez",
-        //   "phoneStudent": "097878664332",
-        //   "matter": "c#",
-        //   "startTime": "8h",
-        //   "endTime":"13h",
-        //   "registered": "2016-07-16T07:11:59 -00:00",
-        //   "is_present": true
-        // },
-      }
-    })
-
-    console.log(s[0]);
-    
-    // const presence : Presence =  {
-    //   _id: 'this.getprofessors().length.toString()',
-    //   createdAt: new Date,
-    //   studentsPresenses: s
-    // }
-
-    // console.log('presence Api ');
-    
-
-    // this.apiData[0].users.presences.push(presence)
-
-    const headers = { 'content-type': 'application/json'}  
-    const body=JSON.stringify(s);
-    // console.log(body, 'Benthe')
-    return this.http.post('http://localhost:3000/score', s[0], {'headers':headers})
-  }
-
   getAllPresenses(): Observable<Presence[]> {
     return this.http.get<Presence[]>('http://localhost:3000/score');
   }
 
-  addFaceSnap(formValue: { title: string, description: string, imageUrl: string, location?: string }): Observable<Score> {
+  getLatestPresense(): Observable<Presence> {
+
+    let id!: string
     return this.getAllPresenses().pipe(
-        //  map(facesnaps => [...facesnaps].sort((a,b) => a.id - b.id)),
-        //  map(sortedFacesnaps => sortedFacesnaps[sortedFacesnaps.length - 1]),
-         map(e => ({
-            ...formValue,
-            snaps: 0,
-            createdDate: new Date(),
-            id: '1',
-            date: new Date,  
-        })),
-        switchMap((newFacesnap: any) => this.http.post<Score>(
-            'http://localhost:3000/score',
-            newFacesnap)
-        )
+         map(resences => {
+          id = resences[resences.length - 1].id
+         }),
+        switchMap(() => this.http.get<Presence>(`http://localhost:3000/score/${id}`))
+    );
+  }
+
+  getPresenceById(presenceId: string): Observable<Presence> {
+    return this.http.get<Presence>(`http://localhost:3000/score/${presenceId}`);
+  }
+
+  addPresenses(students: Student[], matter: string, startTime: string, endTime: string): Observable<Presence> {
+
+    const s: StudentsPresenses[] = students.map((s: Student) => {
+      return {
+        idStudent: s._id,
+        first_name: s.first_name,
+        last_name: s.last_name,
+        email: s.email,
+        is_present: s.is_present,
+        role: s.role,
+        phone: s.phone,
+        matter,
+        startTime,
+        endTime,
+        date: new Date,
+      }
+    })
+
+    const presence : Presence =  {
+      id: Math.floor(Math.random() * 1000).toString(),
+      createdAt: new Date,
+      studentsPresenses: s
+    }
+
+    return this.getAllPresenses().pipe(
+      switchMap( () => this.http.post<Presence>(
+        'http://localhost:3000/score',
+        presence
+      ))
     );
   }
 
@@ -637,11 +520,4 @@ editProfessor(id: string, formData: UserForm1) {
     return this.http.get<Score[]>('http://localhost:3000/score');
   }
 
-  // resetPrecence() {
-  //   let arr = this.apiData[0].users.students
-
-  //   arr.map((student: Student) => student.is_present = false)
-
-    
-  // }
 }

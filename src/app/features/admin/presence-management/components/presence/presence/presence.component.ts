@@ -55,29 +55,14 @@ export class PresenceComponent implements OnInit {
   }
 
   onSubmit(student: Student[],) {
-    // console.log('student; ', student);
-    
-    // this.apiService.addPresences(student, this.matter, this.startTime, this.endTime)
 
-    // this.apiService.addPresences3(student, this.matter, this.startTime, this.endTime)
-
-    // this.scrores = this.apiService.getAllScrore()
-
-    this.apiService.addFaceSnap2(student, this.matter, this.startTime, this.endTime).pipe(
+    this.apiService.addPresenses(student, this.matter, this.startTime, this.endTime).pipe(
       tap(() => this.router.navigate(["admin/presence-management"]))
-  ).subscribe();
-
-    // this.apiService.addFaceSnap()
-    this.router.navigate(["admin/presence-management"])
+      ).subscribe();
   }
 
   goBack() {
     this.router.navigate(["admin/presence-management"])
   }
-
-  
-//   onChange(event: Event) {
-//     console.log(event.target.value);
-//  }
 
 }
