@@ -25,8 +25,22 @@ export interface UserForm {
     email: string;
     phone: string;
     password: string;
-    picture:string
-}
+  }
+
+  export interface Score {
+    _id: string
+    picture: string
+    idProfessor: string
+    firstNameStudent: string
+    lastNameStudent: string
+    phoneStudent: string
+    matter: string
+    startTime: string
+    endTime: string
+    registered: string
+    is_present: boolean
+  }
+
 export interface UserForm4 {
   object: string;
   startTime: string;
