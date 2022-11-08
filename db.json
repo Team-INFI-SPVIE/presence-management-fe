@@ -2,93 +2,88 @@
   "users": [
     {
       "id": "635bbd25e2b46c36035c22e2",
-      "picture": "http://placehold.it/32x32",
-      "first_name": "Karina",
-      "last_name": "Cunningham",
+      "picture": "https://via.placeholder.com/150",
+      "first_name": "Admin",
+      "last_name": "Admin",
       "email": "admin@infisoftware.net",
       "role": "Admin",
       "password": "123456789",
       "registered": "2022-02-11T01:40:28 -00:00"
     },
     {
-      "id": "635bbd256e766cd2a49d0055",
-      "picture": "http://placehold.it/32x32",
+      "_id": "635bbd256e766cd2a49d0055",
+      "picture": "https://via.placeholder.com/150",
       "first_name": "Melva",
       "last_name": "Warren",
       "email": "student@infisoftware.net",
       "phone": "+225 (817) 590-3640",
-      "role": "Student",
+      "email": "teacher@infisoftware.net",
+      "phone": "+225 (817) 590-3640",
+      "role": "Teacher",
       "password": "123456789",
       "registered": "2022-07-05T05:42:46 -00:00"
     },
     {
-      "first_name": "Evarist",
-      "last_name": "mali",
-      "email": "evarist@infisoftware.net",
+      "_id": "635bbd252e6b8566a85aec90",
+      "picture": "https://via.placeholder.com/150",
+      "first_name": "Valeria",
+      "last_name": "Perez",
+      "email": "studeent@infisoftware.net",
+      "role": "Student",
+      "phone": "+225 (990) 445-2832",
+      "is_present": false,
+      "password": "123456789",
+      "registered": "2022-07-06T07:19:32 -00:00"
+    },
+    {
+      "_id": "635bbd252e6b8566a75aec91",
+      "picture": "https://via.placeholder.com/150",
+      "first_name": "Aube",
+      "last_name": "MBALI",
+      "email": "aube@infisoftware.net",
+      "role": "Student",
       "phone": "+225 (990) 445-2832",
       "password": "123456789",
-      "id": "635cbd252e5b8566a75aec91"
+      "registered": "2022-07-06T07:19:32 -00:00"
     },
     {
-      "first_name": "kkkkkk",
-      "last_name": "gar",
-      "email": "057474763536",
-      "phone": "057474763536",
-      "password": "KHHHII",
-      "id": "32"
-    },
-    {
-      "first_name": "amir",
-      "last_name": "amira",
-      "email": "057474763536",
-      "phone": "057474763536",
-      "password": "KHHHII",
-      "id": "709"
-    },
-    {
-      "picture": "",
-      "first_name": "iioooo",
-      "last_name": "kol",
-      "full_name": "",
-      "email": "057474763536",
+      "_id": "635cbd252e5b8566a75aec91",
+      "picture": "https://via.placeholder.com/150",
+      "first_name": "Evarist",
+      "last_name": "sah",
+      "email": "evarist@infisoftware.net",
       "role": "Student",
-      "password": "KHHHII",
-      "registered": "Tue Nov 08 2022 11:40:28 GMT+0100 (heure normale d’Europe centrale)",
-      "phone": "057474763536",
-      "is_present": false,
-      "id": "788"
+      "phone": "+225 (990) 445-2832",
+      "password": "123456789",
+      "registered": "2022-07-06T07:19:32 -00:00"
     },
     {
-      "id": "662",
+      "first_name": "Sah",
+      "last_name": "Aube 1",
+      "email": "aube@infisoftware.net",
+      "phone": "+225 (817) 590-3640",
+      "password": "123456789",
+      "id": "635bbd256e726cd2a49d0055"
+    },
+    {
+      "id": "832",
       "picture": "",
-      "first_name": "calio",
-      "last_name": "aka",
+      "first_name": "Aube ",
+      "last_name": "Michelle ",
       "full_name": "",
-      "email": "057474763536",
-      "role": "Student",
-      "password": "KHHHII",
-      "registered": "Tue Nov 08 2022 08:05:20 GMT+0100 (heure normale d’Europe centrale)",
-      "phone": "057474763536",
-      "is_present": false
+      "email": "teacher@infisoftware.net",
+      "about": "",
+      "role": "Teacher",
+      "matters": "Db ",
+      "password": "",
+      "registered": "Tue Nov 08 2022 07:30:02 GMT+0000 (temps universel coordonné)",
+      "phone": "0123456789"
     },
     {
-      "id": "597",
+      "id": "784",
       "picture": "",
-      "first_name": "mol",
-      "last_name": "kakou",
-      "full_name": "",
-      "email": "057474763536",
-      "role": "Student",
-      "password": "KHHHII",
-      "registered": "Tue Nov 08 2022 08:08:28 GMT+0100 (heure normale d’Europe centrale)",
-      "phone": "057474763536",
-      "is_present": false
-    },
-    {
-      "id": "758",
-      "picture": "",
-      "first_name": "fffff",
-      "last_name": "ffffffff",
+      "first_name": "Evarist",
+      "last_name": "Evarist  ",
       "full_name": "",
       "email": "057474763536",
       "role": "Student",
@@ -148,33 +143,26 @@
       "phone": "057474763536",
       "is_present": false,
       "id": "26DYCGg"
-    },
-    {
-      "picture": "",
-      "first_name": "koama",
-      "last_name": "masel",
-      "full_name": "",
-      "email": "maks@gmail.com",
-      "role": "Student",
-      "password": "MMMMMMMMMMMMM",
-      "registered": "Tue Nov 08 2022 16:22:30 GMT+0100 (heure normale d’Europe centrale)",
-      "phone": "057474763536",
-      "is_present": false,
-      "id": "F4aPEWu"
     }
   ],
   "matter": [
     {
-      "_id": "635bbd25e2b56c36035c22e2",
+      "id": "635bbd25e2b56c36035c22e2",
       "name": "C#"
     },
     {
-      "_id": "635bbd25e2b56c36030c22e2",
+      "id": "635bbd25e2b56c36030c22e2",
       "name": "Angular"
     },
     {
-      "_id": "635bbd25f2b56c36030c22e2",
+      "id": "635bbd25f2b56c36030c22e2",
       "name": "Bootstrap"
+    },
+    {
+      "id": "713",
+      "name": "Evarist Evarist",
+      "nameAdmin": "Admin",
+      "registered": "Tue Nov 08 2022 16:33:59 GMT+0000 (temps universel coordonné)"
     }
   ],
   "score": [
@@ -206,7 +194,7 @@
     },
     {
       "_id": "63545b1c93d828909beaa667",
-      "picture": "http://placehold.it/32x32",
+      "picture": "https://via.placeholder.com/150",
       "idProfessor": "635bbd256e766cd2a49d0055",
       "firstNameStudent": "Diallo",
       "lastNameStudent": "Sah",
@@ -219,7 +207,7 @@
     },
     {
       "_id": "63545b1c93d828909beaa667",
-      "picture": "http://placehold.it/32x32",
+      "picture": "https://via.placeholder.com/150",
       "idProfessor": "635bbd256e766cd2a49d0055",
       "firstNameStudent": "Bah",
       "lastNameStudent": "Alain",

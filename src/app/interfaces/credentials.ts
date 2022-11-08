@@ -25,14 +25,17 @@ export interface UserForm {
     email: string;
     phone: string;
     password: string;
+    picture:string
 }
 export interface UserForm4 {
   object: string;
-  
   startTime: string;
   endTime: string;
   message: string;
-  
-  
   piecejointe: string
 }
+
+export interface Matter {
+  name: string;
+}
+

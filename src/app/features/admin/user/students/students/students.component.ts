@@ -23,7 +23,6 @@ export class StudentsComponent implements OnInit {
 
 
   form: UserForm = {
-    
     first_name: '',
     last_name: '',
     email: '',
@@ -38,13 +37,11 @@ export class StudentsComponent implements OnInit {
     private apiService: ApiService,
     private router: Router,
     private crudStudent: CrudStudentService
-
   ) { }
 
+
   ngOnInit(): void {
-   
     this.students = this.crudStudent.list()
-  
   }
 
   onSubmit() {
