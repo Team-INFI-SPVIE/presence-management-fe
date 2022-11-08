@@ -23,7 +23,6 @@ export class StudentsComponent implements OnInit {
 
 
   form: UserForm = {
-    
     first_name: '',
     last_name: '',
     email: '',
@@ -37,19 +36,12 @@ export class StudentsComponent implements OnInit {
     private modalService: MdbModalService,
     private apiService: ApiService,
     private router: Router,
-<<<<<<< HEAD
     private crudStudent: CrudStudentService
 
   ) { }
-=======
-    
-  ) {}
->>>>>>> dev
 
   ngOnInit(): void {
-   
     this.students = this.crudStudent.list()
-  
   }
 
   onSubmit() {
@@ -102,9 +94,7 @@ deletes(id:any){
   //deleteStudent(id: string) {
    // this.apiService.deletStudent(id)
     // this.students = this.apiService.getStudents()
-  }
+}
   //supStudent(id: string) {
-
-  
 
 

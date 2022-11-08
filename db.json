@@ -11,7 +11,7 @@
       "registered": "2022-02-11T01:40:28 -00:00"
     },
     {
-      "_id": "635bbd256e766cd2a49d0055",
+      "id": "635bbd256e766cd2a49d0055",
       "picture": "https://via.placeholder.com/150",
       "first_name": "Melva",
       "last_name": "Warren",
@@ -22,7 +22,7 @@
       "registered": "2022-07-05T05:42:46 -00:00"
     },
     {
-      "_id": "635bbd252e6b8566a85aec90",
+      "id": "635bbd252e6b8566a85aec90",
       "picture": "https://via.placeholder.com/150",
       "first_name": "Valeria",
       "last_name": "Perez",
@@ -34,26 +34,17 @@
       "registered": "2022-07-06T07:19:32 -00:00"
     },
     {
-      "_id": "635bbd252e6b8566a75aec91",
-      "picture": "https://via.placeholder.com/150",
+      "picture": "",
       "first_name": "Aube",
-      "last_name": "MBALI",
+      "last_name": "MBALI 5",
+      "full_name": "",
       "email": "aube@infisoftware.net",
       "role": "Student",
-      "phone": "+225 (990) 445-2832",
       "password": "123456789",
-      "registered": "2022-07-06T07:19:32 -00:00"
-    },
-    {
-      "_id": "635cbd252e5b8566a75aec91",
-      "picture": "https://via.placeholder.com/150",
-      "first_name": "Evarist",
-      "last_name": "sah",
-      "email": "evarist@infisoftware.net",
-      "role": "Student",
+      "registered": "Tue Nov 08 2022 16:52:23 GMT+0100 (heure normale d’Europe centrale)",
       "phone": "+225 (990) 445-2832",
-      "password": "123456789",
-      "registered": "2022-07-06T07:19:32 -00:00"
+      "is_present": false,
+      "id": "635bbd252e6b8566a75aec91"
     },
     {
       "first_name": "Sah",
@@ -94,10 +85,6 @@
   ],
   "matter": [
     {
-      "id": "635bbd25e2b56c36035c22e2",
-      "name": "C#"
-    },
-    {
       "id": "635bbd25e2b56c36030c22e2",
       "name": "Angular"
     },
@@ -114,7 +101,7 @@
   ],
   "score": [
     {
-      "_id": "63595b5c93d828909beaa667",
+      "id": "63595b5c93d828909beaa667",
       "picture": "https://via.placeholder.com/150",
       "idProfessor": "635bbd256e766cd2a49d0055",
       "firstNameStudent": "Christa",
@@ -127,7 +114,7 @@
       "is_present": true
     },
     {
-      "_id": "63545b5c93d828909beaa667",
+      "id": "63545b5c93d828909beaa667",
       "picture": "https://bigdataci.net/storage/photos/0UKpM7a15oI11obrDqyqtKwDMh9PLdLSgmCb4Hw6.png",
       "idProfessor": "635bbd256e766cd2a49d0055",
       "firstNameStudent": "Aube",
@@ -140,7 +127,7 @@
       "is_present": true
     },
     {
-      "_id": "63545b1c93d828909beaa667",
+      "id": "63545b1c93d828909beaa667",
       "picture": "https://via.placeholder.com/150",
       "idProfessor": "635bbd256e766cd2a49d0055",
       "firstNameStudent": "Diallo",
@@ -153,7 +140,7 @@
       "is_present": false
     },
     {
-      "_id": "63545b1c93d828909beaa667",
+      "id": "63545b1c93d828909beaa667",
       "picture": "https://via.placeholder.com/150",
       "idProfessor": "635bbd256e766cd2a49d0055",
       "firstNameStudent": "Bah",
