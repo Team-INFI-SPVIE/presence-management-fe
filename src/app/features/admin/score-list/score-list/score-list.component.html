@@ -1,14 +1,14 @@
 <div class="container-fluid">
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4" >
-        <h1 class="h3 mb-0 text-white-800 badge bg-gradient-primary">Gestion des Présences</h1>
+    <div class="d-sm-flex align-items-center justify-content-center mb-4" >
+        <h1 class="h3 mb-0 text-dark badge ">Gestion des Présencessssss</h1>
     </div>
-    
+
     <div class="my-4">
-        <div class="row py-4 justify-content-center">
-            <div class="col-lg-6">
+        <div class="row py-3 justify-content-center">
+            <div class="col-lg-7 ">
                 <div class="text-center ">
-                    <h1 class="h4 text-gray-900 mb-4">Filtrage avancé</h1>
+                    <h1 class="h4 color-icon-nav mb-4">Filtrage avancé</h1>
                 </div>
                 <form class="user">
                     <div class="form-group row">
@@ -24,7 +24,7 @@
                             </select>
                         </div>
                     </div>
-                   
+
                     <div class="row py-4">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                            <div class="form-group ">
@@ -72,18 +72,18 @@
                             <input type="date" class="form-control " id="exampleLastName" placeholder="Date ">
                         </div>
                     </div>
-                  
+
                     <a href="#" class="btn btn-user btn-block text-white" style="background-color: rgb(4,41,84) !important;">
                         <i class="fa fa-check" aria-hidden="true"></i>
                         Valider
                     </a>
-                   
+
                 </form>
             </div>
         </div>
     </div>
     <div class="card shadow mb-4 my-5">
-        <div class="card-header bg-gradient-primary py-3">
+        <div class="card-header bg-color-yellow py-3">
             <h2 class="m-0 font-weight-bold text-white text-center">Liste des Pointages</h2>
         </div>
         <div class="card-body">
@@ -98,45 +98,35 @@
                             <th>Interval d'heure</th>
                             <th>Date</th>
                             <th>Statut</th>
-                            
+
                     </thead>
-                    
+
                     <tbody>
-                        <tr>
+                        <tr *ngFor="let scr of scrores |async">
                             <td>
-                                <img src="https://bigdataci.net/storage/photos/0UKpM7a15oI11obrDqyqtKwDMh9PLdLSgmCb4Hw6.png" alt="" srcset="" style="width: 60px;height: 60px;">
+                                <img src="{{scr.picture}}" alt="" srcset="" style="width: 60px;height: 60px;">
+                                <!--  -->
                             </td>
-                            <td>Aube MBALI</td>
-                            <td>0748753781</td>
-                            <td>System Architect</td>
                             <td>
-                                <span class="badge badge-primary">
-                                    8h  -   12h
-                                </span>
+                                {{ scr.firstNameStudent }} -   {{ scr.lastNameStudent }}
                             </td>
-                            <td>18-06-2001</td>
+                            <td>{{ scr.phoneStudent }}</td>
                             <td>
-                                <span class="badge badge-success">Present</span>
+                                {{ scr.matter }}
                             </td>
-                           
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="https://bigdataci.net/dist/images/defaut.png" alt="" srcset="" style="width: 60px;height: 60px;">
-                            </td>
-                            <td>Tiger Nixon</td>
-                            <td>054237815</td>
-                            <td>System Architect</td>
                             <td>
                                 <span class="badge badge-primary">
-                                    8h - 12h
+                                    {{ scr.startTime }}  -   {{ scr.endTime }}
                                 </span>
                             </td>
-                            <td>18-06-2001</td>
-                            <td>
-                                <span class="badge badge-danger">Absent</span>
+                            <td>{{scr.registered  }}</td>
+                            <td *ngIf="scr.is_present">
+                                <span class="badge badge-success">Present(e)</span>
                             </td>
-                           
+                            <td *ngIf="!scr.is_present">
+                                <span class="badge badge-danger">Absent(e)</span>
+                            </td>
+
                         </tr>
                        
                     </tbody>

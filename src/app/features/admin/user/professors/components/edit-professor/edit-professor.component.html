@@ -1,0 +1,59 @@
+<div >
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header btn-primary">
+                <h5 class="modal-title text-white font-weight-bold">Modifier un professeur
+                </h5>
+            </div>
+            <div class="modal-body">
+                <form class="user" name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="text" name="last_name" class="form-control form-control-user" id="last_name"
+                                placeholder="Nom" [(ngModel)]="form.last_name" #last_name="ngModel">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" name="first_name" class="form-control form-control-user" id="first_name"
+                                placeholder="Prenom" [(ngModel)]="form.first_name" #first_name="ngModel">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <input type="email" name="email" class="form-control form-control-user" id="email"
+                                placeholder="Email" [(ngModel)]="form.email" #last_name="ngModel">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <input type="text" name="matters" class="form-control form-control-user" id="matters"
+                                placeholder="Matiere" [(ngModel)]="form.matters" #last_name="ngModel">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <input type="phone" name="phone" class="form-control form-control-user" id="phone"
+                                placeholder="Phone" [(ngModel)]="form.phone" #last_name="ngModel">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <input type="password" name="password" class="form-control form-control-user" id="password"
+                                placeholder="Password" [(ngModel)]="form.password" #last_name="ngModel">
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" (click)="close()">Fermer</button>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

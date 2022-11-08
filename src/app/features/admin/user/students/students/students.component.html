@@ -1,136 +1,179 @@
-    <div class="container-fluid">
 
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4" >
-            <h1 class="h3 mb-0 text-gray-800">Gestion des Etudiants</h1>
-            <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalLongs">Créer un compte Etudiant</button>
-        </div>
-        
+<div class="container-fluid">
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModalLongs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongsTitle" aria-hidden="true">
-            <div class="modal-dialog " role="document">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Gestion des Etudiants</h1>
+        <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModalLongs"
+        >Créer un compte Professeur
+        </button>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLongs" data-backdrop="static" tabindex="-1" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="exampleModalLongsTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <div class="modal-header bg-color-yellow ">
+                    <h5 class="modal-title text-white font-weight-bold" id="exampleModalLongs">Créer un compte Etudiant
+                    </h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
                         <div class="col-lg-12">
-                            <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Etudiants</h1>
-                                </div>
-                                <form class="user">
+                            <div class="p-2">
+                                <form
+                                    class="user"
+                                    name="form"
+                                    class="user"
+                                    #f="ngForm"
+                                    (ngSubmit)="f.form.valid && onSubmit()"
+                                >
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                                placeholder="Nom">
+                                            <input
+                                                type="text"
+                                                name="last_name"
+                                                class="form-control form-control-user"
+                                                id="last_name"
+                                                placeholder="Nom"
+                                                [(ngModel)]="form.last_name"
+                                                #last_name="ngModel"
+                                            >
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                                placeholder="Prenom">
+                                            <input
+                                                type="text"
+                                                name="first_name"
+                                                class="form-control form-control-user"
+                                                id="first_name"
+                                                placeholder="Prenom"
+                                                [(ngModel)]="form.first_name"
+                                                #first_name="ngModel"
+                                            >
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+
+                                    <div class="row mt-3">
+                                        <div class="form-group  col-sm-6 mb-3 mb-sm-0">
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                class="form-control form-control-user"
+                                                id="email"
+                                                placeholder="Email"
+                                                [(ngModel)]="form.email"
+                                                #last_name="ngModel"
+                                            >
+                                        </div>
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                          <input
+                                              type="phone"
+                                              name="phone"
+                                              class="form-control form-control-user"
+                                              id="phone"
+                                              placeholder="Phone"
+                                              [(ngModel)]="form.phone"
+                                              #last_name="ngModel"
+                                          >
+
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="form-group row mt-3" >
                                         <div class="col-sm-12 mb-3 mb-sm-0">
-                                            <div class="form-group">
-                                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                                    placeholder="Email">
-                                            </div>
+                                            <input
+                                                type="password"
+                                                name="password"
+                                                class="form-control form-control-user"
+                                                id="password"
+                                                placeholder="Password"
+                                                [(ngModel)]="form.password"
+                                                #last_name="ngModel"
+                                            >
                                         </div>
-                                        
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-12 mb-3 mb-sm-0">
-                                            <input type="phone" class="form-control form-control-user" id="exampleLastName"
-                                                placeholder="+225 07 01 02 03 04">
-                                        </div>
-                                        
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                                        <button type="submit" class="btn btn-primary">Enregistrer</button>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-12 mb-3 mb-sm-0">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Mot de Passe">
-                                        </div>
-                                        
-                                    </div>
-                                  
+
                                 </form>
-                                
+
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                <button type="button" class="btn btn-primary">Enregistrer</button>
-                </div>
-            </div>
             </div>
         </div>
-
-
-
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h2 class="m-0 font-weight-bold text-center">Liste des Etudiants</h2>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Nom & Prenom</th>
-                                <th>Email</th>
-                                <th>Numero</th>
-                                <th>Matiere</th>
-                                <th>action</th>
-                                
-                        </thead>
-                        
-                        <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>Edinburgh</td>
-                                <td>
-                                    <a href="#" class="btn btn-success btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-check"></i>
-                                        </span>
-                                        
-                                    </a>
-                                    <a href="#" class="btn btn-warning btn-icon-split">
-                                        
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-trash"></i>
-                                        </span>
-                                    </a>
-                                    <a href="#" class="btn btn-danger btn-icon-split">
-                                        
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-trash"></i>
-                                        </span>
-                                    </a>
-                                
-                                </td>
-                               
-                            </tr>
-                           
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
     </div>
-    <!-- /.container-fluid -->
+
+    <div class="card shadow mb-4">
+        <div class="card-header bg-color-yellow  py-3">
+            <h2 class="m-0 font-weight-bold text-white text-center">Liste des Etudiants</h2>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Email</th>
+                            <th>Numero</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let student of students  | async">
+                            <td>
+                                <img
+                                    [src]="student.picture"
+                                    [alt]="student.last_name"
+                                    srcset=""
+                                    style="width: 60px;height: 60px;"
+                                >
+                            </td>
+                            <td>{{student.last_name}}</td>
+                            <td>{{student.first_name}}</td>
+                            <td>{{student.email}}</td>
+                            <td>{{student.phone}}</td>
+                            <td>
+                                <button (click)="openModal(student)" class="btn btn-warning btn-icon p-1 btn-icon-mini mx-1" title="Supprimer">
+                                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M3 6V8H14V6H3M3 10V12H14V10H3M20 10.1C19.9 10.1 19.7 10.2 19.6 10.3L18.6 11.3L20.7 13.4L21.7 12.4C21.9 12.2 21.9 11.8 21.7 11.6L20.4 10.3C20.3 10.2 20.2 10.1 20 10.1M18.1 11.9L12 17.9V20H14.1L20.2 13.9L18.1 11.9M3 14V16H10V14H3Z" />
+                                    </svg>
+                                </button>
+                                <button (click)="deletes(student.id)" class="btn btn-danger btn-icon p-1  btn-icon-mini" title="Supprimer">
+                                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-
-
+<!-- /.container-fluid -->

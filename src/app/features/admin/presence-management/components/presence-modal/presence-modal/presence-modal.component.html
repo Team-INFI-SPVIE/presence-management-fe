@@ -1,0 +1,91 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+    </div>
+    <div class="modal-body">
+        <form class="user">
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option selected>Nom du Module</option>
+                        <option value="1">Angular</option>
+                        <option value="2">C#</option>
+                        <option value="3">Boostrap</option>
+                    </select>
+                </div>
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="col-auto my-1">
+                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                            <option selected>Heure de debut</option>
+                            <option value="8">8h</option>
+                            <option value="9">9h</option>
+                            <option value="10">10h</option>
+                            <option value="11">11h</option>
+                            <option value="12">12h</option>
+                            <option value="13">13h</option>
+                            <option value="14">14h</option>
+                            <option value="15">15h</option>
+                            <option value="16">16h</option>
+                            <option value="17">17h</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option selected>Heure de fin</option>
+                        <option value="8">8h</option>
+                        <option value="9">9h</option>
+                        <option value="10">10h</option>
+                        <option value="11">11h</option>
+                        <option value="12">12h</option>
+                        <option value="13">13h</option>
+                        <option value="14">14h</option>
+                        <option value="15">15h</option>
+                        <option value="16">16h</option>
+                        <option value="17">17h</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nom & Prenodddddddddddddm</th>
+                            <th>Email</th>
+                            <th>Numero</th>
+                            <th>Matiere</th>
+                            <th>Pointé</th>
+                       </tr>   
+                    </thead>
+                    
+                    <tbody>
+                        <tr *ngFor="let student of students">
+                            <td>{{student.last_name}}</td>
+                            <td>{{student.last_name}}</td>
+                            <td>{{student.last_name}}</td>
+                            <td>{{student.last_name}}</td>
+                            dddddddddddd
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>Edinburgh</td>
+                            <td class="text-center">
+                                <div class="form-check  mb-3">
+                                    <input class="form-check-input p-2 btn-wite border-dark" type="checkbox" value="" id="flexCheckDefault" style="margin-left: ;50px;">
+                                </div>
+                            </td>
+
+                            yfugrrrrrrrrrr
+                        </tr>
+                    </tbody>
+                </table>
+                    
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="close()">Fermer</button>
+                <button type="button" class="btn btn-primary">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+  </div>

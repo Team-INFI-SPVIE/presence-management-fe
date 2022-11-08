@@ -1,0 +1,156 @@
+{
+  "users": [
+    {
+      "id": "635bbd25e2b46c36035c22e2",
+      "picture": "https://via.placeholder.com/150",
+      "first_name": "Admin",
+      "last_name": "Admin",
+      "email": "admin@infisoftware.net",
+      "role": "Admin",
+      "password": "123456789",
+      "registered": "2022-02-11T01:40:28 -00:00"
+    },
+    {
+      "id": "635bbd256e766cd2a49d0055",
+      "picture": "https://via.placeholder.com/150",
+      "first_name": "Melva",
+      "last_name": "Warren",
+      "email": "teacher@infisoftware.net",
+      "phone": "+225 (817) 590-3640",
+      "role": "Teacher",
+      "password": "123456789",
+      "registered": "2022-07-05T05:42:46 -00:00"
+    },
+    {
+      "id": "635bbd252e6b8566a85aec90",
+      "picture": "https://via.placeholder.com/150",
+      "first_name": "Valeria",
+      "last_name": "Perez",
+      "email": "studeent@infisoftware.net",
+      "role": "Student",
+      "phone": "+225 (990) 445-2832",
+      "is_present": false,
+      "password": "123456789",
+      "registered": "2022-07-06T07:19:32 -00:00"
+    },
+    {
+      "picture": "",
+      "first_name": "Aube",
+      "last_name": "MBALI 5",
+      "full_name": "",
+      "email": "aube@infisoftware.net",
+      "role": "Student",
+      "password": "123456789",
+      "registered": "Tue Nov 08 2022 16:52:23 GMT+0100 (heure normale d’Europe centrale)",
+      "phone": "+225 (990) 445-2832",
+      "is_present": false,
+      "id": "635bbd252e6b8566a75aec91"
+    },
+    {
+      "first_name": "Sah",
+      "last_name": "Aube 1",
+      "email": "aube@infisoftware.net",
+      "phone": "+225 (817) 590-3640",
+      "password": "123456789",
+      "id": "635bbd256e726cd2a49d0055"
+    },
+    {
+      "id": "832",
+      "picture": "",
+      "first_name": "Aube ",
+      "last_name": "Michelle ",
+      "full_name": "",
+      "email": "teacher@infisoftware.net",
+      "about": "",
+      "role": "Teacher",
+      "matters": "Db ",
+      "password": "",
+      "registered": "Tue Nov 08 2022 07:30:02 GMT+0000 (temps universel coordonné)",
+      "phone": "0123456789"
+    },
+    {
+      "id": "784",
+      "picture": "",
+      "first_name": "Evarist",
+      "last_name": "Evarist  ",
+      "full_name": "",
+      "email": "teacher@infisoftware.net",
+      "about": "",
+      "role": "Teacher",
+      "matters": "",
+      "password": "",
+      "registered": "Tue Nov 08 2022 08:56:45 GMT+0000 (temps universel coordonné)",
+      "phone": "0123456789"
+    }
+  ],
+  "matter": [
+    {
+      "id": "635bbd25e2b56c36030c22e2",
+      "name": "Angular"
+    },
+    {
+      "id": "635bbd25f2b56c36030c22e2",
+      "name": "Bootstrap"
+    },
+    {
+      "id": "713",
+      "name": "Evarist Evarist",
+      "nameAdmin": "Admin",
+      "registered": "Tue Nov 08 2022 16:33:59 GMT+0000 (temps universel coordonné)"
+    }
+  ],
+  "score": [
+    {
+      "id": "63595b5c93d828909beaa667",
+      "picture": "https://via.placeholder.com/150",
+      "idProfessor": "635bbd256e766cd2a49d0055",
+      "firstNameStudent": "Christa",
+      "lastNameStudent": "Alvarez",
+      "phoneStudent": "097878664332",
+      "matter": "c#",
+      "startTime": "8h",
+      "endTime": "13h",
+      "registered": "2016-07-16T07:11:59 -00:00",
+      "is_present": true
+    },
+    {
+      "id": "63545b5c93d828909beaa667",
+      "picture": "https://bigdataci.net/storage/photos/0UKpM7a15oI11obrDqyqtKwDMh9PLdLSgmCb4Hw6.png",
+      "idProfessor": "635bbd256e766cd2a49d0055",
+      "firstNameStudent": "Aube",
+      "lastNameStudent": "Sah",
+      "phoneStudent": "097878664332",
+      "matter": "c#",
+      "startTime": "8h",
+      "endTime": "13h",
+      "registered": "2016-07-16T07:11:59 -00:00",
+      "is_present": true
+    },
+    {
+      "id": "63545b1c93d828909beaa667",
+      "picture": "https://via.placeholder.com/150",
+      "idProfessor": "635bbd256e766cd2a49d0055",
+      "firstNameStudent": "Diallo",
+      "lastNameStudent": "Sah",
+      "phoneStudent": "097878664332",
+      "matter": "c#",
+      "startTime": "8h",
+      "endTime": "13h",
+      "registered": "2016-07-16T07:11:59 -00:00",
+      "is_present": false
+    },
+    {
+      "id": "63545b1c93d828909beaa667",
+      "picture": "https://via.placeholder.com/150",
+      "idProfessor": "635bbd256e766cd2a49d0055",
+      "firstNameStudent": "Bah",
+      "lastNameStudent": "Alain",
+      "phoneStudent": "097878664332",
+      "matter": "c#",
+      "startTime": "8h",
+      "endTime": "13h",
+      "registered": "2016-07-16T07:11:59 -00:00",
+      "is_present": false
+    }
+  ]
+}
