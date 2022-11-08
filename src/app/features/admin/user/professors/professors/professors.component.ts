@@ -53,10 +53,14 @@ export class ProfessorsComponent implements OnInit {
  
 
   onSubmit(){
-    // this.apiService.addprofessor(this.form)
-    this.crudProfessor.create(this.form)
-
-    
+   
+    this.crudProfessor.create(this.form).subscribe(res => {
+      alert('Ok');
+      this.professorList();
+    },
+    err => {
+      alert("Non");
+    })
 
     this.form.first_name = ''
     this.form.last_name = ''
@@ -66,15 +70,22 @@ export class ProfessorsComponent implements OnInit {
     this.form.matters = ''
   }
 
+ 
+  deleteProfessor(id: string) {
+    this.crudProfessor.delete(id).subscribe(res => {
+      alert('Ok');
+      this.professorList();
+    },
+    err => {
+      alert("Non");
+    })
+   
+  }
+
   openModal(professor: Professor) {
     this.modalRef = this.modalService.open(EditProfessorComponent, {
       data: professor,
     });
-  }
-
-  deleteProfessor(id: string) {
-    // this.apiService.deletProfessor(id)
-    // this.professors = this.apiService.getprofessors()
   }
 
 }

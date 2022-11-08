@@ -10,9 +10,17 @@ export interface ApiData {
   }
 
   
+  export interface Matter {
+    id: string
+    name: string
+    nameAdmin? : string | null
+    registered: string
+  }
+
+  
 
   export interface Admin {
-    _id: string
+    id: string
     picture: string
     first_name: string
     last_name: string

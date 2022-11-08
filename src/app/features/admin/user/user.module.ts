@@ -16,9 +16,10 @@ import { EditProfessorComponent } from './professors/components/edit-professor/e
 
 
 
+
 @NgModule({
   declarations: [  
-    UserFormComponent, AdministratorComponent, ProfessorsComponent, StudentsComponent, ModalContainerComponent, ModalContentComponent, EditProfessorComponent, 
+    UserFormComponent, AdministratorComponent, ProfessorsComponent, StudentsComponent, ModalContainerComponent, ModalContentComponent, EditProfessorComponent,  
   ],
   imports: [ CommonModule, UserRoutingModule, FormsModule, MdbModalModule ],
   providers: [],

@@ -1,16 +1,16 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError, map } from 'rxjs';
-import { Professor} from 'src/models/users.model';
-
+import { Admin } from 'src/models/users.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CrudProfessorService {
+export class CrudAdministrationService {
 
-  apiUrl: string = 'http://localhost:3000/users?role=Teacher';
+ 
+  apiUrl: string = 'http://localhost:3000/users?role=Admin';
   apiUrlDB: string = 'http://localhost:3000/users';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -21,16 +21,15 @@ export class CrudProfessorService {
   // // Create
   create(data: any): Observable<any> {
 
-    const professor : Professor =  {
+    const admin : Admin =  {
       id:  Math.floor(Math.random() * 1000).toString(),
-      picture: '',
+      picture: data.picture,
       first_name: data.first_name,
       last_name:data.last_name,
       full_name: '',
       email:data.email,
       about: '',
-      role: "Teacher",
-      matters: data.matters,
+      role: "Admin",
       password: data.password,
       registered: Date(),
       phone: data.phone
@@ -39,7 +38,7 @@ export class CrudProfessorService {
    
     let API_URL = `${this.apiUrlDB}`;
 
-    return this.http.post<any>("http://localhost:3000/users", professor).pipe(map(
+    return this.http.post<any>("http://localhost:3000/users", admin).pipe(map(
       (res:any) => {
         return res;
       }
@@ -47,38 +46,8 @@ export class CrudProfessorService {
    
   }
 
-
-  // Read
-  list() {
+  getList() {
     return this.http.get(`${this.apiUrl}`);
-  }
-
-  // Update
-  update(id: any, data: any): Observable<any> {
-
-    let API_URL = `${this.apiUrlDB}/${id}`;
-    console.log( API_URL);
-
-    const professor : Professor =  {
-      id: id,
-      picture: '',
-      first_name: data.first_name,
-      last_name:data.last_name,
-      full_name: '',
-      email:data.email,
-      about: '',
-      role: "Teacher",
-      matters: data.matters,
-      password: data.password,
-      registered: Date(),
-      phone: data.phone
-    }
-
-    return this.http.put(API_URL, professor, { headers: this.headers }).pipe(map(
-      (res:any) => {
-        return res;
-      }
-    ))
   }
 
   // Delete
@@ -90,7 +59,7 @@ export class CrudProfessorService {
     )
   }
 
-  // Handle API errors
+   // Handle API errors
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
