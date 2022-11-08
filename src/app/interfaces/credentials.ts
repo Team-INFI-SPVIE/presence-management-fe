@@ -24,6 +24,7 @@ export interface UserForm {
     last_name:  string;
     email: string;
     phone: string;
+    picture: string;
     password: string;
   }
 

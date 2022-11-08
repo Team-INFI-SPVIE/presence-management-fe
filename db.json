@@ -2,13 +2,10 @@
   "users": [
     {
       "_id": "635bbd25e2b46c36035c22e2",
-      "picture": "http://placehold.it/32x32",
-      "first_name": "Karina",
-      "last_name": "Cunningham",
-      "id": "635bbd25e2b46c36035c22e2",
       "picture": "https://via.placeholder.com/150",
       "first_name": "Admin",
       "last_name": "Admin",
+      "id": "635bbd25e2b46c36035c22e2",
       "email": "admin@infisoftware.net",
       "role": "Admin",
       "password": "123456789",
@@ -16,14 +13,9 @@
     },
     {
       "_id": "635bbd256e766cd2a49d0055",
-      "picture": "http://placehold.it/32x32",
-      "first_name": "Melva",
-      "last_name": "Warren",
       "picture": "https://via.placeholder.com/150",
       "first_name": "Melva",
       "last_name": "Warren",
-      "email": "student@infisoftware.net",
-      "phone": "+225 (817) 590-3640",
       "email": "teacher@infisoftware.net",
       "phone": "+225 (817) 590-3640",
       "role": "Teacher",
@@ -32,7 +24,6 @@
     },
     {
       "_id": "635bbd252e6b8566a85aec90",
-      "picture": "http://placehold.it/32x32",
       "picture": "https://via.placeholder.com/150",
       "first_name": "Valeria",
       "last_name": "Perez",
@@ -45,7 +36,6 @@
     },
     {
       "_id": "635bbd252e6b8566a75aec91",
-      "picture": "http://placehold.it/32x32",
       "picture": "https://via.placeholder.com/150",
       "first_name": "Aube",
       "last_name": "MBALI",
@@ -57,7 +47,6 @@
     },
     {
       "_id": "635cbd252e5b8566a75aec91",
-      "picture": "http://placehold.it/32x32",
       "picture": "https://via.placeholder.com/150",
       "first_name": "Evarist",
       "last_name": "sah",
@@ -402,6 +391,226 @@
       "endTime": "13h",
       "registered": "2016-07-16T07:11:59 -00:00",
       "is_present": false
+    },
+    {
+      "id": "631",
+      "createdAt": "new Date.toString()",
+      "matter": "Bootstrap",
+      "startTime": "10h",
+      "endTime": "10h",
+      "idProfessor": "string",
+      "studentsPresenses": [
+        {
+          "id": "63595b5c6b39f73a0f4b9d1a",
+          "first_name": "Mckenzie",
+          "last_name": "Olson",
+          "email": "goodmanwoodward@verton.com",
+          "is_present": true,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:34.366Z"
+        },
+        {
+          "id": "63595b5c3063ead5e0ec42f5",
+          "first_name": "Carlene",
+          "last_name": "Zamora",
+          "email": "annabradshaw@verton.com",
+          "is_present": true,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:34.366Z"
+        },
+        {
+          "id": "63595b5cb1aad8ab20ee4639",
+          "first_name": "Lauri",
+          "last_name": "Duran",
+          "email": "ursulavang@verton.com",
+          "is_present": true,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:34.366Z"
+        },
+        {
+          "id": "63595b5c9dae1de6e2193f96",
+          "first_name": "Bowen",
+          "last_name": "Powers",
+          "email": "meadowstillman@verton.com",
+          "is_present": true,
+          "role": "professor",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:34.366Z"
+        },
+        {
+          "id": "63595b5c3dfdee4d7303d1c1",
+          "first_name": "Merrill",
+          "last_name": "Roy",
+          "email": "bergmcgee@verton.com",
+          "is_present": true,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:34.366Z"
+        },
+        {
+          "id": "63595b5c8a402b6d5155d29b",
+          "first_name": "Marcie",
+          "last_name": "Reed",
+          "email": "karindouglas@verton.com",
+          "is_present": true,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:34.366Z"
+        },
+        {
+          "id": "63595b5c4b191d8d912e56b6",
+          "first_name": "Mueller",
+          "last_name": "Haney",
+          "email": "meganochoa@verton.com",
+          "is_present": true,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:34.366Z"
+        },
+        {
+          "id": "63595b5c93d828909beaa667",
+          "first_name": "Christa",
+          "last_name": "Alvarez",
+          "email": "sheriwyatt@verton.com",
+          "is_present": true,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:34.366Z"
+        },
+        {
+          "id": "63595b5c75ce1ae7c68f7846",
+          "first_name": "Cardenas",
+          "last_name": "Riley",
+          "email": "durhamfields@verton.com",
+          "is_present": true,
+          "role": "student",
+          "phone": "0977365226",
+          "date": "2022-11-08T19:03:34.366Z"
+        },
+        {
+          "id": "63595b5c6bc616f6514f9fa3",
+          "first_name": "Conley",
+          "last_name": "Anderson",
+          "email": "leblancbarker@verton.com",
+          "is_present": true,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:34.366Z"
+        }
+      ]
+    },
+    {
+      "id": "163",
+      "createdAt": "new Date.toString()",
+      "matter": "Bootstrap",
+      "startTime": "10h",
+      "endTime": "17h",
+      "idProfessor": "string",
+      "studentsPresenses": [
+        {
+          "id": "63595b5c6b39f73a0f4b9d1a",
+          "first_name": "Mckenzie",
+          "last_name": "Olson",
+          "email": "goodmanwoodward@verton.com",
+          "is_present": false,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:50.151Z"
+        },
+        {
+          "id": "63595b5c3063ead5e0ec42f5",
+          "first_name": "Carlene",
+          "last_name": "Zamora",
+          "email": "annabradshaw@verton.com",
+          "is_present": false,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:50.151Z"
+        },
+        {
+          "id": "63595b5cb1aad8ab20ee4639",
+          "first_name": "Lauri",
+          "last_name": "Duran",
+          "email": "ursulavang@verton.com",
+          "is_present": false,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:50.151Z"
+        },
+        {
+          "id": "63595b5c9dae1de6e2193f96",
+          "first_name": "Bowen",
+          "last_name": "Powers",
+          "email": "meadowstillman@verton.com",
+          "is_present": false,
+          "role": "professor",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:50.151Z"
+        },
+        {
+          "id": "63595b5c3dfdee4d7303d1c1",
+          "first_name": "Merrill",
+          "last_name": "Roy",
+          "email": "bergmcgee@verton.com",
+          "is_present": false,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:50.151Z"
+        },
+        {
+          "id": "63595b5c8a402b6d5155d29b",
+          "first_name": "Marcie",
+          "last_name": "Reed",
+          "email": "karindouglas@verton.com",
+          "is_present": false,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:50.151Z"
+        },
+        {
+          "id": "63595b5c4b191d8d912e56b6",
+          "first_name": "Mueller",
+          "last_name": "Haney",
+          "email": "meganochoa@verton.com",
+          "is_present": false,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:50.151Z"
+        },
+        {
+          "id": "63595b5c93d828909beaa667",
+          "first_name": "Christa",
+          "last_name": "Alvarez",
+          "email": "sheriwyatt@verton.com",
+          "is_present": false,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:50.151Z"
+        },
+        {
+          "id": "63595b5c75ce1ae7c68f7846",
+          "first_name": "Cardenas",
+          "last_name": "Riley",
+          "email": "durhamfields@verton.com",
+          "is_present": false,
+          "role": "student",
+          "phone": "0977365226",
+          "date": "2022-11-08T19:03:50.151Z"
+        },
+        {
+          "id": "63595b5c6bc616f6514f9fa3",
+          "first_name": "Conley",
+          "last_name": "Anderson",
+          "email": "leblancbarker@verton.com",
+          "is_present": false,
+          "role": "student",
+          "phone": "097878664332",
+          "date": "2022-11-08T19:03:50.151Z"
+        }
+      ]
     }
   ],
   "absence-request": [
