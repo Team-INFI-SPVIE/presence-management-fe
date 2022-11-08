@@ -2,14 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, switchMap } from 'rxjs';
 import { Score, UserForm, UserForm1 } from 'src/app/interfaces/credentials';
-import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses, } from 'src/models/users.model';
+import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses } from 'src/models/users.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  apiData: ApiData[] = [
+  apiData: any[] = [
     {
       "users": {
         "admin": {
@@ -26,69 +26,7 @@ export class ApiService {
           "phone": "097654322567"
 
         },
-        "presences": [
-          {
-            "id": "ssss",
-            'createdAt': new Date,
-            "studentsPresenses": [
-              {
-                "idStudent": "63595b5c6b39f73a0f4b9d1a",
-                "first_name": "Mckenzie",
-                "last_name": "Olson",
-                "email": "goodmanwoodward@verton.com",
-                "is_present": true,
-                "role": "student",
-                "phone": "097878664332",
-                'matter': '',
-                "startTime": '',
-                "endTime": ''
-              },
-              {
-                "idStudent": "63595b5c6b39f73a0f4b9d1a",
-                "first_name": "Makissi",
-                "last_name": "Olson",
-                "email": "goodmanwoodward@verton.com",
-                "is_present": true,
-                "role": "student",
-                "phone": "097878664332",
-                'matter': '',
-                "startTime": '',
-                "endTime": ''
-              },
-              {
-                "idStudent": "63595b5c6b39f73a0f4b9d1a",
-                "first_name": "Benthe",
-                "last_name": "Olson",
-                "email": "goodmanwoodward@verton.com",
-                "is_present": true,
-                "role": "student",
-                "phone": "097878664332",
-                'matter': '',
-                "startTime": '',
-                "endTime": ''
-              },
-            ]
-          },
-          {
-            "id": "ssss",
-            'createdAt': new Date,
-            "studentsPresenses": [
-              {
-                "idStudent": "63595b5c6b39f73a0f4b9d1a",
-                "first_name": "Mckenzie",
-                "last_name": "Olson",
-                "email": "goodmanwoodward@verton.com",
-                "is_present": true,
-                "role": "student",
-                "phone": "097878664332",
-                'matter': '',
-                "startTime": '',
-                "endTime": '',
-                "date": new Date,
-              },
-            ]
-          }
-        ],
+        
         "professors": [
           {
             "_id": "63595b5c1da39578c6b8218b",
@@ -281,45 +219,6 @@ export class ApiService {
             "phone": "097878664332",
             "password": "password"
           },
-          {
-            "_id": "63595b5c93d828909beaa667",
-            "picture": "http://placehold.it/32x32",
-            "first_name": "Christa",
-            "last_name": "Alvarez",
-            "full_name": "Sheri Wyatt",
-            "email": "sheriwyatt@verton.com",
-            "is_present": true,
-            "registered": "2016-07-16T07:11:59 -00:00",
-            "role": "student",
-            "phone": "097878664332",
-            "password": "password"
-          },
-          {
-            "_id": "63595b5c75ce1ae7c68f7846",
-            "picture": "http://placehold.it/32x32",
-            "first_name": "Cardenas",
-            "last_name": "Riley",
-            "full_name": "Durham Fields",
-            "email": "durhamfields@verton.com",
-            "is_present": false,
-            "registered": "2016-07-05T02:45:50 -00:00",
-            "role": "student",
-            "phone": "0977365226",
-            "password": "password"
-          },
-          {
-            "_id": "63595b5c6bc616f6514f9fa3",
-            "picture": "http://placehold.it/32x32",
-            "first_name": "Conley",
-            "last_name": "Anderson",
-            "full_name": "Leblanc Barker",
-            "email": "leblancbarker@verton.com",
-            "is_present": false,
-            "registered": "2016-08-16T05:38:41 -00:00",
-            "role": "student",
-            "phone": "097878664332",
-            "password": "password"
-          }
         ]
       }
     }
@@ -488,23 +387,24 @@ editProfessor(id: string, formData: UserForm1) {
 
     const s: StudentsPresenses[] = students.map((s: Student) => {
       return {
-        idStudent: s._id,
+        id: s._id,
         first_name: s.first_name,
         last_name: s.last_name,
         email: s.email,
         is_present: s.is_present,
         role: s.role,
         phone: s.phone,
-        matter,
-        startTime,
-        endTime,
-        date: new Date,
+        date: new Date
       }
     })
 
     const presence : Presence =  {
       id: Math.floor(Math.random() * 1000).toString(),
-      createdAt: new Date,
+      createdAt: 'new Date.toString()',
+      matter,
+      startTime,
+      endTime,
+      idProfessor: 'string',
       studentsPresenses: s
     }
 
@@ -515,6 +415,19 @@ editProfessor(id: string, formData: UserForm1) {
       ))
     );
   }
+
+  updatePresence(presenceId: string): Observable<Presence> {
+    return this.getPresenceById(presenceId).pipe(
+        // map(faceSnap => ({
+        //     ...faceSnap,
+        //     snaps: faceSnap.snaps + (snapType === 'snap' ? 1 : -1)
+        // })),
+        switchMap(updatedFaceSnap => this.http.put<Presence>(
+            `'http://localhost:3000/score'/${presenceId}`,
+            updatedFaceSnap)
+        )
+    );
+}
 
   getAllScrore(): Observable<Score[]> {
     return this.http.get<Score[]>('http://localhost:3000/score');

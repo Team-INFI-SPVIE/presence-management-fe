@@ -4,8 +4,10 @@
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-dark badge ">Gestion des Présences</h1>
 
-    <button type="button" class="btn btn-primary" [routerLink]="['presence']">Feuille de Pointage
-    </button>
+    <div class="button-contair" *ngIf="lastPresences$ | async as latestPresences">
+      <button type="button" class="btn btn-warning edit" [routerLink]="['presence', latestPresences.id,]">Editer</button>
+      <button type="button" class="btn btn-primary" [routerLink]="['presence']">Nouvelle Feuille de Pointage</button>
+    </div>
   </div>
 
   <div class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog"
@@ -93,7 +95,7 @@
 
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                  <button type="button" class="btn btn-danger">Fermer</button>
                   <button type="button" class="btn btn-primary">Enregistrer</button>
                 </div>
               </form>
@@ -124,14 +126,14 @@
             </tr>
           </thead>
 
-          <tbody *ngIf="lastPresences$  | async as lastPresences">
+          <tbody *ngIf="lastPresences$ | async as lastPresences">
             <tr *ngFor="let presence of lastPresences.studentsPresenses">
 
               <td>{{ presence.first_name }}</td>
               <td>{{ presence.last_name }}</td>
               <td>{{ presence.phone }}</td>
-              <td>{{ presence.matter }}</td>
-              <td>{{ presence.startTime }} - {{ presence.endTime }}</td>
+              <td>{{ lastPresences.matter }}</td>
+              <td>{{ lastPresences.startTime }} - {{ lastPresences.endTime }}</td>
               <td>{{ presence.date | date: 'dd/MM/yy' }}</td>
               <td>
                 <span *ngIf="presence.is_present" class="badge badge-success">Present</span>

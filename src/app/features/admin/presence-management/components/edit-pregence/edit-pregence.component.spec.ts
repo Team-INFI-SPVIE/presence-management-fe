@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PresenceModalComponent } from './presence-modal.component';
+import { EditPregenceComponent } from './edit-pregence.component';
 
-describe('PresenceModalComponent', () => {
-  let component: PresenceModalComponent;
-  let fixture: ComponentFixture<PresenceModalComponent>;
+describe('EditPregenceComponent', () => {
+  let component: EditPregenceComponent;
+  let fixture: ComponentFixture<EditPregenceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PresenceModalComponent ]
+      declarations: [ EditPregenceComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PresenceModalComponent);
+    fixture = TestBed.createComponent(EditPregenceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
