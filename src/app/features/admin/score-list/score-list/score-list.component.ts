@@ -17,7 +17,7 @@ export class ScoreListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.scrores = this.apiService.getAllScrore()
+    // this.scrores = this.apiService.getAllScrore()
   }
 
 }

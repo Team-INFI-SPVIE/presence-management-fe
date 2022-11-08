@@ -16,12 +16,19 @@
                                     <h1 class="h4 text-gray-900 mb-4 py-2">Connexion</h1>
                                 </div>
                                 <form [formGroup]="loginForm" (ngSubmit)="login()" >
+
+
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
                                         formControlName="email"
                                         placeholder="email"
                                         required
+                                        [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
                                         >
+                                        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                          <div *ngIf="f['email'].errors['required']">Email is required</div>
+                                          <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                                        </div>
 
                                     </div>
                                     <div class="form-group py-2 " >
@@ -32,8 +39,14 @@
                                             placeholder="Password"
                                             formControlName="password"
                                             required
-                                            minlength="5" 
+                                            minlength="5"
+                                            [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
                                         >
+                                        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                                          <div *ngIf="f['password'].errors['required']">Password is required</div>
+
+                                        </div>
+
                                         <!-- <div class="form-error" *ngIf="password.errors?.['minlength']">Minimum 5</div> -->
                                     </div>
                                     <!-- <div class="form-group py-2">
@@ -77,4 +90,4 @@
 
 </div>
 
-    
+

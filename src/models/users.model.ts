@@ -10,9 +10,17 @@ export interface ApiData {
   }
 
   
+  export interface Matter {
+    id: string
+    name: string
+    nameAdmin? : string | null
+    registered: string
+  }
+
+  
 
   export interface Admin {
-    _id: string
+    id: string
     picture: string
     first_name: string
     last_name: string
@@ -26,7 +34,7 @@ export interface ApiData {
   }
 
   export interface Professor {
-    _id: string
+    id: string
     picture: string
     first_name: string
     last_name: string
@@ -41,7 +49,7 @@ export interface ApiData {
   }
 
   export class Student {
-    _id!: string
+    id!: string
     picture?: string
     first_name!: string
     last_name!: string
@@ -108,3 +116,16 @@ export interface ApiData {
   //   endTime!: string
   //   registered?: Date
   // }
+  export class AbsenceRequests {
+    id !: string
+    object!: string
+    date!: Date
+    startTime!: string
+    endTime!: string
+    message!: string
+    name!: string
+    status!: boolean
+    piecejointe!: string
+
+  }
+  

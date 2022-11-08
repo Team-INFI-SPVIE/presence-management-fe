@@ -5,6 +5,10 @@
       "picture": "http://placehold.it/32x32",
       "first_name": "Karina",
       "last_name": "Cunningham",
+      "id": "635bbd25e2b46c36035c22e2",
+      "picture": "https://via.placeholder.com/150",
+      "first_name": "Admin",
+      "last_name": "Admin",
       "email": "admin@infisoftware.net",
       "role": "Admin",
       "password": "123456789",
@@ -15,6 +19,11 @@
       "picture": "http://placehold.it/32x32",
       "first_name": "Melva",
       "last_name": "Warren",
+      "picture": "https://via.placeholder.com/150",
+      "first_name": "Melva",
+      "last_name": "Warren",
+      "email": "student@infisoftware.net",
+      "phone": "+225 (817) 590-3640",
       "email": "teacher@infisoftware.net",
       "phone": "+225 (817) 590-3640",
       "role": "Teacher",
@@ -24,6 +33,7 @@
     {
       "_id": "635bbd252e6b8566a85aec90",
       "picture": "http://placehold.it/32x32",
+      "picture": "https://via.placeholder.com/150",
       "first_name": "Valeria",
       "last_name": "Perez",
       "email": "studeent@infisoftware.net",
@@ -36,6 +46,7 @@
     {
       "_id": "635bbd252e6b8566a75aec91",
       "picture": "http://placehold.it/32x32",
+      "picture": "https://via.placeholder.com/150",
       "first_name": "Aube",
       "last_name": "MBALI",
       "email": "aube@infisoftware.net",
@@ -47,6 +58,7 @@
     {
       "_id": "635cbd252e5b8566a75aec91",
       "picture": "http://placehold.it/32x32",
+      "picture": "https://via.placeholder.com/150",
       "first_name": "Evarist",
       "last_name": "sah",
       "email": "evarist@infisoftware.net",
@@ -54,6 +66,93 @@
       "phone": "+225 (990) 445-2832",
       "password": "123456789",
       "registered": "2022-07-06T07:19:32 -00:00"
+    },
+    {
+      "first_name": "Sah",
+      "last_name": "Aube 1",
+      "email": "aube@infisoftware.net",
+      "phone": "+225 (817) 590-3640",
+      "password": "123456789",
+      "id": "635bbd256e726cd2a49d0055"
+    },
+    {
+      "id": "832",
+      "picture": "",
+      "first_name": "Aube ",
+      "last_name": "Michelle ",
+      "full_name": "",
+      "email": "teacher@infisoftware.net",
+      "about": "",
+      "role": "Teacher",
+      "matters": "Db ",
+      "password": "",
+      "registered": "Tue Nov 08 2022 07:30:02 GMT+0000 (temps universel coordonné)",
+      "phone": "0123456789"
+    },
+    {
+      "id": "784",
+      "picture": "",
+      "first_name": "Evarist",
+      "last_name": "Evarist  ",
+      "full_name": "",
+      "email": "057474763536",
+      "role": "Student",
+      "password": "KHHHII",
+      "registered": "Tue Nov 08 2022 08:14:42 GMT+0100 (heure normale d’Europe centrale)",
+      "phone": "",
+      "is_present": false
+    },
+    {
+      "id": "354",
+      "picture": "",
+      "first_name": "fffff",
+      "last_name": "ffffffff",
+      "full_name": "",
+      "email": "057474763536",
+      "role": "Student",
+      "password": "KHHHII",
+      "registered": "Tue Nov 08 2022 08:21:14 GMT+0100 (heure normale d’Europe centrale)",
+      "phone": "",
+      "is_present": false
+    },
+    {
+      "id": "231",
+      "picture": "",
+      "first_name": "Yao ",
+      "last_name": "Timothé ",
+      "full_name": "",
+      "email": "057474763536",
+      "role": "Student",
+      "password": "KHHHII",
+      "registered": "Tue Nov 08 2022 08:32:20 GMT+0100 (heure normale d’Europe centrale)",
+      "phone": "efuicfjiovfd",
+      "is_present": false
+    },
+    {
+      "id": "483",
+      "picture": "",
+      "first_name": "cdcc",
+      "last_name": "Aube",
+      "full_name": "",
+      "email": "057474763536",
+      "role": "Student",
+      "password": "KHHHII",
+      "registered": "Tue Nov 08 2022 08:33:45 GMT+0100 (heure normale d’Europe centrale)",
+      "phone": "",
+      "is_present": false
+    },
+    {
+      "picture": "",
+      "first_name": "hjjjk",
+      "last_name": "fakk",
+      "full_name": "",
+      "email": "057474763536",
+      "role": "Student",
+      "password": "KHHHII",
+      "registered": "Tue Nov 08 2022 11:37:55 GMT+0100 (heure normale d’Europe centrale)",
+      "phone": "057474763536",
+      "is_present": false,
+      "id": "26DYCGg"
     }
   ],
   "matter": [
@@ -68,6 +167,20 @@
     {
       "_id": "635bbd25f2b56c36030c22e2",
       "name": "Bootstrap"
+    },
+    {
+      "id": "635bbd25e2b56c36030c22e2",
+      "name": "Angular"
+    },
+    {
+      "id": "635bbd25f2b56c36030c22e2",
+      "name": "Bootstrap"
+    },
+    {
+      "id": "713",
+      "name": "Evarist Evarist",
+      "nameAdmin": "Admin",
+      "registered": "Tue Nov 08 2022 16:33:59 GMT+0000 (temps universel coordonné)"
     }
   ],
   "score": [
@@ -250,6 +363,69 @@
           "date": "2022-11-08T17:13:17.749Z"
         }
       ]
+    },
+    {
+      "_id": "63545b5c93d828909beaa667",
+      "picture": "https://bigdataci.net/storage/photos/0UKpM7a15oI11obrDqyqtKwDMh9PLdLSgmCb4Hw6.png",
+      "idProfessor": "635bbd256e766cd2a49d0055",
+      "firstNameStudent": "Aube",
+      "lastNameStudent": "Sah",
+      "phoneStudent": "097878664332",
+      "matter": "c#",
+      "startTime": "8h",
+      "endTime": "13h",
+      "registered": "2016-07-16T07:11:59 -00:00",
+      "is_present": true
+    },
+    {
+      "_id": "63545b1c93d828909beaa667",
+      "picture": "https://via.placeholder.com/150",
+      "idProfessor": "635bbd256e766cd2a49d0055",
+      "firstNameStudent": "Diallo",
+      "lastNameStudent": "Sah",
+      "phoneStudent": "097878664332",
+      "matter": "c#",
+      "startTime": "8h",
+      "endTime": "13h",
+      "registered": "2016-07-16T07:11:59 -00:00",
+      "is_present": false
+    },
+    {
+      "_id": "63545b1c93d828909beaa667",
+      "picture": "https://via.placeholder.com/150",
+      "idProfessor": "635bbd256e766cd2a49d0055",
+      "firstNameStudent": "Bah",
+      "lastNameStudent": "Alain",
+      "phoneStudent": "097878664332",
+      "matter": "c#",
+      "startTime": "8h",
+      "endTime": "13h",
+      "registered": "2016-07-16T07:11:59 -00:00",
+      "is_present": false
+    }
+  ],
+  "absence-request": [
+    {
+      "id": "1",
+      "object": "demande d'absence",
+      "date": "13-07-16T07:11:59 -00:00",
+      "startTime": "8h",
+      "endTime": "13h",
+      "message": "bonjour monsieur",
+      "name": "Mballi",
+      "status": false,
+      "piecejointe": "lmmllkjj"
+    },
+    {
+      "id": "2",
+      "object": "demande d'absence",
+      "date": "13-07-16T07:11:59 -00:00",
+      "startTime": "8h",
+      "endTime": "13h",
+      "message": "bonjour monsieur",
+      "name": "michelle",
+      "status": true,
+      "piecejointe": "kjuujl"
     }
   ]
 }

@@ -3,6 +3,11 @@ import { Injectable } from '@angular/core';
 import { map, Observable, switchMap } from 'rxjs';
 import { Score, UserForm, UserForm1 } from 'src/app/interfaces/credentials';
 import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses } from 'src/models/users.model';
+// import { Observable } from 'rxjs';
+// import { UserForm, UserForm1 } from 'src/app/interfaces/credentials';
+// import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses,Score } from 'src/models/users.model';
+// import { map } from 'rxjs/operators';
+// import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses, } from 'src/models/users.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +18,7 @@ export class ApiService {
     {
       "users": {
         "admin": {
-          "_id": "63595b5c868ab3bb64ce06e9",
+          "id": "63595b5c868ab3bb64ce06e9",
           "picture": "http://placehold.it/32x32",
           "first_name": "Kellie",
           "last_name": "Kellyham",
@@ -29,7 +34,7 @@ export class ApiService {
         
         "professors": [
           {
-            "_id": "63595b5c1da39578c6b8218b",
+            "id": "63595b5c1da39578c6b8218b",
             "picture": "http://placehold.it/32x32",
             "first_name": "Jenifer",
             "last_name": "Rivers",
@@ -43,7 +48,7 @@ export class ApiService {
             "phone":"0788665543434"
           },
           {
-            "_id": "63595b5c234a29b9292cfa43",
+            "id": "63595b5c234a29b9292cfa43",
             "picture": "http://placehold.it/32x32",
             "first_name": "Best",
             "last_name": "Robles",
@@ -57,7 +62,7 @@ export class ApiService {
             "phone":"0788665543434"
           },
           {
-            "_id": "63595b5ccde14d7a2344b05e",
+            "id": "63595b5ccde14d7a2344b05e",
             "picture": "http://placehold.it/32x32",
             "first_name": "Angelina",
             "last_name": "Tran",
@@ -71,7 +76,7 @@ export class ApiService {
             "phone":"0788665543434"
           },
           {
-            "_id": "63595b5c775ef265d13d39e7",
+            "id": "63595b5c775ef265d13d39e7",
             "picture": "http://placehold.it/32x32",
             "first_name": "Good",
             "last_name": "Donaldson",
@@ -85,7 +90,7 @@ export class ApiService {
             "phone":"0788665543434"
           },
           {
-            "_id": "63595b5c77951417ecfe2725",
+            "id": "63595b5c77951417ecfe2725",
             "picture": "http://placehold.it/32x32",
             "first_name": "Lola",
             "last_name": "Lang",
@@ -99,7 +104,7 @@ export class ApiService {
             "phone":"0788665543434"
           },
           {
-            "_id": "63595b5cf36f2ae24cb9c990",
+            "id": "63595b5cf36f2ae24cb9c990",
             "picture": "http://placehold.it/32x32",
             "first_name": "Stanley",
             "last_name": "Mcfadden",
@@ -113,7 +118,7 @@ export class ApiService {
             "phone":"0788665543434"
           },
           {
-            "_id": "63595b5c6f77facfc2e527a6",
+            "id": "63595b5c6f77facfc2e527a6",
             "picture": "http://placehold.it/32x32",
             "first_name": "Leila",
             "last_name": "Bartlett",
@@ -129,7 +134,7 @@ export class ApiService {
         ],
         "students": [
           {
-            "_id": "63595b5c6b39f73a0f4b9d1a",
+            "id": "63595b5c6b39f73a0f4b9d1a",
             "picture": "http://placehold.it/32x32",
             "first_name": "Mckenzie",
             "last_name": "Olson",
@@ -142,7 +147,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5c3063ead5e0ec42f5",
+            "id": "63595b5c3063ead5e0ec42f5",
             "picture": "http://placehold.it/32x32",
             "first_name": "Carlene",
             "last_name": "Zamora",
@@ -155,7 +160,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5cb1aad8ab20ee4639",
+            "id": "63595b5cb1aad8ab20ee4639",
             "picture": "http://placehold.it/32x32",
             "first_name": "Lauri",
             "last_name": "Duran",
@@ -168,7 +173,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5c9dae1de6e2193f96",
+            "id": "63595b5c9dae1de6e2193f96",
             "picture": "http://placehold.it/32x32",
             "first_name": "Bowen",
             "last_name": "Powers",
@@ -181,7 +186,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5c3dfdee4d7303d1c1",
+            "id": "63595b5c3dfdee4d7303d1c1",
             "picture": "http://placehold.it/32x32",
             "first_name": "Merrill",
             "last_name": "Roy",
@@ -194,7 +199,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5c8a402b6d5155d29b",
+            "id": "63595b5c8a402b6d5155d29b",
             "picture": "http://placehold.it/32x32",
             "first_name": "Marcie",
             "last_name": "Reed",
@@ -207,7 +212,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5c4b191d8d912e56b6",
+            "id": "63595b5c4b191d8d912e56b6",
             "picture": "http://placehold.it/32x32",
             "first_name": "Mueller",
             "last_name": "Haney",
@@ -219,6 +224,45 @@ export class ApiService {
             "phone": "097878664332",
             "password": "password"
           },
+          {
+            "id": "63595b5c93d828909beaa667",
+            "picture": "http://placehold.it/32x32",
+            "first_name": "Christa",
+            "last_name": "Alvarez",
+            "full_name": "Sheri Wyatt",
+            "email": "sheriwyatt@verton.com",
+            "is_present": true,
+            "registered": "2016-07-16T07:11:59 -00:00",
+            "role": "student",
+            "phone": "097878664332",
+            "password": "password"
+          },
+          {
+            "id": "63595b5c75ce1ae7c68f7846",
+            "picture": "http://placehold.it/32x32",
+            "first_name": "Cardenas",
+            "last_name": "Riley",
+            "full_name": "Durham Fields",
+            "email": "durhamfields@verton.com",
+            "is_present": false,
+            "registered": "2016-07-05T02:45:50 -00:00",
+            "role": "student",
+            "phone": "0977365226",
+            "password": "password"
+          },
+          {
+            "id": "63595b5c6bc616f6514f9fa3",
+            "picture": "http://placehold.it/32x32",
+            "first_name": "Conley",
+            "last_name": "Anderson",
+            "full_name": "Leblanc Barker",
+            "email": "leblancbarker@verton.com",
+            "is_present": false,
+            "registered": "2016-08-16T05:38:41 -00:00",
+            "role": "student",
+            "phone": "097878664332",
+            "password": "password"
+          }
         ]
       }
     }
@@ -235,9 +279,11 @@ export class ApiService {
     return this.http.get<Student[]>('http://localhost:3000/users?role=Student');
   }
 
+
+
   addStudent(formData: UserForm) {
     const student: Student =  {
-      _id: this.getStudents().length.toString(),
+      id: this.getStudents().length.toString(),
       picture: "http://placehold.it/32x32",
       first_name: formData.first_name,
       last_name: formData.last_name,
@@ -250,7 +296,34 @@ export class ApiService {
       password: formData.password,
     }
 
+    console.log(student);
+    
+
     this.apiData[0].users.students.push(student)
+  }
+
+  createStudent(formData: UserForm): Observable<any> {
+    const  student: Student =  {
+      id: this.getStudents().length.toString(),
+      picture: "http://placehold.it/32x32",
+      first_name: formData.first_name,
+      last_name: formData.last_name,
+      full_name: "Megan Ochoa",
+      email: formData.email,
+      is_present: false,
+      registered: new Date().toISOString(),
+      role: "student",
+      phone: formData.phone,
+      password: formData.password,
+    }
+
+    
+    
+
+    // this.apiData[0].users.students.push(student)
+    return this.http.post<UserForm>('http://localhost:3000', student)
+
+
   }
 
   getSdudentById(id: string) {
@@ -258,7 +331,7 @@ export class ApiService {
     return this.apiData[0].users.students.find(
       (student: Student) => {
 
-        return student._id === id
+        return student.id === id
       }
     )
 
@@ -286,9 +359,18 @@ export class ApiService {
       throw new Error(" User NotFoundComponent")
     }
 
-    this.apiData[0].users.students = this.apiData[0].users.students.filter((student: Student) => student._id !== id)
-    
+    this.apiData[0].users.students = this.apiData[0].users.students.filter((student: Student) => student.id !== id)
   }
+
+ 
+
+
+
+
+
+
+
+
 
   getprofessors(): Professor[] {
     return this.apiData[0].users.professors;
@@ -296,14 +378,14 @@ export class ApiService {
 
   addprofessor(formData1: UserForm1) {
     const professors : Professor =  {
-      _id: this.getprofessors().length.toString(),
+      id: this.getprofessors().length.toString(),
       picture: '',
       first_name: formData1.first_name,
       last_name:formData1.last_name,
       full_name: '',
       email:formData1.email,
       about: '',
-      role: '',
+      role: 'Professor',
       matters: formData1.matters,
       password: formData1.password,
       registered: '',
@@ -318,7 +400,7 @@ export class ApiService {
     return this.apiData[0].users.professors.find(
       (professor: Professor) => {
 
-        return professor._id === id
+        return professor.id === id
       }
     )
 
@@ -346,7 +428,7 @@ editProfessor(id: string, formData: UserForm1) {
       throw new Error(" User NotFoundComponent")
     }
 
-    this.apiData[0].users.professors = this.apiData[0].users.professors.filter((professor: Professor) => professor._id !== id)
+    this.apiData[0].users.professors = this.apiData[0].users.professors.filter((professor: Professor) => professor.id !== id)
     
   }
 
@@ -387,7 +469,7 @@ editProfessor(id: string, formData: UserForm1) {
 
     const s: StudentsPresenses[] = students.map((s: Student) => {
       return {
-        id: s._id,
+        id: s.id,
         first_name: s.first_name,
         last_name: s.last_name,
         email: s.email,
@@ -433,4 +515,11 @@ editProfessor(id: string, formData: UserForm1) {
     return this.http.get<Score[]>('http://localhost:3000/score');
   }
 
+  // resetPrecence() {
+  //   let arr = this.apiData[0].users.students
+
+  //   arr.map((student: Student) => student.is_present = false)
+
+    
+  // }
 }

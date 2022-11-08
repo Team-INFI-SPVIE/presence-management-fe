@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { UserForm1 } from 'src/app/interfaces/credentials';
-import { ApiService } from 'src/app/services/api/api.service';
+// import { ApiService } from 'src/app/services/api/api.service';
+import { CrudProfessorService } from 'src/app/services/api/crudProfessor/crud-professor.service';
 
 @Component({
   selector: 'app-edit-professor',
@@ -16,7 +17,9 @@ export class EditProfessorComponent implements OnInit {
   phone!: string
   password!: string
   matters!: string
-  _id!: string
+  id!: string
+
+  profLists:any = [];
 
   form: UserForm1 = {
     first_name: '',
@@ -30,7 +33,7 @@ export class EditProfessorComponent implements OnInit {
 
   constructor(
     public modalRef: MdbModalRef<EditProfessorComponent>,
-    private apiService: ApiService
+    private crudProfessor : CrudProfessorService
   ) {}
 
   ngOnInit() {
@@ -40,7 +43,8 @@ export class EditProfessorComponent implements OnInit {
     this.form.phone = this.phone
     this.form.password = this.password
     this.form.matters = this.matters
-    console.log(this._id);
+   
+    localStorage.setItem('id',this.id)
     
   }
 
@@ -49,9 +53,28 @@ export class EditProfessorComponent implements OnInit {
     this.modalRef.close(closeMessage)
   };
 
+  //professor listProf
+  professorList(){
+    this.crudProfessor.list().subscribe((response)=>{
+      this.profLists = response;
+    },(error=>{
+
+    }));
+  }
+  
+
   onSubmit() {
-    this.apiService.editProfessor(this._id, this.form)
-    this.close()
+
+    this.crudProfessor.update(localStorage.getItem('id'),this.form).subscribe(res => {
+      // alert('Ok');
+      this.professorList();
+
+      this.close()
+     
+    },
+    err => {
+      alert("Non");
+    })
   }
 
 }
