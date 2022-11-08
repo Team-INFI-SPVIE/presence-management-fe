@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MatterRoutingModule } from './matter-routing.module';
 import { MatterComponent } from './matter/matter.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { MatterComponent } from './matter/matter.component';
   ],
   imports: [
     CommonModule,
-    MatterRoutingModule
+    MatterRoutingModule,
+    FormsModule,
   ]
 })
 export class MatterModule { }

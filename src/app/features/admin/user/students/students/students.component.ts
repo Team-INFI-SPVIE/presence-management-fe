@@ -31,7 +31,8 @@ export class StudentsComponent implements OnInit {
   constructor(
     private modalService: MdbModalService,
     private apiService: ApiService,
-    private router: Router
+    private router: Router,
+    
   ) {}
 
   ngOnInit(): void {

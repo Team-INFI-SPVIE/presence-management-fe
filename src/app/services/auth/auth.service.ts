@@ -41,6 +41,9 @@ export class AuthService {
     .subscribe(res=>{
       const user = res.find((a:any)=>{
         // return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password 
+
+        localStorage.setItem('profile',a.first_name)
+
         return a.email === email && a.password === password 
       });
 
