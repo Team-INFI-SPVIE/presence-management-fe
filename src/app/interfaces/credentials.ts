@@ -26,3 +26,13 @@ export interface UserForm {
     phone: string;
     password: string;
 }
+export interface UserForm4 {
+  object: string;
+  
+  startTime: string;
+  endTime: string;
+  message: string;
+  
+  
+  piecejointe: string
+}

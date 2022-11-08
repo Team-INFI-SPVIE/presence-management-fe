@@ -52,7 +52,6 @@ export interface ApiData {
     role?: string
     phone?: string
     password?: string
-    
   }
 
   export interface Presence {
@@ -87,3 +86,16 @@ export interface ApiData {
     endTime!: string
     registered?: Date
   }
+  export class AbsenceRequests {
+    id !: string
+    object!: string
+    date!: Date
+    startTime!: string
+    endTime!: string
+    message!: string
+    name!: string
+    status!: boolean
+    piecejointe!: string
+
+  }
+  

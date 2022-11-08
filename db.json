@@ -15,17 +15,6 @@
       "picture": "http://placehold.it/32x32",
       "first_name": "Melva",
       "last_name": "Warren",
-      "email": "teacher@infisoftware.net",
-      "phone": "+225 (817) 590-3640",
-      "role": "Teacher",
-      "password": "123456789",
-      "registered": "2022-07-05T05:42:46 -00:00"
-    },
-    {
-      "id": "635bbd256e766cd2a49d0055",
-      "picture": "http://placehold.it/32x32",
-      "first_name": "Melva",
-      "last_name": "Warren",
       "email": "student@infisoftware.net",
       "phone": "+225 (817) 590-3640",
       "role": "Student",
@@ -159,6 +148,19 @@
       "phone": "057474763536",
       "is_present": false,
       "id": "26DYCGg"
+    },
+    {
+      "picture": "",
+      "first_name": "koama",
+      "last_name": "masel",
+      "full_name": "",
+      "email": "maks@gmail.com",
+      "role": "Student",
+      "password": "MMMMMMMMMMMMM",
+      "registered": "Tue Nov 08 2022 16:22:30 GMT+0100 (heure normale d’Europe centrale)",
+      "phone": "057474763536",
+      "is_present": false,
+      "id": "F4aPEWu"
     }
   ],
   "matter": [
@@ -227,6 +229,30 @@
       "endTime": "13h",
       "registered": "2016-07-16T07:11:59 -00:00",
       "is_present": false
+    }
+  ],
+  "absence-request": [
+    {
+      "id": "1",
+      "object": "demande d'absence",
+      "date": "13-07-16T07:11:59 -00:00",
+      "startTime": "8h",
+      "endTime": "13h",
+      "message": "bonjour monsieur",
+      "name": "Mballi",
+      "status": false,
+      "piecejointe": "lmmllkjj"
+    },
+    {
+      "id": "2",
+      "object": "demande d'absence",
+      "date": "13-07-16T07:11:59 -00:00",
+      "startTime": "8h",
+      "endTime": "13h",
+      "message": "bonjour monsieur",
+      "name": "michelle",
+      "status": true,
+      "piecejointe": "kjuujl"
     }
   ]
 }
