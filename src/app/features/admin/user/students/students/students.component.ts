@@ -37,9 +37,14 @@ export class StudentsComponent implements OnInit {
     private modalService: MdbModalService,
     private apiService: ApiService,
     private router: Router,
+<<<<<<< HEAD
     private crudStudent: CrudStudentService
 
   ) { }
+=======
+    
+  ) {}
+>>>>>>> dev
 
   ngOnInit(): void {
    

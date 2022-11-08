@@ -132,27 +132,35 @@
                             <th>Photo</th>
                             <th>Nom</th>
                             <th>Prenom</th>
-                            <!-- <th>Email</th> -->
+                            <th>Email</th>
                             <th>Numero</th>
                             <th>Module</th>
+                            <th>Mot de passe</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr *ngFor="let professor of professors">
-                            <td>
+                        <tr *ngFor="let professor of profLists">
+                            <td *ngIf="professor.picture">
                                 <img
                                     [src]="professor.picture"
                                     [alt]="professor.last_name"
                                     style="width: 60px;height: 60px;"
                                 >
                             </td>
+                            <td *ngIf="!professor.picture">
+                                <img src="https://via.placeholder.com/150"
+                                [alt]="professor.last_name"
+                                style="width: 60px;height: 60px;"
+                            >
+                            </td>
                             <td>{{professor.first_name}}</td>
                             <td>{{professor.last_name}}</td>
-                            <!-- <td>{{professor.email}}</td> -->
+                            <td>{{professor.email}}</td>
                             <td>{{professor.phone}}</td>
                             <td>{{professor.matters}}</td>
+                            <td>{{professor.password}}</td>
                             <td>
 
                                 <button (click)="openModal(professor)" class="btn btn-warning btn-icon p-1 btn-icon-mini mx-1" title="Supprimer">
@@ -161,7 +169,7 @@
                                     </svg>
                                 </button>
 
-                                <button (click)="deleteProfessor(professor._id)" class="btn btn-danger btn-icon p-1  btn-icon-mini" title="Supprimer">
+                                <button (click)="deleteProfessor(professor.id)" class="btn btn-danger btn-icon p-1  btn-icon-mini" title="Supprimer">
                                     <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                                         <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
                                     </svg>

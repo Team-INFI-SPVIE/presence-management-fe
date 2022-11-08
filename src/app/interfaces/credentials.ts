@@ -25,4 +25,10 @@ export interface UserForm {
     email: string;
     phone: string;
     password: string;
+    picture:string
 }
+
+export interface Matter {
+  name: string;
+}
+
