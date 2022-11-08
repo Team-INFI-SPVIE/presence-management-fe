@@ -63,7 +63,19 @@
                                     <th class="text-white">Nom & Prenom</th>
                                     <th class="text-white">Email</th>
                                     <th class="text-white">Numero</th>
-                                    <th class="text-white">Pointé</th>
+                                    <th class="text-white">
+                                        <span class="point-all">
+                                            Pointé
+                                        </span>
+                                        <input
+                                            class="form-check-input p-2 btn-wite border-dark slect-all"
+                                            type="checkbox"
+                                            [checked]="verifyCheckd(students)"
+                                            value="student.is_present"
+                                            id="flexCheckDefault"
+                                            (change)="onCheckAllStudent(students)"
+                                        >
+                                    </th>
                                </tr>
                             </thead>
 
@@ -86,12 +98,13 @@
                                     </td>
                                 </tr>
                             </tbody>
+                        
                         </table>
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" (click)="goBack()" class="btn btn-danger">Quiter</button>
-                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        <button [disabled]="disabledButton()" type="submit" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </form>
 

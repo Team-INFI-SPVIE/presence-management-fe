@@ -54,6 +54,29 @@ export class PresenceComponent implements OnInit {
     student.is_present = ! student.is_present
   }
 
+  onCheckAllStudent(students: Student[]){
+    const verifyCheckdAll = this.verifyCheckd(students)
+    if (verifyCheckdAll) {
+      students.map(
+        (student: Student) => student.is_present = false
+      )
+    } else {
+      students.map(
+        (student: Student) => student.is_present = true
+      )
+    }
+  }
+
+  verifyCheckd(students: Student[]) {
+    const allCheck = students.filter((student: Student) => student.is_present === true)
+
+    return allCheck.length === students.length
+  }
+
+  disabledButton(): boolean {
+    return this.matter === '' || this.startTime === '' || this.endTime === ''
+  }
+
   onSubmit(student: Student[],) {
 
     this.apiService.addPresenses(student, this.matter, this.startTime, this.endTime).pipe(
