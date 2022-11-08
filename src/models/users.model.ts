@@ -49,7 +49,7 @@ export interface ApiData {
   }
 
   export class Student {
-    _id!: string
+    id!: string
     picture?: string
     first_name!: string
     last_name!: string
@@ -60,6 +60,7 @@ export interface ApiData {
     role?: string
     phone?: string
     password?: string
+    
   }
 
   export interface Presence {

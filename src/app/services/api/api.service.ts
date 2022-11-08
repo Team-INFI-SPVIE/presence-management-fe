@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserForm, UserForm1 } from 'src/app/interfaces/credentials';
-import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses, } from 'src/models/users.model';
+import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses,Score } from 'src/models/users.model';
+import { map } from 'rxjs/operators';
+// import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses, } from 'src/models/users.model';
 
 @Injectable({
   providedIn: 'root'
@@ -191,7 +193,7 @@ export class ApiService {
         ],
         "students": [
           {
-            "_id": "63595b5c6b39f73a0f4b9d1a",
+            "id": "63595b5c6b39f73a0f4b9d1a",
             "picture": "http://placehold.it/32x32",
             "first_name": "Mckenzie",
             "last_name": "Olson",
@@ -204,7 +206,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5c3063ead5e0ec42f5",
+            "id": "63595b5c3063ead5e0ec42f5",
             "picture": "http://placehold.it/32x32",
             "first_name": "Carlene",
             "last_name": "Zamora",
@@ -217,7 +219,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5cb1aad8ab20ee4639",
+            "id": "63595b5cb1aad8ab20ee4639",
             "picture": "http://placehold.it/32x32",
             "first_name": "Lauri",
             "last_name": "Duran",
@@ -230,7 +232,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5c9dae1de6e2193f96",
+            "id": "63595b5c9dae1de6e2193f96",
             "picture": "http://placehold.it/32x32",
             "first_name": "Bowen",
             "last_name": "Powers",
@@ -243,7 +245,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5c3dfdee4d7303d1c1",
+            "id": "63595b5c3dfdee4d7303d1c1",
             "picture": "http://placehold.it/32x32",
             "first_name": "Merrill",
             "last_name": "Roy",
@@ -256,7 +258,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5c8a402b6d5155d29b",
+            "id": "63595b5c8a402b6d5155d29b",
             "picture": "http://placehold.it/32x32",
             "first_name": "Marcie",
             "last_name": "Reed",
@@ -269,7 +271,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5c4b191d8d912e56b6",
+            "id": "63595b5c4b191d8d912e56b6",
             "picture": "http://placehold.it/32x32",
             "first_name": "Mueller",
             "last_name": "Haney",
@@ -282,7 +284,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5c93d828909beaa667",
+            "id": "63595b5c93d828909beaa667",
             "picture": "http://placehold.it/32x32",
             "first_name": "Christa",
             "last_name": "Alvarez",
@@ -295,7 +297,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5c75ce1ae7c68f7846",
+            "id": "63595b5c75ce1ae7c68f7846",
             "picture": "http://placehold.it/32x32",
             "first_name": "Cardenas",
             "last_name": "Riley",
@@ -308,7 +310,7 @@ export class ApiService {
             "password": "password"
           },
           {
-            "_id": "63595b5c6bc616f6514f9fa3",
+            "id": "63595b5c6bc616f6514f9fa3",
             "picture": "http://placehold.it/32x32",
             "first_name": "Conley",
             "last_name": "Anderson",
@@ -336,9 +338,11 @@ export class ApiService {
     return this.http.get<Student[]>('http://localhost:3000/users?role=Student');
   }
 
+
+
   addStudent(formData: UserForm) {
     const student: Student =  {
-      _id: this.getStudents().length.toString(),
+      id: this.getStudents().length.toString(),
       picture: "http://placehold.it/32x32",
       first_name: formData.first_name,
       last_name: formData.last_name,
@@ -351,7 +355,34 @@ export class ApiService {
       password: formData.password,
     }
 
+    console.log(student);
+    
+
     this.apiData[0].users.students.push(student)
+  }
+
+  createStudent(formData: UserForm): Observable<any> {
+    const  student: Student =  {
+      id: this.getStudents().length.toString(),
+      picture: "http://placehold.it/32x32",
+      first_name: formData.first_name,
+      last_name: formData.last_name,
+      full_name: "Megan Ochoa",
+      email: formData.email,
+      is_present: false,
+      registered: new Date().toISOString(),
+      role: "student",
+      phone: formData.phone,
+      password: formData.password,
+    }
+
+    
+    
+
+    // this.apiData[0].users.students.push(student)
+    return this.http.post<UserForm>('http://localhost:3000', student)
+
+
   }
 
   getSdudentById(id: string) {
@@ -359,7 +390,7 @@ export class ApiService {
     return this.apiData[0].users.students.find(
       (student: Student) => {
 
-        return student._id === id
+        return student.id === id
       }
     )
 
@@ -387,9 +418,18 @@ export class ApiService {
       throw new Error(" User NotFoundComponent")
     }
 
-    this.apiData[0].users.students = this.apiData[0].users.students.filter((student: Student) => student._id !== id)
-    
+    this.apiData[0].users.students = this.apiData[0].users.students.filter((student: Student) => student.id !== id)
   }
+
+ 
+
+
+
+
+
+
+
+
 
   getprofessors(): Professor[] {
     return this.apiData[0].users.professors;
@@ -404,7 +444,7 @@ export class ApiService {
       full_name: '',
       email:formData1.email,
       about: '',
-      role: '',
+      role: 'Professor',
       matters: formData1.matters,
       password: formData1.password,
       registered: '',
@@ -468,7 +508,7 @@ editProfessor(id: string, formData: UserForm1) {
   addPresences(students: Student[], matter: string, startTime: string, endTime: string) {
     const s: StudentsPresenses[] = students.map((s: Student) => {
       return {
-        _id: s._id,
+        _id: s.id,
         first_name: s.first_name,
         last_name: s.last_name,
         email: s.email,
