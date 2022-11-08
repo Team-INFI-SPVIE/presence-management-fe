@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { UserForm } from 'src/app/interfaces/credentials';
 import { ApiService } from 'src/app/services/api/api.service';
+import { CrudStudentService } from 'src/app/services/api/crud-student/crud-student.service';
+import { Student } from 'src/models/users.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-modal-content',
@@ -10,12 +13,16 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 export class ModalContentComponent implements OnInit {
 
+  students!: Observable<Student[]>
+
   first_name!: string
   last_name!: string
   email!: string
   phone!: string
   password!: string
-  _id!: string
+  id!: string
+
+  
 
   form: UserForm = {
     first_name: this.first_name,
@@ -26,7 +33,8 @@ export class ModalContentComponent implements OnInit {
   }
   constructor(
     public modalRef: MdbModalRef<ModalContentComponent>,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private crudStudent: CrudStudentService
   ) {}
 
   ngOnInit() {
@@ -35,17 +43,38 @@ export class ModalContentComponent implements OnInit {
     this.form.last_name = this.last_name
     this.form.phone = this.phone
     this.form.password = this.password
-    console.log(this._id);
+    console.log(this.id);
+    localStorage.setItem('id',this.id)
+    this.students = this.crudStudent.list()
     
   }
+
+
 
   close(): void {
     const closeMessage = 'Modal closed';
     this.modalRef.close(closeMessage)
   };
 
+
+
+
+
+
   onSubmit() {
-    this.apiService.editStudent(this._id, this.form)
+    this.crudStudent.update(localStorage.getItem('id'),this.form).subscribe(
+    res => {
+      this.students = this.crudStudent.list()
+    },
+      err => {
+        alert("Non");
+
+
+
+      })
+  
+
+
     this.close()
   }
 

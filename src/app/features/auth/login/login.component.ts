@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Credentials } from 'src/app/interfaces/credentials';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { TokenService } from 'src/app/services/token/token.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -16,43 +16,36 @@ import { HttpClient } from '@angular/common/http';
 
 export class LoginComponent implements OnInit {
 
-    public loginForm!: FormGroup
-
-    constructor(
-      private formbuilder: FormBuilder,private http: HttpClient, private router: Router,
-      private authService: AuthService
-    ) { }
-
-  ngOnInit(): void {
-
-    this.loginForm = this.formbuilder.group({
-      email: [''],
-      password: ['', Validators.required]
-    })
-  }
+  public loginForm!: FormGroup
+  submitted = false;
 
 
-  login(){
-    this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
-    this.loginForm.reset()
-    // this.http.get<any>("http://localhost:3000/users")
-    // .subscribe(res=>{
-    //   const user = res.find((a:any)=>{
-    //     return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password 
-    //   });
+  constructor(
+    private formbuilder: FormBuilder,private http: HttpClient, private router: Router,
+    private authService: AuthService
+  ) { }
 
-    //   if(user){
-    //    alert(user.role);
-    //     this.loginForm.reset()
-    //     this.router.navigate(["admin/dashboard"]) 
-    //   }else{
-    //     // alert('user not found');
-    //     this.loginForm.reset()
-    //   this.router.navigate(["auth/login"])
-    //   }
-    // },err=>{
-    //   alert("Something went wrong")
-    // })
-  }
+ngOnInit(): void {
+
+  this.loginForm = this.formbuilder.group({
+    email: new FormControl (null,[ Validators.required, Validators.email]),
+    password: new FormControl (null,[ Validators.required]),
+
+  })
+}
+
+get f(): { [key: string]: AbstractControl } {
+  return this.loginForm.controls;
+}
+
+login(){
+
+  this.submitted = true;
+  this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
+  this.loginForm.reset()
+
+}
+
+
 
 }
