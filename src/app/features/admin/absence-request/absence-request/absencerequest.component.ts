@@ -5,21 +5,20 @@ import { AbsenceRequestService } from 'src/app/services/absencerequests/absence-
 import { AbsenceRequests } from 'src/models/users.model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-absence-request',
   templateUrl: './absence-request.component.html',
-  styleUrls: ['./absence-request.component.scss']
+  styleUrls: ['./absence-request.component.scss'],
 })
 export class AbsenceRequestComponent implements OnInit {
+  absence!: Observable<AbsenceRequests[]>;
+  public textareaValue = '';
 
-   absence!: Observable<AbsenceRequests[]>
-   public textareaValue = '';
-
-  doTextareaValueChange(ev:any) {
+  doTextareaValueChange(ev: any) {
     try {
       this.textareaValue = ev.target.value;
-    } catch(e) {
+    } catch (e) {
       console.info('could not set textarea-value');
     }
   }
@@ -30,41 +29,40 @@ export class AbsenceRequestComponent implements OnInit {
     endTime: '',
     message: '',
     piecejointe: '',
-    date: new Date,
-  }
+    date: new Date(),
+  };
 
-  constructor(private router:Router,
-    private absences: AbsenceRequestService,
-  ){ }
+  constructor(
+    private router: Router,
+    private absences: AbsenceRequestService
+  ) {}
 
   ngOnInit(): void {
-    this.absence = this.absences.list()
+    this.absence = this.absences.list();
   }
 
   onSubmit() {
-    this.absences.creates(this.form).subscribe(res => {
-      this.absence = this.absences.list()
-    },
-      err => {
-        console.log("Error creating: ", err)
-      })
+    this.absences.creates(this.form).subscribe(
+      (res) => {
+        this.absence = this.absences.list();
+      },
+      (err) => {
+        console.log('Error creating: ', err);
+      }
+    );
 
-      this.form.object = ''
-      this.form.startTime = ''
-      this.form.endTime = ''
-      this.form.message = ''
-      this.form.piecejointe= ''
-}
+    this.form.object = '';
+    this.form.startTime = '';
+    this.form.endTime = '';
+    this.form.message = '';
+    this.form.piecejointe = '';
+  }
 
-onStartTimeSelected(value: any): void {
-  this.form.startTime = value;
-  
-}
+  onStartTimeSelected(value: any): void {
+    this.form.startTime = value;
+  }
 
-onEndTimeSelected(value:string): void {
-  this.form.endTime = value;
-}
-
-
-
+  onEndTimeSelected(value: string): void {
+    this.form.endTime = value;
+  }
 }
