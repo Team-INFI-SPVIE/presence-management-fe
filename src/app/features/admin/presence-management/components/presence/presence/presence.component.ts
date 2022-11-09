@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { Score } from 'src/app/interfaces/credentials';
 import { ApiService } from 'src/app/services/api/api.service';
-import { Presence, Student } from 'src/models/users.model';
+import { CrudStudentService } from 'src/app/services/api/crud-student/crud-student.service';
+import { Student } from 'src/models/users.model';
 
 @Component({
   selector: 'app-presence',
@@ -12,29 +13,22 @@ import { Presence, Student } from 'src/models/users.model';
 })
 export class PresenceComponent implements OnInit {
 
-  students!: Student[]
-  presences!: Presence[]
   scrores!: Observable<Score[]>
   presences$!: Observable<Score[]>
+  students$!: Observable<Student[]>
   matter = ''
   startTime = ''
   endTime = ''
 
-
-
   constructor(
     private apiService: ApiService,
+    private studentService: CrudStudentService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.students = this.apiService.getStudents()
-    this.presences = this.apiService.getPresences()
-
-    this.students.map((students: Student) => students.is_present = false)
-
+    this.students$ = this.studentService.list()
     this.presences$ = this.apiService.getAllScrore();
-    
   }
 
   onSelected(value:string): void {
@@ -55,6 +49,7 @@ export class PresenceComponent implements OnInit {
   }
 
   onCheckAllStudent(students: Student[]){
+
     const verifyCheckdAll = this.verifyCheckd(students)
     if (verifyCheckdAll) {
       students.map(
@@ -77,7 +72,7 @@ export class PresenceComponent implements OnInit {
     return this.matter === '' || this.startTime === '' || this.endTime === ''
   }
 
-  onSubmit(student: Student[],) {
+  onSubmit(student: Student[]) {
 
     this.apiService.addPresenses(student, this.matter, this.startTime, this.endTime).pipe(
       tap(() => this.router.navigate(["admin/presence-management"]))
