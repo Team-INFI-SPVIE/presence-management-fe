@@ -7,6 +7,8 @@ import { ModalContentComponent } from '../components/modal-content/modal-content
 import { CrudStudentService } from 'src/app/services/api/crud-student/crud-student.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
@@ -42,9 +44,11 @@ export class StudentsComponent implements OnInit {
     this.crudStudent.creates(this.form).subscribe(
       (res) => {
         this.students = this.crudStudent.list();
+        this.sweetAlertSuccess()
       },
       (err) => {
         console.log('Err: ', +err);
+        this.sweetAlertError()
       }
     );
 
@@ -59,6 +63,7 @@ export class StudentsComponent implements OnInit {
     this.crudStudent.delete(id).subscribe(
       (response) => {
         this.students = this.crudStudent.list();
+        this.sweetAlertDelete()
       },
       (err) => {
         console.log('Err: ', +err);
@@ -73,5 +78,39 @@ export class StudentsComponent implements OnInit {
     this.modalRef.onClose.subscribe((message: any) => {
       console.log(message);
     });
+  }
+
+  
+  sweetAlertSuccess(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Ajout effectué avec succès',
+      toast : true,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  
+  sweetAlertDelete(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Suppression effectuée avec succès',
+      toast : true,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+  sweetAlertError(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: 'Erreur',
+      toast : true,
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 }

@@ -5,7 +5,7 @@
         <h1 class="h3 mb-0 text-dark badge ">Gestion des Demandes</h1>
     </div>
 
-    <div class="my-4">
+    <!-- <div class="my-4">
         <div class="row justify-content-center ">
             <div class="col-lg-7">
                 <div class="text-center ">
@@ -81,7 +81,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="card shadow mb-4">
         <div class="card-header bg-color-yellow">
             <h2 class="m-0 font-weight-bold text-white text-center">Liste des Demandes</h2>
@@ -91,7 +91,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Photo</th>
+                            <!-- <th>Photo</th> -->
                             <th>Nom & Prenom</th>
                             <th>Message</th>
                             <th>Date</th>
@@ -99,33 +99,37 @@
                             <td>Heures </td>
                             <th>Statut</th>
                             <th>Etat</th>
-                            <th>Détaille</th>
+                            <th>Options</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>
+    
+                        <tr *ngFor="let bd of dbAbsences | async">
+                            <!-- <td>
                                 <img src="https://bigdataci.net/storage/photos/0UKpM7a15oI11obrDqyqtKwDMh9PLdLSgmCb4Hw6.png" alt="" srcset="" style="width: 60px;height: 60px;">
+                            </td> -->
+                            <td>
+                               {{ bd.name}}  
                             </td>
                             <td>
-                                Aube MBALI
+                                {{ bd.message}}
                             </td>
                             <td>
-                                Bonjour M. Ismail,je viens ou je suis venu à travers  <br>  ce canal demande.
-                                une permission d'absence ...... <br>
+                                {{ bd.date | date: "dd/MM/YYYY" }}
                             </td>
-                            <td>15/12/2022</td>
-                            <td class="font-weight-bolder">Congé</td>
+                            <td class="font-weight-bolder">
+                                {{ bd.object  }}
+                            </td>
                             <td>
                                 <span class="badge badge-primary">
-                                    8h  -   12h
+                                    {{ bd.startTime  }} -  {{ bd.endTime  }}
                                 </span>
                             </td>
 
                             <td>
                                 <span class="badge badge-success">
-                                    Nouveau
+                                    {{ bd.status}}
                                 </span>
                             </td>
                             <td>
@@ -135,36 +139,7 @@
                             <td>Statut</td>
 
                         </tr>
-                        <tr>
-                            <td>
-                                <img src="https://bigdataci.net/dist/images/defaut.png" alt="" srcset="" style="width: 60px;height: 60px;">
-                            </td>
-                            <td>
-                                Diallo
-                            </td>
-                            <td>
-                                Bonjour M. Ismail,je viens ou je suis venu à travers  <br>  ce canal demande.
-                                une permission d'absence suite ...... <br>
-                            </td>
-                            <td>15/12/2022</td>
-                            <td class="font-weight-bolder">Congé</td>
-                            <td>
-                                <span class="badge badge-primary">
-                                    8h  -   17h
-                                </span>
-                            </td>
-                            <td>
-                                <span class="badge badge-info">
-                                    Ancien
-                                </span>
-                            </td>
-                            <td>
-                                <span class="badge badge-danger">Refusé</span>
-                            </td>
-
-                            <td>Statut</td>
-
-                        </tr>
+                        
 
                     </tbody>
 
