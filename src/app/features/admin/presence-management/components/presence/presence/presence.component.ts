@@ -53,12 +53,6 @@ export class PresenceComponent implements OnInit {
     student.is_present = !student.is_present;
   }
 
-  // onSubmit(student: Student[],) {
-  //   this.apiService.addPresences(student, this.matter, this.startTime, this.endTime)
-
-  //   this.router.navigate(["admin/presence-management"])
-  // }
-
   onCheckAllStudent(students: Student[]) {
     const verifyCheckdAll = this.verifyCheckd(students);
     if (verifyCheckdAll) {
@@ -108,8 +102,4 @@ export class PresenceComponent implements OnInit {
       timer: 1500,
     });
   }
-
-  //   onChange(event: Event) {
-  //     console.log(event.target.value);
-  //  }
 }
