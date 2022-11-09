@@ -16,7 +16,7 @@ export class AbsenceRequestService {
 
   }
 
-  creates(data : any): Observable <any> {
+  creates(data : any): Observable <AbsenceRequests> {
 
     const absence: AbsenceRequests =  {
       id: data.id ,
