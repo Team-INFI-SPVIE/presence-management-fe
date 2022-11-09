@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { ApiService } from 'src/app/services/api/api.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { Presence, StudentsPresenses } from 'src/models/users.model';
 import { PresenceModalComponent } from '../components/presence-modal/presence-modal/presence-modal.component';
+
 
 @Component({
   selector: 'app-presence-management',
@@ -10,7 +12,8 @@ import { PresenceModalComponent } from '../components/presence-modal/presence-mo
   styleUrls: ['./presence-management.component.scss']
 })
 export class PresenceManagementComponent implements OnInit {
-
+  
+  user!: any
   modalRef: MdbModalRef<PresenceModalComponent> | null = null;
   presences!: Presence[]
   
@@ -36,10 +39,12 @@ export class PresenceManagementComponent implements OnInit {
 
   constructor(
     private modalService: MdbModalService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
+    this.user = this.authService.getCurrentUser()
     this.presences = this.apiService.getPresences()
     this.studentsPresenses = this.apiService.getstudentsPresenses()
     console.log(this.apiService.getstudentsPresenses());
@@ -56,5 +61,7 @@ export class PresenceManagementComponent implements OnInit {
     console.log(selectedCategory);
     
   }
+
+  
 
 }

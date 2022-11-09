@@ -3,8 +3,8 @@
     {
       "id": "635bbd25e2b46c36035c22e2",
       "picture": "https://via.placeholder.com/150",
-      "first_name": "Admin",
-      "last_name": "Admin",
+      "first_name": "MBALI",
+      "last_name": "Aube",
       "email": "admin@infisoftware.net",
       "role": "Admin",
       "password": "123456789",
@@ -36,12 +36,12 @@
     {
       "picture": "",
       "first_name": "Aube",
-      "last_name": "MBALI 5",
+      "last_name": "MBALI ",
       "full_name": "",
       "email": "aube@infisoftware.net",
       "role": "Student",
       "password": "123456789",
-      "registered": "Tue Nov 08 2022 16:52:23 GMT+0100 (heure normale d’Europe centrale)",
+      "registered": "Wed Nov 09 2022 13:57:58 GMT+0000 (temps universel coordonné)",
       "phone": "+225 (990) 445-2832",
       "is_present": false,
       "id": "635bbd252e6b8566a75aec91"
@@ -49,7 +49,7 @@
     {
       "first_name": "Sah",
       "last_name": "Aube 1",
-      "email": "aube@infisoftware.net",
+      "email": "aube2@infisoftware.net",
       "phone": "+225 (817) 590-3640",
       "password": "123456789",
       "id": "635bbd256e726cd2a49d0055"
@@ -67,20 +67,6 @@
       "password": "",
       "registered": "Tue Nov 08 2022 07:30:02 GMT+0000 (temps universel coordonné)",
       "phone": "0123456789"
-    },
-    {
-      "id": "784",
-      "picture": "",
-      "first_name": "Evarist",
-      "last_name": "Evarist  ",
-      "full_name": "",
-      "email": "teacher@infisoftware.net",
-      "about": "",
-      "role": "Teacher",
-      "matters": "",
-      "password": "",
-      "registered": "Tue Nov 08 2022 08:56:45 GMT+0000 (temps universel coordonné)",
-      "phone": "0123456789"
     }
   ],
   "matter": [
@@ -91,12 +77,6 @@
     {
       "id": "635bbd25f2b56c36030c22e2",
       "name": "Bootstrap"
-    },
-    {
-      "id": "713",
-      "name": "Evarist Evarist",
-      "nameAdmin": "Admin",
-      "registered": "Tue Nov 08 2022 16:33:59 GMT+0000 (temps universel coordonné)"
     }
   ],
   "score": [

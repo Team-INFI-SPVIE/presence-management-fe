@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
 import { Presence, Student } from 'src/models/users.model';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-presence',
   templateUrl: './presence.component.html',
@@ -48,12 +50,28 @@ export class PresenceComponent implements OnInit {
 
   onSubmit(student: Student[],) {
     this.apiService.addPresences(student, this.matter, this.startTime, this.endTime)
+    this.sweetAlertSuccess()
     this.router.navigate(["admin/presence-management"])
   }
 
   goBack() {
     this.router.navigate(["admin/presence-management"])
   }
+
+  
+  
+  sweetAlertSuccess(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Operation effectuée avec succès',
+      toast : true,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  
 
   
 //   onChange(event: Event) {

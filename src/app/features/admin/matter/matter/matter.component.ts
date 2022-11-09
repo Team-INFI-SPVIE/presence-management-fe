@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { CrudMatterService } from 'src/app/services/api/crudMatter/crud-matter.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { Matter } from 'src/models/users.model';
 
 @Component({
@@ -10,7 +11,7 @@ import { Matter } from 'src/models/users.model';
   styleUrls: ['./matter.component.scss']
 })
 export class MatterComponent implements OnInit {
-
+  user!: any
   matterList: any = [];
 
   form : Matter = {
@@ -25,13 +26,14 @@ export class MatterComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private crudMatter: CrudMatterService
+    private crudMatter: CrudMatterService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
 
     this.getMatterList()
-
+    this.user = this.authService.getCurrentUser()
     this.matterList = this.crudMatter.getMatterAll()
 
 
