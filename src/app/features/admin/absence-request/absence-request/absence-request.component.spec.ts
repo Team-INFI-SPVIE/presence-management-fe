@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AbsenceRequestComponent } from './absence-request.component';
+import { AbsenceRequestComponent } from './absencerequest.component';
 
 describe('AbsenceRequestComponent', () => {
   let component: AbsenceRequestComponent;

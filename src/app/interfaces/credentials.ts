@@ -32,7 +32,8 @@ export interface UserForm4 {
   startTime: string;
   endTime: string;
   message: string;
-  piecejointe: string
+  piecejointe: string;
+  date:Date
 }
 
 export interface Matter {

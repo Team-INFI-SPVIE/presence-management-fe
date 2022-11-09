@@ -38,6 +38,7 @@ export class PresenceComponent implements OnInit {
   }
 
   onEndTimeSelected(value:string): void {
+    console.log("endTime", value);
     this.endTime = value;
   }
 
