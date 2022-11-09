@@ -310,6 +310,124 @@
           "date": "2022-11-09T10:54:22.812Z"
         }
       ]
+    },
+    {
+      "id": "899",
+      "createdAt": "2022-11-09T17:20:52.834Z",
+      "matter": "Bootstrap",
+      "startTime": "10h",
+      "endTime": "12h",
+      "professor": "Melva - Warren",
+      "studentsPresenses": [
+        {
+          "id": "635bbd252e6b8566a85aec90",
+          "first_name": "Valeria",
+          "last_name": "Perez",
+          "email": "studeent@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T17:20:52.834Z"
+        },
+        {
+          "id": "635bbd252e6b8566a75aec91",
+          "first_name": "Aube",
+          "last_name": "MBALI",
+          "email": "aube@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T17:20:52.834Z"
+        },
+        {
+          "id": "635cbd252e5b8566a75aec91",
+          "first_name": "Evarist",
+          "last_name": "sah",
+          "email": "evarist@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T17:20:52.834Z"
+        },
+        {
+          "id": "354",
+          "first_name": "fffff",
+          "last_name": "ffffffff",
+          "email": "057474763536",
+          "is_present": true,
+          "role": "Student",
+          "phone": "",
+          "date": "2022-11-09T17:20:52.834Z"
+        },
+        {
+          "id": "231",
+          "first_name": "Yao ",
+          "last_name": "Aube",
+          "email": "057474763536",
+          "is_present": true,
+          "role": "Student",
+          "phone": "efuicfjiovfd",
+          "date": "2022-11-09T17:20:52.834Z"
+        }
+      ]
+    },
+    {
+      "id": "411",
+      "createdAt": "2022-11-09T17:21:22.853Z",
+      "matter": "C Sharp",
+      "startTime": "8h",
+      "endTime": "16h",
+      "professor": "Melva - Warren",
+      "studentsPresenses": [
+        {
+          "id": "635bbd252e6b8566a85aec90",
+          "first_name": "Valeria",
+          "last_name": "Perez",
+          "email": "studeent@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T17:21:22.853Z"
+        },
+        {
+          "id": "635bbd252e6b8566a75aec91",
+          "first_name": "Aube",
+          "last_name": "MBALI",
+          "email": "aube@infisoftware.net",
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T17:21:22.853Z"
+        },
+        {
+          "id": "635cbd252e5b8566a75aec91",
+          "first_name": "Evarist",
+          "last_name": "sah",
+          "email": "evarist@infisoftware.net",
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T17:21:22.853Z"
+        },
+        {
+          "id": "354",
+          "first_name": "fffff",
+          "last_name": "ffffffff",
+          "email": "057474763536",
+          "is_present": false,
+          "role": "Student",
+          "phone": "",
+          "date": "2022-11-09T17:21:22.853Z"
+        },
+        {
+          "id": "231",
+          "first_name": "Yao ",
+          "last_name": "Aube",
+          "email": "057474763536",
+          "is_present": false,
+          "role": "Student",
+          "phone": "efuicfjiovfd",
+          "date": "2022-11-09T17:21:22.853Z"
+        }
+      ]
     }
   ],
   "absence-request": [
