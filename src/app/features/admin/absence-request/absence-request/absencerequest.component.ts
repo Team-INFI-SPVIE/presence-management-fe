@@ -5,6 +5,7 @@ import { AbsenceRequestService } from 'src/app/services/absencerequests/absence-
 import { AbsenceRequests } from 'src/models/users.model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-absence-request',
   templateUrl: './absence-request.component.html',
@@ -12,46 +13,40 @@ import { Router } from '@angular/router';
 })
 export class AbsenceRequestComponent implements OnInit {
 
-absence!: Observable<AbsenceRequests[]>
+   absence!: Observable<AbsenceRequests[]>
+   public textareaValue = '';
 
-
-
-
-
-
-  form: UserForm4= {
-    object: '',
-  
-  startTime: '',
-  endTime: '',
-  message: '',
-  piecejointe: ''
-  
-
+  doTextareaValueChange(ev:any) {
+    try {
+      this.textareaValue = ev.target.value;
+    } catch(e) {
+      console.info('could not set textarea-value');
+    }
   }
 
-   modalRef: MdbModalRef<AbsenceRequestComponent> | null = null;
+  form: UserForm4 = {
+    object: '',
+    startTime: '',
+    endTime: '',
+    message: '',
+    piecejointe: '',
+    date: new Date,
+  }
 
-  constructor(private router:Router, 
-    private absences: AbsenceRequestService
-) { }
+  constructor(private router:Router,
+    private absences: AbsenceRequestService,
+  ){ }
 
   ngOnInit(): void {
-
-this.absence= this.absences.list()
-
+    this.absence = this.absences.list()
   }
 
   onSubmit() {
-
     this.absences.creates(this.form).subscribe(res => {
       this.absence = this.absences.list()
     },
       err => {
-        alert("Non");
-
-
-
+        console.log("Error creating: ", err)
       })
 
       this.form.object = ''
@@ -59,7 +54,17 @@ this.absence= this.absences.list()
       this.form.endTime = ''
       this.form.message = ''
       this.form.piecejointe= ''
-      
-
 }
+
+onStartTimeSelected(value: any): void {
+  this.form.startTime = value;
+  
+}
+
+onEndTimeSelected(value:string): void {
+  this.form.endTime = value;
+}
+
+
+
 }

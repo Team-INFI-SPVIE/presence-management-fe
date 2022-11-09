@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AbsenceRequestComponent } from './absence-request/absence-request.component';
+import { AbsenceRequestComponent } from './absence-request/absencerequest.component';
 
 
 const routes: Routes = [
