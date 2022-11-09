@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { CurrentUser } from 'src/app/interfaces/credentials';
 
 type NewType = string;
 
@@ -39,8 +40,7 @@ export class AuthService {
   login(email: string, password: string){
     this.http.get<any>("http://localhost:3000/users")
     .subscribe(res=>{
-      const user = res.find((a:any)=>{
-        // return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password 
+      const user = res.find( (a:any) => {
 
         localStorage.setItem('profile',a.first_name)
 
@@ -62,7 +62,7 @@ export class AuthService {
     })
   }
 
-  getCurrentUser(): any {
+  getCurrentUser(): CurrentUser | null {
       const user = localStorage.getItem('user');
   
       if (user) {

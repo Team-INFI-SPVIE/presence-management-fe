@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-center mb-4" >
-        <h1 class="h3 mb-0 text-dark badge ">Gestion des Présencessssss</h1>
+        <h1 class="h3 mb-0 text-dark badge ">Gestion des Présencesssssseeeeeeeee</h1>
     </div>
 
     <div class="my-4">
@@ -91,40 +91,43 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Photo</th>
-                            <th>Nom & Prenom</th>
-                            <th>Numero</th>
                             <th>Module</th>
+                            <th>Nom du proffesseur</th>
+                            <!-- <th>Numero</th> -->
                             <th>Interval d'heure</th>
                             <th>Date</th>
-                            <th>Statut</th>
+                            <th>Presence</th>
+                            <th>Absence</th>
+                            <th>Details</th>
 
                     </thead>
 
                     <tbody>
-                        <tr *ngFor="let scr of scrores |async">
+                        <tr *ngFor="let presence of presences$ | async">
                             <td>
-                                <img src="{{scr.picture}}" alt="" srcset="" style="width: 60px;height: 60px;">
-                                <!--  -->
+                                {{ presence.matter }}
                             </td>
-                            <td>
-                                {{ scr.firstNameStudent }} -   {{ scr.lastNameStudent }}
-                            </td>
-                            <td>{{ scr.phoneStudent }}</td>
-                            <td>
-                                {{ scr.matter }}
-                            </td>
+                            <td>{{ presence.professor }}</td>
+
                             <td>
                                 <span class="badge badge-primary">
-                                    {{ scr.startTime }}  -   {{ scr.endTime }}
+                                    {{ presence.startTime }}  -   {{ presence.endTime }}
                                 </span>
                             </td>
-                            <td>{{scr.registered  }}</td>
-                            <td *ngIf="scr.is_present">
-                                <span class="badge badge-success">Present(e)</span>
+
+                            <td>
+                                {{ presence.createdAt }}
                             </td>
-                            <td *ngIf="!scr.is_present">
-                                <span class="badge badge-danger">Absent(e)</span>
+                            
+                            <td>
+                                <span class="badge badge-success">{{ presences(presence.studentsPresenses) }}</span>
+                            </td>
+                            <td>
+                                <span class="badge badge-danger">{{ adsences(presence.studentsPresenses) }}</span>
+                            </td>
+
+                            <td>
+                                <i (click)="showDetails(presence.id)" class="fa fa-eye btn btn-primary" aria-hidden="true"></i>
                             </td>
 
                         </tr>
