@@ -681,6 +681,303 @@
           "date": "2022-11-09T07:11:21.286Z"
         }
       ]
+    },
+    {
+      "id": "387",
+      "createdAt": "new Date.toString()",
+      "matter": "Bootstrap",
+      "startTime": "10h",
+      "endTime": "13h",
+      "idProfessor": "string",
+      "studentsPresenses": [
+        {
+          "id": "635bbd252e6b8566a85aec90",
+          "first_name": "Valeria",
+          "last_name": "Perez",
+          "email": "studeent@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:28:07.904Z"
+        },
+        {
+          "id": "635bbd252e6b8566a75aec91",
+          "first_name": "Aube",
+          "last_name": "MBALI",
+          "email": "aube@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:28:07.904Z"
+        },
+        {
+          "id": "635cbd252e5b8566a75aec91",
+          "first_name": "Evarist",
+          "last_name": "sah",
+          "email": "evarist@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:28:07.904Z"
+        },
+        {
+          "id": "354",
+          "first_name": "fffff",
+          "last_name": "ffffffff",
+          "email": "057474763536",
+          "is_present": true,
+          "role": "Student",
+          "phone": "",
+          "date": "2022-11-09T09:28:07.904Z"
+        },
+        {
+          "id": "231",
+          "first_name": "Yao ",
+          "last_name": "Aube",
+          "email": "057474763536",
+          "is_present": true,
+          "role": "Student",
+          "phone": "efuicfjiovfd",
+          "date": "2022-11-09T09:28:07.904Z"
+        }
+      ]
+    },
+    {
+      "id": "628",
+      "createdAt": "new Date.toString()",
+      "matter": "Bootstrap",
+      "startTime": "8h",
+      "endTime": "17h",
+      "idProfessor": "string",
+      "studentsPresenses": [
+        {
+          "id": "635bbd252e6b8566a85aec90",
+          "first_name": "Valeria",
+          "last_name": "Perez",
+          "email": "studeent@infisoftware.net",
+          "is_present": false,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:28:25.944Z"
+        },
+        {
+          "id": "635bbd252e6b8566a75aec91",
+          "first_name": "Aube",
+          "last_name": "MBALI",
+          "email": "aube@infisoftware.net",
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:28:25.944Z"
+        },
+        {
+          "id": "635cbd252e5b8566a75aec91",
+          "first_name": "Evarist",
+          "last_name": "sah",
+          "email": "evarist@infisoftware.net",
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:28:25.944Z"
+        },
+        {
+          "id": "354",
+          "first_name": "fffff",
+          "last_name": "ffffffff",
+          "email": "057474763536",
+          "is_present": false,
+          "role": "Student",
+          "phone": "",
+          "date": "2022-11-09T09:28:25.944Z"
+        },
+        {
+          "id": "231",
+          "first_name": "Yao ",
+          "last_name": "Aube",
+          "email": "057474763536",
+          "is_present": false,
+          "role": "Student",
+          "phone": "efuicfjiovfd",
+          "date": "2022-11-09T09:28:25.944Z"
+        }
+      ]
+    },
+    {
+      "id": "836",
+      "createdAt": "new Date.toString()",
+      "matter": "Bootstrap",
+      "startTime": "9h",
+      "endTime": "17h",
+      "idProfessor": "string",
+      "studentsPresenses": [
+        {
+          "id": "635bbd252e6b8566a85aec90",
+          "first_name": "Valeria",
+          "last_name": "Perez",
+          "email": "studeent@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:31:20.890Z"
+        },
+        {
+          "id": "635bbd252e6b8566a75aec91",
+          "first_name": "Aube",
+          "last_name": "MBALI",
+          "email": "aube@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:31:20.890Z"
+        },
+        {
+          "id": "635cbd252e5b8566a75aec91",
+          "first_name": "Evarist",
+          "last_name": "sah",
+          "email": "evarist@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:31:20.890Z"
+        },
+        {
+          "id": "354",
+          "first_name": "fffff",
+          "last_name": "ffffffff",
+          "email": "057474763536",
+          "is_present": true,
+          "role": "Student",
+          "phone": "",
+          "date": "2022-11-09T09:31:20.890Z"
+        },
+        {
+          "id": "231",
+          "first_name": "Yao ",
+          "last_name": "Aube",
+          "email": "057474763536",
+          "is_present": true,
+          "role": "Student",
+          "phone": "efuicfjiovfd",
+          "date": "2022-11-09T09:31:20.890Z"
+        }
+      ]
+    },
+    {
+      "id": "969",
+      "createdAt": "new Date.toString()",
+      "matter": "Bootstrap",
+      "startTime": "8h",
+      "endTime": "11h",
+      "idProfessor": "string",
+      "studentsPresenses": [
+        {
+          "id": "635bbd252e6b8566a85aec90",
+          "first_name": "Valeria",
+          "last_name": "Perez",
+          "email": "studeent@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:38:42.995Z"
+        },
+        {
+          "id": "635bbd252e6b8566a75aec91",
+          "first_name": "Aube",
+          "last_name": "MBALI",
+          "email": "aube@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:38:42.995Z"
+        },
+        {
+          "id": "635cbd252e5b8566a75aec91",
+          "first_name": "Evarist",
+          "last_name": "sah",
+          "email": "evarist@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:38:42.995Z"
+        },
+        {
+          "id": "354",
+          "first_name": "fffff",
+          "last_name": "ffffffff",
+          "email": "057474763536",
+          "is_present": true,
+          "role": "Student",
+          "phone": "",
+          "date": "2022-11-09T09:38:42.995Z"
+        },
+        {
+          "id": "231",
+          "first_name": "Yao ",
+          "last_name": "Aube",
+          "email": "057474763536",
+          "is_present": true,
+          "role": "Student",
+          "phone": "efuicfjiovfd",
+          "date": "2022-11-09T09:38:42.995Z"
+        }
+      ]
+    },
+    {
+      "id": "384",
+      "createdAt": "new Date.toString()",
+      "matter": "C Sharp",
+      "startTime": "10h",
+      "endTime": "9h",
+      "idProfessor": "string",
+      "studentsPresenses": [
+        {
+          "id": "635bbd252e6b8566a85aec90",
+          "first_name": "Valeria",
+          "last_name": "Perez",
+          "email": "studeent@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:39:06.891Z"
+        },
+        {
+          "id": "635bbd252e6b8566a75aec91",
+          "first_name": "Aube",
+          "last_name": "MBALI",
+          "email": "aube@infisoftware.net",
+          "is_present": true,
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:39:06.891Z"
+        },
+        {
+          "id": "635cbd252e5b8566a75aec91",
+          "first_name": "Evarist",
+          "last_name": "sah",
+          "email": "evarist@infisoftware.net",
+          "role": "Student",
+          "phone": "+225 (990) 445-2832",
+          "date": "2022-11-09T09:39:06.891Z"
+        },
+        {
+          "id": "354",
+          "first_name": "fffff",
+          "last_name": "ffffffff",
+          "email": "057474763536",
+          "is_present": false,
+          "role": "Student",
+          "phone": "",
+          "date": "2022-11-09T09:39:06.891Z"
+        },
+        {
+          "id": "231",
+          "first_name": "Yao ",
+          "last_name": "Aube",
+          "email": "057474763536",
+          "is_present": false,
+          "role": "Student",
+          "phone": "efuicfjiovfd",
+          "date": "2022-11-09T09:39:06.891Z"
+        }
+      ]
     }
   ],
   "absence-request": [
