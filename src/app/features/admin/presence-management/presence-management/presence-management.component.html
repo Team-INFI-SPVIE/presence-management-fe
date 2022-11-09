@@ -4,8 +4,10 @@
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-dark badge ">Gestion des Présences</h1>
 
-    <button type="button" class="btn btn-primary" [routerLink]="['presence']">Feuille de Pointage
-    </button>
+    <div class="button-contair">
+      <!-- <button type="button" class="btn btn-warning edit" [routerLink]="['presence', latestPresences.id,]">Editer</button> -->
+      <button type="button" class="btn btn-primary" [routerLink]="['presence']">Nouvelle Feuille de Pointage</button>
+    </div>
   </div>
 
   <div class="modal fade bd-example-modal-lg" data-backdrop="static" tabindex="-1" role="dialog"
@@ -93,7 +95,7 @@
 
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                  <button type="button" class="btn btn-danger">Fermer</button>
                   <button type="button" class="btn btn-primary">Enregistrer</button>
                 </div>
               </form>
@@ -106,14 +108,14 @@
 
   <div class="card shadow mb-4 my-5">
     <div class="card-header bg-color-yellow py-3">
-      <h2 class="m-0 font-weight-bold text-white text-center">Liste des Pointages</h2>
+      <h2 class="m-0 font-weight-bold text-white text-center">Liste du dernier Pointage</h2>
     </div>
     <div class="card-body">
       <div class="table-responsive">
+
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <!-- <th>Photo</th> -->
               <th>Nom</th>
               <th>Prenom</th>
               <th>Numero</th>
@@ -121,21 +123,18 @@
               <th>Interval d'heure</th>
               <th>Date</th>
               <th>Statut</th>
-
+            </tr>
           </thead>
 
-          <tbody>
-            <tr *ngFor="let presence of studentsPresenses">
-              <!-- <td>
-                <img src="https://bigdataci.net/storage/photos/0UKpM7a15oI11obrDqyqtKwDMh9PLdLSgmCb4Hw6.png" alt=""
-                  srcset="" style="width: 60px;height: 60px;">
-              </td> -->
-              <td>{{presence.last_name}}</td>
-              <td>{{presence.last_name}}</td>
-              <td>{{presence.phone}}</td>
-              <td>{{presence.matter}}</td>
-              <td>{{presence.startTime}} - {{presence.endTime}}</td>
-              <td>{{presence.date | date: 'dd/MM/yy' }}</td>
+          <tbody *ngIf="lastPresences$ | async as lastPresences">
+            <tr *ngFor="let presence of lastPresences.studentsPresenses">
+
+              <td>{{ presence.first_name }}</td>
+              <td>{{ presence.last_name }}</td>
+              <td>{{ presence.phone }}</td>
+              <td>{{ lastPresences.matter }}</td>
+              <td>{{ lastPresences.startTime }} - {{ lastPresences.endTime }}</td>
+              <td>{{ presence.date | date: 'dd/MM/yy' }}</td>
               <td>
                 <span *ngIf="presence.is_present" class="badge badge-success">Present</span>
 
@@ -146,6 +145,7 @@
 
           </tbody>
         </table>
+
       </div>
     </div>
   </div>

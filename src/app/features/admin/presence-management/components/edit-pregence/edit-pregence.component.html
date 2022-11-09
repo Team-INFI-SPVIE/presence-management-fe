@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="students$ | async as students">
+<div class="container-fluid">
     <div class="row">
         <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
         <div class="col-lg-12 ">
@@ -9,12 +9,12 @@
                     class="user"
                     #f="ngForm"
                     class="user"
-                    (ngSubmit)="onSubmit(students)"
+                    
                 >
                     <div class="form-group row ">
                         <div class="col-sm-4">
 
-                            <select class="custom-select mr-sm-2" id="matter" #matter (change)="onSelected(matter.value)">
+                            <select class="custom-select mr-sm-2" id="matter" #matter>
                                 <option default>null</option>
                                 <option>Angular</option>
                                 <option>Bootstrap</option>
@@ -25,7 +25,7 @@
                         </div>
                         <div class="col-sm-4 mb-3 mb-sm-0">
                             <div class="col-auto my-1">
-                                <select class="custom-select mr-sm-2" id="startTime" #startTime (change)="onStartTimeSelected(startTime.value)">
+                                <select class="custom-select mr-sm-2" id="startTime" #startTime>
                                     <option default>Heure de debut</option>
                                     <option>8h</option>
                                     <option>9h</option>
@@ -41,9 +41,9 @@
                             </div>
                         </div>
                         <div class="col-sm-4">
-                            <select class="custom-select mr-sm-2" #endTime (change)="onEndTimeSelected(endTime.value)"  id="endTime">
+                            <select class="custom-select mr-sm-2" #endTime id="endTime">
                                 <option default>Heure de fin</option>
-                                    <option >8h</option>
+                                    <option>8h</option>
                                     <option>9h</option>
                                     <option>10h</option>
                                     <option>11h</option>
@@ -70,17 +70,17 @@
                                         <input
                                             class="form-check-input p-2 btn-wite border-dark slect-all"
                                             type="checkbox"
-                                            [checked]="verifyCheckd(students)"
+                                            
                                             value="student.is_present"
                                             id="flexCheckDefault"
-                                            (change)="onCheckAllStudent(students)"
+                                            
                                         >
                                     </th>
                                </tr>
                             </thead>
 
-                            <tbody >
-                                <tr *ngFor="let student of students">
+                            <tbody *ngIf="presence$ | async as presences">
+                                <tr *ngFor="let student of presences.studentsPresenses">
                                     <td>{{student.last_name}} {{student.first_name}}</td>
                                     <td>{{student.email}}</td>
                                     <td>{{student.phone}}</td>
@@ -92,7 +92,7 @@
                                                 [checked]="student.is_present"
                                                 value="student.is_present"
                                                 id="flexCheckDefault"
-                                                (change)="onCheckboxValueChange(student)"
+                                                
                                             >
                                         </div>
                                     </td>
@@ -104,7 +104,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" (click)="goBack()" class="btn btn-danger">Quiter</button>
-                        <button [disabled]="disabledButton()" type="submit" class="btn btn-primary">Enregistrer</button>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </form>
 
@@ -113,3 +113,4 @@
         </div>
     </div>
 </div>
+
