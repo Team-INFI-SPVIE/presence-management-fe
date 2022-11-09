@@ -4,12 +4,11 @@ import { map, Observable, switchMap } from 'rxjs';
 import { CurrentUser, Score } from 'src/app/interfaces/credentials';
 import { Presence, Student, StudentsPresenses } from 'src/models/users.model';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-  
   getAllStudent(): Observable<Student[]> {
     return this.http.get<Student[]>('http://localhost:3000/users?role=Student');
   }
@@ -19,13 +18,14 @@ export class ApiService {
   }
 
   getLatestPresense(): Observable<Presence> {
-
-    let id!: string
+    let id!: string;
     return this.getAllPresenses().pipe(
-         map(resences => {
-          id = resences[resences.length - 1].id
-         }),
-        switchMap(() => this.http.get<Presence>(`http://localhost:3000/score/${id}`))
+      map((resences) => {
+        id = resences[resences.length - 1].id;
+      }),
+      switchMap(() =>
+        this.http.get<Presence>(`http://localhost:3000/score/${id}`)
+      )
     );
   }
 
@@ -38,9 +38,8 @@ export class ApiService {
     matter: string,
     startTime: string,
     endTime: string,
-    user: CurrentUser | null,
-    ): Observable<Presence> {
-
+    user: CurrentUser | null
+  ): Observable<Presence> {
     const s: StudentsPresenses[] = students.map((s: Student) => {
       return {
         id: s.id,
@@ -50,39 +49,39 @@ export class ApiService {
         is_present: s.is_present,
         role: s.role,
         phone: s.phone,
-        date: new Date
-      }
-    })
+        date: new Date(),
+      };
+    });
 
-    const presence : Presence =  {
+    const presence: Presence = {
       id: Math.floor(Math.random() * 1000).toString(),
-      createdAt: new Date,
+      createdAt: new Date(),
       matter,
       startTime,
       endTime,
       professor: `${user?.first_name} - ${user?.last_name}`,
-      studentsPresenses: s
-    }
+      studentsPresenses: s,
+    };
 
     return this.getAllPresenses().pipe(
-      switchMap( () => this.http.post<Presence>(
-        'http://localhost:3000/score',
-        presence
-      ))
+      switchMap(() =>
+        this.http.post<Presence>('http://localhost:3000/score', presence)
+      )
     );
   }
 
   updatePresence(presenceId: string): Observable<Presence> {
     return this.getPresenceById(presenceId).pipe(
-        switchMap((data) => this.http.put<Presence>(
-            `'http://localhost:3000/score'/${presenceId}`,
-            data)
+      switchMap((data) =>
+        this.http.put<Presence>(
+          `'http://localhost:3000/score'/${presenceId}`,
+          data
         )
+      )
     );
-}
+  }
 
   getAllScrore(): Observable<Score[]> {
     return this.http.get<Score[]>('http://localhost:3000/score');
   }
-
 }

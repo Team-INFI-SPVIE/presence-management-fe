@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { UserForm4 } from 'src/app/interfaces/credentials';
 import { AbsenceRequestService } from 'src/app/services/absencerequests/absence-request.service';
 import { AbsenceRequests } from 'src/models/users.model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-// import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-absence-request',
   templateUrl: './absence-request.component.html',
@@ -43,7 +42,7 @@ export class AbsenceRequestComponent implements OnInit {
 
   onSubmit() {
     this.absences.creates(this.form).subscribe(
-      (res) => {
+      () => {
         this.absence = this.absences.list();
       },
       (err) => {
