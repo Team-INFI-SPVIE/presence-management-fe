@@ -4,8 +4,11 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { UserForm1 } from 'src/app/interfaces/credentials';
 import { ApiService } from 'src/app/services/api/api.service';
 import { CrudProfessorService } from 'src/app/services/api/crudProfessor/crud-professor.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { Professor } from 'src/models/users.model';
 import { EditProfessorComponent } from '../components/edit-professor/edit-professor.component';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-professors',
@@ -13,6 +16,8 @@ import { EditProfessorComponent } from '../components/edit-professor/edit-profes
   styleUrls: ['./professors.component.scss']
 })
 export class ProfessorsComponent implements OnInit {
+
+  user!: any
 
   professors! : Professor []
 
@@ -33,12 +38,13 @@ export class ProfessorsComponent implements OnInit {
     // private apiService: ApiService,
     private router: Router,
     private modalService: MdbModalService,
-    private crudProfessor: CrudProfessorService
+    private crudProfessor: CrudProfessorService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
     // this.professors = this.apiService.getprofessors()
-
+    this.user = this.authService.getCurrentUser()
     this.professorList();
   }
   //professor listProf
@@ -55,11 +61,11 @@ export class ProfessorsComponent implements OnInit {
   onSubmit(){
    
     this.crudProfessor.create(this.form).subscribe(res => {
-      alert('Ok');
-      this.professorList();
+      this.sweetAlertSuccess()
+      this.professorList()
     },
     err => {
-      alert("Non");
+     this.sweetAlertError()
     })
 
     this.form.first_name = ''
@@ -73,11 +79,11 @@ export class ProfessorsComponent implements OnInit {
  
   deleteProfessor(id: string) {
     this.crudProfessor.delete(id).subscribe(res => {
-      alert('Ok');
+     this.sweetAlertDelete()
       this.professorList();
     },
     err => {
-      alert("Non");
+      this.sweetAlertError()
     })
    
   }
@@ -87,5 +93,40 @@ export class ProfessorsComponent implements OnInit {
       data: professor,
     });
   }
+
+  
+  sweetAlertSuccess(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Ajout effectué avec succès',
+      toast : true,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  
+  sweetAlertDelete(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Suppression effectuée avec succès',
+      toast : true,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+  sweetAlertError(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: 'Erreur',
+      toast : true,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
 
 }

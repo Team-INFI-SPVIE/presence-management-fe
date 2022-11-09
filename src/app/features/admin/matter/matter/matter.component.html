@@ -3,19 +3,19 @@
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Modules</h1>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLongs">Ajouté un
+    <button *ngIf="user.role === 'Admin'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLongs">Ajouté un
       Module</button>
   </div>
 
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModalLongs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongsTitle"
+  <div *ngIf="user.role === 'Admin'" class="modal fade" id="exampleModalLongs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongsTitle"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header btn-primary">
           <h5 class="modal-title" id="exampleModalLongTitle">Ajouter un module</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button *ngIf="user.role === 'Admin'" type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -53,7 +53,7 @@
             </div>
           </div>
         </div>
-       
+
       </div>
     </div>
   </div>
@@ -72,7 +72,7 @@
               <th>Libellé</th>
               <th>Ajouté par</th>
               <th>Date</th>
-              <th class="text-center">Action</th>
+              <th *ngIf="user.role === 'Admin'" class="text-center">Action</th>
             </tr>
 
           </thead>
@@ -82,8 +82,8 @@
               <td>{{ matter.name }}</td>
               <td>{{ matter.nameAdmin }}</td>
               <td>{{ matter.registered | date: "dd/MM/YYYY" }}</td>
-             
-              <td class="text-center">
+
+              <td class="text-center" *ngIf="user.role === 'Admin'">
 
                   <!-- <button (click)="openModal(matter)" class="btn btn-warning btn-icon p-1 btn-icon-mini mx-1" title="Supprimer">
                       <svg style="width:24px;height:24px" viewBox="0 0 24 24">

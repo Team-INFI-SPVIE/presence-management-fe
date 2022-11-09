@@ -31,7 +31,9 @@
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss",
               "src/app/style/css/sb-admin-2.css",
-              "src/app/style/css/sb-admin-2.min.css"
+              "src/app/style/css/sb-admin-2.min.css",
+
+              "node_modules/sweetalert2/src/sweetalert2.scss"
             ],
             "scripts": [
               "src/assets/vendor/jquery/jquery.js",

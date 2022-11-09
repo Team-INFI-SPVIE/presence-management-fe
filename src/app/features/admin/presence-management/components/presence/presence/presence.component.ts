@@ -7,6 +7,8 @@ import { CrudStudentService } from 'src/app/services/api/crud-student/crud-stude
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Student } from 'src/models/users.model';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-presence',
   templateUrl: './presence.component.html',
@@ -53,6 +55,12 @@ export class PresenceComponent implements OnInit {
     student.is_present = ! student.is_present
   }
 
+
+  onSubmit(student: Student[],) {
+    this.apiService.addPresences(student, this.matter, this.startTime, this.endTime)
+    this.sweetAlertSuccess()
+    this.router.navigate(["admin/presence-management"])
+=======
   onCheckAllStudent(students: Student[]){
 
     const verifyCheckdAll = this.verifyCheckd(students)
@@ -82,10 +90,33 @@ export class PresenceComponent implements OnInit {
     this.apiService.addPresenses(student, this.matter, this.startTime, this.endTime, this.user).pipe(
       tap(() => this.router.navigate(["admin/presence-management"]))
       ).subscribe();
+
   }
 
   goBack() {
     this.router.navigate(["admin/presence-management"])
   }
+
+
+  
+  
+  sweetAlertSuccess(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Operation effectuée avec succès',
+      toast : true,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  
+
+  
+//   onChange(event: Event) {
+//     console.log(event.target.value);
+//  }
+
 
 }
