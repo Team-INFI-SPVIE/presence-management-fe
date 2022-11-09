@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { Score } from 'src/app/interfaces/credentials';
+import { CurrentUser, Score } from 'src/app/interfaces/credentials';
 import { ApiService } from 'src/app/services/api/api.service';
 import { CrudStudentService } from 'src/app/services/api/crud-student/crud-student.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { Student } from 'src/models/users.model';
 
 @Component({
@@ -20,15 +21,19 @@ export class PresenceComponent implements OnInit {
   startTime = ''
   endTime = ''
 
+  user!: CurrentUser | null
+
   constructor(
     private apiService: ApiService,
     private studentService: CrudStudentService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
     this.students$ = this.studentService.list()
-    this.presences$ = this.apiService.getAllScrore();
+    this.presences$ = this.apiService.getAllScrore()
+    this.user = this.authService.getCurrentUser()
   }
 
   onSelected(value:string): void {
@@ -40,7 +45,6 @@ export class PresenceComponent implements OnInit {
   }
 
   onEndTimeSelected(value:string): void {
-    console.log("endTime", value);
     this.endTime = value;
   }
 
@@ -75,7 +79,7 @@ export class PresenceComponent implements OnInit {
 
   onSubmit(student: Student[]) {
 
-    this.apiService.addPresenses(student, this.matter, this.startTime, this.endTime).pipe(
+    this.apiService.addPresenses(student, this.matter, this.startTime, this.endTime, this.user).pipe(
       tap(() => this.router.navigate(["admin/presence-management"]))
       ).subscribe();
   }

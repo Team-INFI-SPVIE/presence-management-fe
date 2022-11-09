@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { CurrentUser } from 'src/app/interfaces/credentials';
 
 type NewType = string;
 
@@ -61,7 +62,7 @@ export class AuthService {
     })
   }
 
-  getCurrentUser(): any {
+  getCurrentUser(): CurrentUser | null {
       const user = localStorage.getItem('user');
   
       if (user) {

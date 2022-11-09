@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, switchMap } from 'rxjs';
-import { Score } from 'src/app/interfaces/credentials';
+import { CurrentUser, Score } from 'src/app/interfaces/credentials';
 import { Presence, Student, StudentsPresenses } from 'src/models/users.model';
 @Injectable({
   providedIn: 'root'
@@ -33,7 +33,13 @@ export class ApiService {
     return this.http.get<Presence>(`http://localhost:3000/score/${presenceId}`);
   }
 
-  addPresenses(students: Student[], matter: string, startTime: string, endTime: string): Observable<Presence> {
+  addPresenses(
+    students: Student[],
+    matter: string,
+    startTime: string,
+    endTime: string,
+    user: CurrentUser | null,
+    ): Observable<Presence> {
 
     const s: StudentsPresenses[] = students.map((s: Student) => {
       return {
@@ -50,11 +56,11 @@ export class ApiService {
 
     const presence : Presence =  {
       id: Math.floor(Math.random() * 1000).toString(),
-      createdAt: 'new Date.toString()',
+      createdAt: new Date,
       matter,
       startTime,
       endTime,
-      idProfessor: 'string',
+      professor: `${user?.first_name} - ${user?.last_name}`,
       studentsPresenses: s
     }
 

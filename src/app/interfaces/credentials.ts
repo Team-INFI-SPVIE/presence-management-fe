@@ -1,3 +1,14 @@
+export interface CurrentUser {
+  id: string
+  picture: string
+  first_name: string
+  last_name: string
+  email: string
+  role: string
+  password: string
+  registered: string
+}
+
 export interface Credentials {
     email: string,
     password: string
