@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { UserForm1 } from 'src/app/interfaces/credentials';
-import { ApiService } from 'src/app/services/api/api.service';
 import { CrudProfessorService } from 'src/app/services/api/crudProfessor/crud-professor.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Professor } from 'src/models/users.model';
@@ -13,24 +12,23 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-professors',
   templateUrl: './professors.component.html',
-  styleUrls: ['./professors.component.scss']
+  styleUrls: ['./professors.component.scss'],
 })
 export class ProfessorsComponent implements OnInit {
+  user!: any;
 
-  user!: any
+  professors!: Professor[];
 
-  professors! : Professor []
+  profLists: any = [];
 
-  profLists:any = [];
-
-  form : UserForm1 = {
+  form: UserForm1 = {
     first_name: '',
     last_name: '',
     email: '',
     phone: '',
     password: '',
     matters: '',
-  }
+  };
 
   modalRef: MdbModalRef<EditProfessorComponent> | null = null;
 
@@ -40,52 +38,50 @@ export class ProfessorsComponent implements OnInit {
     private modalService: MdbModalService,
     private crudProfessor: CrudProfessorService,
     private authService: AuthService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    // this.professors = this.apiService.getprofessors()
-    this.user = this.authService.getCurrentUser()
+    this.user = this.authService.getCurrentUser();
     this.professorList();
   }
-  //professor listProf
-  professorList(){
-    this.crudProfessor.list().subscribe((response)=>{
-      this.profLists = response;
-    },(error=>{
-
-    }));
-  }
-  
- 
-
-  onSubmit(){
-   
-    this.crudProfessor.create(this.form).subscribe(res => {
-      this.sweetAlertSuccess()
-      this.professorList()
-    },
-    err => {
-     this.sweetAlertError()
-    })
-
-    this.form.first_name = ''
-    this.form.last_name = ''
-    this.form.email = ''
-    this.form.phone = ''
-    this.form.password = ''
-    this.form.matters = ''
+  professorList() {
+    this.crudProfessor.list().subscribe(
+      (response) => {
+        this.profLists = response;
+      },
+      (error) => {}
+    );
   }
 
- 
+  onSubmit() {
+    this.crudProfessor.create(this.form).subscribe(
+      (res) => {
+        this.sweetAlertSuccess();
+        this.professorList();
+      },
+      (err) => {
+        this.sweetAlertError();
+      }
+    );
+
+    this.form.first_name = '';
+    this.form.last_name = '';
+    this.form.email = '';
+    this.form.phone = '';
+    this.form.password = '';
+    this.form.matters = '';
+  }
+
   deleteProfessor(id: string) {
-    this.crudProfessor.delete(id).subscribe(res => {
-     this.sweetAlertDelete()
-      this.professorList();
-    },
-    err => {
-      this.sweetAlertError()
-    })
-   
+    this.crudProfessor.delete(id).subscribe(
+      (res) => {
+        this.sweetAlertDelete();
+        this.professorList();
+      },
+      (err) => {
+        this.sweetAlertError();
+      }
+    );
   }
 
   openModal(professor: Professor) {
@@ -94,39 +90,35 @@ export class ProfessorsComponent implements OnInit {
     });
   }
 
-  
-  sweetAlertSuccess(){
+  sweetAlertSuccess() {
     Swal.fire({
       position: 'top-end',
       icon: 'success',
       title: 'Ajout effectué avec succès',
-      toast : true,
+      toast: true,
       showConfirmButton: false,
-      timer: 1500
-    })
+      timer: 1500,
+    });
   }
 
-  
-  sweetAlertDelete(){
+  sweetAlertDelete() {
     Swal.fire({
       position: 'top-end',
       icon: 'success',
       title: 'Suppression effectuée avec succès',
-      toast : true,
+      toast: true,
       showConfirmButton: false,
-      timer: 1500
-    })
+      timer: 1500,
+    });
   }
-  sweetAlertError(){
+  sweetAlertError() {
     Swal.fire({
       position: 'top-end',
       icon: 'error',
       title: 'Erreur',
-      toast : true,
+      toast: true,
       showConfirmButton: false,
-      timer: 1500
-    })
+      timer: 1500,
+    });
   }
-
-
 }
