@@ -85,8 +85,8 @@ export interface ApiData {
 
   export interface Presence {
     id: string
-    createdAt: string
-    idProfessor: string
+    createdAt: Date
+    professor: string
     matter: string
     startTime: string
     endTime: string
@@ -126,6 +126,5 @@ export interface ApiData {
     name!: string
     status!: boolean
     piecejointe!: string
-
   }
   

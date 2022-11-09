@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Score } from 'src/app/interfaces/credentials';
 import { ApiService } from 'src/app/services/api/api.service';
+import { Presence } from 'src/models/users.model';
+
+import { StudentsPresenses } from 'src/models/users.model'; 
 
 
 @Component({
@@ -11,13 +14,29 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 export class ScoreListComponent implements OnInit {
 
-  scrores!: Observable<Score[]>
+  presences$!: Observable<Presence[]>
 
-  constructor( private apiService: ApiService) { }
+  constructor(
+    private apiService: ApiService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.presences$ = this.apiService.getAllPresenses()
+  }
 
-    // this.scrores = this.apiService.getAllScrore()
+  presences(students: StudentsPresenses[]): number {
+    const presenceStudent = students.filter(s => s.is_present === true)
+    return presenceStudent.length
+  }
+
+  adsences(students: StudentsPresenses[]): number {
+    const presenceStudent = students.filter(s => s.is_present === false)
+    return presenceStudent.length
+  }
+
+  showDetails(id: string) {
+    this.router.navigate([`/admin/score-list/details/${id}`]);
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CurrentUser } from 'src/app/interfaces/credentials';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -9,9 +10,9 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class SidemenuComponent implements OnInit {
 
-  user!: any
+  user!: CurrentUser | null;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.user = this.authService.getCurrentUser()
