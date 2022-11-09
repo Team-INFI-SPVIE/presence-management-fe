@@ -1,9 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { UserForm, UserForm1 } from 'src/app/interfaces/credentials';
-import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses,Score } from 'src/models/users.model';
-import { map } from 'rxjs/operators';
+import { map, Observable, switchMap } from 'rxjs';
+import { Score, UserForm, UserForm1 } from 'src/app/interfaces/credentials';
+import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses } from 'src/models/users.model';
+// import { Observable } from 'rxjs';
+// import { UserForm, UserForm1 } from 'src/app/interfaces/credentials';
+// import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses,Score } from 'src/models/users.model';
+// import { map } from 'rxjs/operators';
 // import { Admin, ApiData, Presence, Professor, Student, StudentsPresenses, } from 'src/models/users.model';
 
 @Injectable({
@@ -11,7 +14,7 @@ import { map } from 'rxjs/operators';
 })
 export class ApiService {
 
-  apiData: ApiData[] = [
+  apiData: any[] = [
     {
       "users": {
         "admin": {
@@ -28,69 +31,7 @@ export class ApiService {
           "phone": "097654322567"
 
         },
-        "presences": [
-          {
-            "_id": "ssss",
-            'createdAt': new Date,
-            "studentsPresenses": [
-              {
-                "_id": "63595b5c6b39f73a0f4b9d1a",
-                "first_name": "Mckenzie",
-                "last_name": "Olson",
-                "email": "goodmanwoodward@verton.com",
-                "is_present": true,
-                "role": "student",
-                "phone": "097878664332",
-                'matter': '',
-                "startTime": '',
-                "endTime": ''
-              },
-              {
-                "_id": "63595b5c6b39f73a0f4b9d1a",
-                "first_name": "Makissi",
-                "last_name": "Olson",
-                "email": "goodmanwoodward@verton.com",
-                "is_present": true,
-                "role": "student",
-                "phone": "097878664332",
-                'matter': '',
-                "startTime": '',
-                "endTime": ''
-              },
-              {
-                "_id": "63595b5c6b39f73a0f4b9d1a",
-                "first_name": "Benthe",
-                "last_name": "Olson",
-                "email": "goodmanwoodward@verton.com",
-                "is_present": true,
-                "role": "student",
-                "phone": "097878664332",
-                'matter': '',
-                "startTime": '',
-                "endTime": ''
-              },
-            ]
-          },
-          {
-            "_id": "ssss",
-            'createdAt': new Date,
-            "studentsPresenses": [
-              {
-                "_id": "63595b5c6b39f73a0f4b9d1a",
-                "first_name": "Mckenzie",
-                "last_name": "Olson",
-                "email": "goodmanwoodward@verton.com",
-                "is_present": true,
-                "role": "student",
-                "phone": "097878664332",
-                'matter': '',
-                "startTime": '',
-                "endTime": '',
-                "date": new Date,
-              },
-            ]
-          }
-        ],
+        
         "professors": [
           {
             "id": "63595b5c1da39578c6b8218b",
@@ -505,30 +446,73 @@ editProfessor(id: string, formData: UserForm1) {
     return this.apiData[0].users.presences[len-1].studentsPresenses
   }
 
-  addPresences(students: Student[], matter: string, startTime: string, endTime: string) {
+  getAllPresenses(): Observable<Presence[]> {
+    return this.http.get<Presence[]>('http://localhost:3000/score');
+  }
+
+  getLatestPresense(): Observable<Presence> {
+
+    let id!: string
+    return this.getAllPresenses().pipe(
+         map(resences => {
+          id = resences[resences.length - 1].id
+         }),
+        switchMap(() => this.http.get<Presence>(`http://localhost:3000/score/${id}`))
+    );
+  }
+
+  getPresenceById(presenceId: string): Observable<Presence> {
+    return this.http.get<Presence>(`http://localhost:3000/score/${presenceId}`);
+  }
+
+  addPresenses(students: Student[], matter: string, startTime: string, endTime: string): Observable<Presence> {
+
     const s: StudentsPresenses[] = students.map((s: Student) => {
       return {
-        _id: s.id,
+        id: s.id,
         first_name: s.first_name,
         last_name: s.last_name,
         email: s.email,
         is_present: s.is_present,
         role: s.role,
         phone: s.phone,
-        matter,
-        startTime,
-        endTime,
-        date: new Date,
+        date: new Date
       }
     })
+
     const presence : Presence =  {
-      _id: 'this.getprofessors().length.toString()',
-      createdAt: new Date,
+      id: Math.floor(Math.random() * 1000).toString(),
+      createdAt: 'new Date.toString()',
+      matter,
+      startTime,
+      endTime,
+      idProfessor: 'string',
       studentsPresenses: s
     }
 
-    this.apiData[0].users.presences.push(presence)
-    
+    return this.getAllPresenses().pipe(
+      switchMap( () => this.http.post<Presence>(
+        'http://localhost:3000/score',
+        presence
+      ))
+    );
+  }
+
+  updatePresence(presenceId: string): Observable<Presence> {
+    return this.getPresenceById(presenceId).pipe(
+        // map(faceSnap => ({
+        //     ...faceSnap,
+        //     snaps: faceSnap.snaps + (snapType === 'snap' ? 1 : -1)
+        // })),
+        switchMap(updatedFaceSnap => this.http.put<Presence>(
+            `'http://localhost:3000/score'/${presenceId}`,
+            updatedFaceSnap)
+        )
+    );
+}
+
+  getAllScrore(): Observable<Score[]> {
+    return this.http.get<Score[]>('http://localhost:3000/score');
   }
 
   // resetPrecence() {

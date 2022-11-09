@@ -62,38 +62,60 @@ export interface ApiData {
     password?: string
   }
 
+  // export interface Presence {
+  //   id: string
+  //   createdAt: Date
+  //   matter: string
+  //   startTime: string
+  //   endTime: string
+  //   studentsPresenses: StudentsPresenses[]
+  // }
+
+  // export class StudentsPresenses {
+  //   idStudent!: string
+  //   first_name!: string
+  //   last_name!: string
+  //   email!: string
+  //   is_present!: boolean
+  //   role?: string
+  //   phone?: string
+  //   date?: Date
+  // }
+
+
   export interface Presence {
-    _id: string
-    createdAt: Date
+    id: string
+    createdAt: string
+    idProfessor: string
+    matter: string
+    startTime: string
+    endTime: string
     studentsPresenses: StudentsPresenses[]
   }
-
-  export class StudentsPresenses {
-    _id!: string
-    first_name!: string
-    last_name!: string
-    email!: string
-    is_present!: boolean
+  
+  export interface StudentsPresenses {
+    id: string
+    first_name: string
+    last_name: string
+    email: string
+    is_present: boolean
     role?: string
     phone?: string
-    matter!: string
-    startTime!: string
-    endTime!: string
-    date?: Date
+    date: Date
   }
-  export class Score {
-    _id!: string
-    picture!: string
-    idProfessor!: string
-    firstNameStudent!: string
-    lastNameStudent!: string
-    phoneStudent!: string
-    matter!: string
-    is_present!: boolean
-    startTime!: string
-    endTime!: string
-    registered?: Date
-  }
+  // export class Score {
+  //   _id!: string
+  //   picture!: string
+  //   idProfessor!: string
+  //   firstNameStudent!: string
+  //   lastNameStudent!: string
+  //   phoneStudent!: string
+  //   matter!: string
+  //   is_present!: boolean
+  //   startTime!: string
+  //   endTime!: string
+  //   registered?: Date
+  // }
   export class AbsenceRequests {
     id !: string
     object!: string
