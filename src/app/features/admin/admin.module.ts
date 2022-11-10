@@ -9,8 +9,6 @@ import { UserComponent } from './user/user.component';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { HeaderComponent } from 'src/app/core/components/header/header.component';
 
-
-
 @NgModule({
   declarations: [
     AdminLayoutComponent,
@@ -18,15 +16,7 @@ import { HeaderComponent } from 'src/app/core/components/header/header.component
     SidemenuComponent,
     UserComponent,
     HeaderComponent,
-  
-    
   ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    MaterialModule,
-
-    
-  ]
+  imports: [CommonModule, AdminRoutingModule, MaterialModule],
 })
-export class AdminModule { }
+export class AdminModule {}

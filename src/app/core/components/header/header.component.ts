@@ -7,11 +7,14 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {         
+export class HeaderComponent implements OnInit {   
+  
+  user!: any
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    this.user = this.authService.getCurrentUser()
   }
 
   logout(): void {

@@ -7,14 +7,14 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Gestion des Professeurs</h1>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLongs">Créer un
+        <button *ngIf="user.role === 'Admin'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLongs">Créer un
             compte Professeur</button>
     </div>
 
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalLongs" data-backdrop="static" tabindex="-1" data-bs-keyboard="false"
-        role="dialog" aria-labelledby="exampleModalLongsTitle" aria-hidden="true">
+        role="dialog" aria-labelledby="exampleModalLongsTitle" aria-hidden="true" *ngIf="user.role === 'Admin'">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header btn-primary">
@@ -135,8 +135,8 @@
                             <th>Email</th>
                             <th>Numero</th>
                             <th>Module</th>
-                            <th>Mot de passe</th>
-                            <th>Actions</th>
+                            <th *ngIf="user.role === 'Admin'">Mot de passe</th>
+                            <th *ngIf="user.role === 'Admin'">Actions</th>
                         </tr>
                     </thead>
 
@@ -160,8 +160,8 @@
                             <td>{{professor.email}}</td>
                             <td>{{professor.phone}}</td>
                             <td>{{professor.matters}}</td>
-                            <td>{{professor.password}}</td>
-                            <td>
+                            <td *ngIf="user.role === 'Admin'">{{professor.password}}</td>
+                            <td *ngIf="user.role === 'Admin'">
 
                                 <button (click)="openModal(professor)" class="btn btn-warning btn-icon p-1 btn-icon-mini mx-1" title="Supprimer">
                                     <svg style="width:24px;height:24px" viewBox="0 0 24 24">

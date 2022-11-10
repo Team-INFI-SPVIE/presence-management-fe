@@ -16,7 +16,7 @@
                       <div class="d-flex flex-column align-items-center text-center">
                         <img src="https://bigdataci.net/storage/photos/0UKpM7a15oI11obrDqyqtKwDMh9PLdLSgmCb4Hw6.png" alt="Admin" class="rounded-circle" width="150">
                         <div class="mt-3">
-                          <h4>Aube MBALI</h4>
+                          <h4>{{user?.first_name}}</h4>
                           <p class="text-info mb-1">Full Stack Developer </p>
                           <p class="text-dark mb-1">chez </p>
                           <p class="text-info mb-1">InFi Software (Joint-venture entre FINAFRICA, filiale du GROUPE DUVAL ET SPVIE ASSURANCES) </p>
@@ -33,7 +33,7 @@
                           <h4 class="font-weight-bold color-icon-nav">Nom</h4>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                         Aube MBALI
+                         {{ user?.first_name }} {{ user?.last_name }}
                         </div>
                       </div>
                       <hr>
@@ -42,7 +42,7 @@
                           <h4 class="font-weight-bold color-icon-nav">Mail</h4>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          aubembali@gmail.com
+                          {{ user?.email }}
                         </div>
                       </div>
                       <hr>
@@ -51,7 +51,7 @@
                             <h4 class="font-weight-bold color-icon-nav">WhatsApp</h4>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          (255) 07 48 75 37 81
+                          {{ user?.phone }}
                         </div>
                       </div>
                       <hr>
@@ -60,7 +60,7 @@
                             <h4 class="font-weight-bold color-icon-nav">Numéro</h4>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          (255) 05 54 97 32 54
+                          {{ user?.phone }}
                         </div>
                       </div>
                       <hr>
@@ -69,7 +69,7 @@
                           <h4 class="font-weight-bold color-icon-nav">Adresse</h4>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          Koumassi
+                          {{ user?.email }}
                         </div>
                       </div>
                     </div>
@@ -97,29 +97,17 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>c#</td>
+                    <tr *ngFor="let presence of presences$ |async">
+                        <td>{{ presence.matter }}</td>
                         <td>
                             <span class="badge badge-primary">
-                                8h  -   12h
+                              {{ presence.startTime }}  -   {{ presence.endTime }}
                             </span>
                         </td>
-                        <td>18-06-2001</td>
+                        <td>{{ presence.createdAt }}</td>
                         <td>
-                            <span class="badge badge-success">Present</span>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>Angular</td>
-                        <td>
-                            <span class="badge badge-primary">
-                                8h - 12h
-                            </span>
-                        </td>
-                        <td>18-06-2001</td>
-                        <td>
-                            <span class="badge badge-danger">Absent</span>
+                            <span *ngIf="checkStudentPresnce(presence.studentsPresenses)" class="badge badge-success">Present</span>
+                            <span *ngIf="!checkStudentPresnce(presence.studentsPresenses)" class="badge badge-danger">Absent</span>
                         </td>
 
                     </tr>
@@ -129,7 +117,7 @@
         </div>
     </div>
 </div>
-<!-- /.container-fluid -->
+
 
 
 

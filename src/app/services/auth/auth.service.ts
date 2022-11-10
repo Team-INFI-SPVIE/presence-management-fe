@@ -1,78 +1,48 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
-type NewType = string;
+import { CurrentUser } from 'src/app/interfaces/credentials';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  constructor(private http: HttpClient, private router: Router) {}
 
-  // baseURL: NewType = `https://reqres.in/api/login`;
+  login(email: string, password: string) {
+    this.http.get<any>('http://localhost:3000/users').subscribe(
+      (res) => {
+        const user = res.find((a: any) => {
+          localStorage.setItem('profile', a.first_name);
 
+          return a.email === email && a.password === password;
+        });
 
-  // constructor(private http: HttpClient) { }
-
-  // login(credentials: Credentials): Observable<any>{
-  //   return this.http.post(this.baseURL, credentials).pipe(
-  //     tap(data => {
-  //       localStorage.setItem('user', JSON.stringify(data));
-  //     })
-  //   )
-  // }
-
-  // get currentUser(): any {
-  //   const user = localStorage.getItem('user');
-
-  //   if (user) {
-  //     return JSON.parse(user);
-  //   }
-
-  //   return null;
-  // }
-
-  constructor(
-   private http: HttpClient, private router: Router
-  ) { }
-
-  login(email: string, password: string){
-    this.http.get<any>("http://localhost:3000/users")
-    .subscribe(res=>{
-      const user = res.find((a:any)=>{
-        // return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password 
-
-        localStorage.setItem('profile',a.first_name)
-
-        return a.email === email && a.password === password 
-      });
-
-      if(user){
-      //  alert(user.role);
-        // this.loginForm.reset()
-        localStorage.setItem('user', JSON.stringify(user));
-        this.router.navigate(["admin/dashboard"]) 
-      }else{
-        // alert('user not found');
-        // this.loginForm.reset()
-      this.router.navigate(["auth/login"])
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user));
+          this.router.navigate(['admin/dashboard']);
+        } else {
+          this.router.navigate(['auth/login']);
+        }
+      },
+      (err) => {
+        alert('Something went wrong');
+        console.log('Error: ', err);
       }
-    },err=>{
-      alert("Something went wrong")
-    })
+    );
   }
 
-  getCurrentUser(): any {
-      const user = localStorage.getItem('user');
-  
-      if (user) {
-        return JSON.parse(user);
-      }
-  
-      return null;
+  getCurrentUser(): CurrentUser | null {
+    const user = localStorage.getItem('user');
+
+    if (user) {
+      return JSON.parse(user);
     }
 
+    return null;
+  }
+
   logout() {
-    localStorage.removeItem('user')
+    localStorage.removeItem('user');
   }
 }
