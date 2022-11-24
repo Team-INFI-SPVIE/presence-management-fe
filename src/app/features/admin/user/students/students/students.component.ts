@@ -45,6 +45,7 @@ export class StudentsComponent implements OnInit {
       (res) => {
         this.sweetAlertSuccess()
         this.students = this.crudStudent.list();
+        this.sweetAlertSuccess()
       },
       (err) => {
         console.log('Err: ', +err);
